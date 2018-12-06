@@ -17,6 +17,16 @@ namespace FinancialMarketsApp
             InitializeComponent();
         }
 
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Main main = new Main();
+            main.Show();
+        }
     }
 }
