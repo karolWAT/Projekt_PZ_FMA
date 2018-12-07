@@ -42,7 +42,7 @@ namespace FinancialMarketsApp
             {
                 count = Convert.ToInt32(reader[0].ToString());
             }
-            MessageBox.Show(count.ToString());
+            //MessageBox.Show(count.ToString());
             connection.Close();
 
             if (count == 1)

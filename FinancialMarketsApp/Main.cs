@@ -20,8 +20,8 @@ namespace FinancialMarketsApp
         private void logOutButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Welcome form1 = new Welcome();
-            form1.Show();
+            Welcome welcome = new Welcome();
+            welcome.Show();
         }
     }
 }

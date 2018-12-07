@@ -119,6 +119,9 @@
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.passTextBox);
             this.Controls.Add(this.loginTextBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Welcome";
             this.Text = "Financial Markets App";
             this.ResumeLayout(false);
