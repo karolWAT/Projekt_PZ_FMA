@@ -16,5 +16,12 @@ namespace FinancialMarketsApp
         {
             InitializeComponent();
         }
+
+        private void logOutButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Welcome form1 = new Welcome();
+            form1.Show();
+        }
     }
 }
