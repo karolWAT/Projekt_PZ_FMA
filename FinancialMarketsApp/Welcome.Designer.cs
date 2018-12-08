@@ -39,14 +39,19 @@
             // 
             // loginTextBox
             // 
+            this.loginTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.loginTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.loginTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.loginTextBox.Location = new System.Drawing.Point(127, 63);
             this.loginTextBox.Name = "loginTextBox";
+            this.loginTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.loginTextBox.Size = new System.Drawing.Size(167, 23);
             this.loginTextBox.TabIndex = 0;
             // 
             // passTextBox
             // 
+            this.passTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.passTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.passTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.passTextBox.Location = new System.Drawing.Point(127, 102);
             this.passTextBox.Name = "passTextBox";
