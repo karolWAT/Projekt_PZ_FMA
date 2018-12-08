@@ -74,7 +74,7 @@
             this.apiButton.BackColor = System.Drawing.Color.Gold;
             this.apiButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.apiButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.apiButton.Location = new System.Drawing.Point(44, 17);
+            this.apiButton.Location = new System.Drawing.Point(42, 12);
             this.apiButton.Name = "apiButton";
             this.apiButton.Size = new System.Drawing.Size(75, 29);
             this.apiButton.TabIndex = 3;

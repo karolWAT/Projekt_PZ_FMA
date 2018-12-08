@@ -28,26 +28,17 @@ namespace FinancialMarketsApp
 
         private void apiButton_Click(object sender, EventArgs e)
         {
-            int count = 1;
 
             var client = new HttpClient();
-            var url = "https://api.coinmarketcap.com/v2/ticker/?limit=100";
+            var url = "https://api.coinmarketcap.com/v2/ticker/?limit=10";
 
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
             string response = client.GetStringAsync(url).Result;
-
-            for (int i = 0; i < 5000; i++)
+            // Console.Write(response);
+            GetAPI getapi = new GetAPI();
+            for (int i = 0; i < 10; i++)
             {
-                Cryptocurrencies crypto = new Cryptocurrencies();
-                GetAPI getapi = new GetAPI();
-                crypto = getapi.GetData(count, response);
-                ConnectDB connectDb = new ConnectDB();
-                if (crypto.Symbol != null)
-                {
-                    connectDb.ApiSave(crypto);
-                }
-                count++;
+                getapi.GetData(i, response);
             }
 
         }
