@@ -22,9 +22,23 @@ namespace FinancialMarketsApp
         private void exitButton_Click(object sender, EventArgs e)
         {
             this.Close();
+            Application.Exit();
         }
 
         private void loginButton_Click(object sender, EventArgs e)
+        {
+            logIn();
+        }
+
+        private void passTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                logIn();
+            }
+        }
+
+        private void logIn()
         {
             int count = 0;
 
@@ -55,8 +69,7 @@ namespace FinancialMarketsApp
             {
                 MessageBox.Show("Wrong login or password, try again.");
             }
-
-            
         }
+
     }
 }
