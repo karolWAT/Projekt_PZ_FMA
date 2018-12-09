@@ -40,9 +40,22 @@ namespace FinancialMarketsApp
             for (int i = 0; i < 100; i++)
             {
                 getapi.GetData(i, response);
-
+                apiProgressBar.Increment(1);
+               // MessageBox.Show(i.ToString());
             }
 
+        }
+
+        private void apiNbpButton_Click(object sender, EventArgs e)
+        {
+            var client2 = new HttpClient();
+            var urlNBP1 = "http://api.nbp.pl/api/exchangerates/tables/A?format=json";
+            var urlNBP2 = "http://api.nbp.pl/api/exchangerates/tables/B?format=json";
+            var urlNBP3 = "http://api.nbp.pl/api/exchangerates/tables/C?format=json";
+            string responseNBP1 = client2.GetStringAsync(urlNBP1).Result;
+            string responseNBP2 = client2.GetStringAsync(urlNBP2).Result;
+            string responseNBP3 = client2.GetStringAsync(urlNBP3).Result;
+            MessageBox.Show(responseNBP1+"  TAB  "+responseNBP2+"  TAB  "+responseNBP3);
         }
 
     }

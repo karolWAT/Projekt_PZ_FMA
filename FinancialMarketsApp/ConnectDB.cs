@@ -54,7 +54,7 @@ namespace FinancialMarketsApp
             connection.Open();
 
             string query = @"UPDATE Cryptocurrencies SET name = " + crypto.Name + ",price=" + crypto.Price + ",change7d=" + crypto.Change7d + ",change24h=" + crypto.Change24h + " WHERE symbol = " + crypto.Symbol + "";
-            MessageBox.Show(query);
+            //MessageBox.Show(query);
             SqlCommand command = new SqlCommand(query, connection);
             command.ExecuteNonQuery();
 

@@ -33,6 +33,8 @@
             this.balanceLabel = new System.Windows.Forms.Label();
             this.balanceValueLabel = new System.Windows.Forms.Label();
             this.apiButton = new System.Windows.Forms.Button();
+            this.apiNbpButton = new System.Windows.Forms.Button();
+            this.apiProgressBar = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // logOutButton
@@ -83,12 +85,37 @@
             this.apiButton.UseVisualStyleBackColor = false;
             this.apiButton.Click += new System.EventHandler(this.apiButton_Click);
             // 
+            // apiNbpButton
+            // 
+            this.apiNbpButton.BackColor = System.Drawing.Color.Gold;
+            this.apiNbpButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.apiNbpButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.apiNbpButton.Location = new System.Drawing.Point(136, 12);
+            this.apiNbpButton.Name = "apiNbpButton";
+            this.apiNbpButton.Size = new System.Drawing.Size(79, 29);
+            this.apiNbpButton.TabIndex = 4;
+            this.apiNbpButton.Text = "API NBP";
+            this.apiNbpButton.UseVisualStyleBackColor = false;
+            this.apiNbpButton.Click += new System.EventHandler(this.apiNbpButton_Click);
+            // 
+            // apiProgressBar
+            // 
+            this.apiProgressBar.ForeColor = System.Drawing.Color.Gold;
+            this.apiProgressBar.Location = new System.Drawing.Point(42, 59);
+            this.apiProgressBar.Name = "apiProgressBar";
+            this.apiProgressBar.Size = new System.Drawing.Size(173, 19);
+            this.apiProgressBar.Step = 1;
+            this.apiProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.apiProgressBar.TabIndex = 5;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Desktop;
             this.ClientSize = new System.Drawing.Size(735, 347);
+            this.Controls.Add(this.apiProgressBar);
+            this.Controls.Add(this.apiNbpButton);
             this.Controls.Add(this.apiButton);
             this.Controls.Add(this.balanceValueLabel);
             this.Controls.Add(this.balanceLabel);
@@ -107,5 +134,7 @@
         private System.Windows.Forms.Label balanceLabel;
         private System.Windows.Forms.Label balanceValueLabel;
         private System.Windows.Forms.Button apiButton;
+        private System.Windows.Forms.Button apiNbpButton;
+        private System.Windows.Forms.ProgressBar apiProgressBar;
     }
 }
