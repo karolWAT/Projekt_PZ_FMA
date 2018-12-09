@@ -58,6 +58,10 @@
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.change24hDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.change7dDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.searchButton = new System.Windows.Forms.Button();
+            this.passTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.cryptoDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.finMarketsAppDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cryptocurrenciesBindingSource)).BeginInit();
@@ -70,7 +74,7 @@
             this.logOutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.logOutButton.Location = new System.Drawing.Point(704, 5);
             this.logOutButton.Name = "logOutButton";
-            this.logOutButton.Size = new System.Drawing.Size(75, 29);
+            this.logOutButton.Size = new System.Drawing.Size(74, 26);
             this.logOutButton.TabIndex = 0;
             this.logOutButton.Text = "Log out";
             this.logOutButton.UseVisualStyleBackColor = false;
@@ -105,7 +109,7 @@
             this.apiButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.apiButton.Location = new System.Drawing.Point(29, 42);
             this.apiButton.Name = "apiButton";
-            this.apiButton.Size = new System.Drawing.Size(74, 28);
+            this.apiButton.Size = new System.Drawing.Size(74, 24);
             this.apiButton.TabIndex = 3;
             this.apiButton.Text = "Refresh";
             this.apiButton.UseVisualStyleBackColor = false;
@@ -118,7 +122,7 @@
             this.apiNbpButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.apiNbpButton.Location = new System.Drawing.Point(211, 42);
             this.apiNbpButton.Name = "apiNbpButton";
-            this.apiNbpButton.Size = new System.Drawing.Size(74, 28);
+            this.apiNbpButton.Size = new System.Drawing.Size(74, 24);
             this.apiNbpButton.TabIndex = 4;
             this.apiNbpButton.Text = "Refresh";
             this.apiNbpButton.UseVisualStyleBackColor = false;
@@ -215,7 +219,7 @@
             this.change24hDataGridViewTextBoxColumn,
             this.change7dDataGridViewTextBoxColumn});
             this.cryptoDataGridView.DataSource = this.cryptocurrenciesBindingSource;
-            this.cryptoDataGridView.Location = new System.Drawing.Point(12, 124);
+            this.cryptoDataGridView.Location = new System.Drawing.Point(12, 160);
             this.cryptoDataGridView.Name = "cryptoDataGridView";
             this.cryptoDataGridView.ReadOnly = true;
             this.cryptoDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -301,12 +305,55 @@
             this.change7dDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.change7dDataGridViewTextBoxColumn.Width = 58;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.ForeColor = System.Drawing.Color.Gold;
+            this.label2.Location = new System.Drawing.Point(446, 71);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 18);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "WALLET";
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // searchButton
+            // 
+            this.searchButton.BackColor = System.Drawing.Color.Gold;
+            this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.searchButton.Location = new System.Drawing.Point(200, 130);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(69, 24);
+            this.searchButton.TabIndex = 15;
+            this.searchButton.Text = "Search";
+            this.searchButton.UseVisualStyleBackColor = false;
+            // 
+            // passTextBox
+            // 
+            this.passTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.passTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.passTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.passTextBox.Location = new System.Drawing.Point(25, 130);
+            this.passTextBox.Multiline = true;
+            this.passTextBox.Name = "passTextBox";
+            this.passTextBox.PasswordChar = '*';
+            this.passTextBox.Size = new System.Drawing.Size(160, 24);
+            this.passTextBox.TabIndex = 16;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Desktop;
             this.ClientSize = new System.Drawing.Size(791, 393);
+            this.Controls.Add(this.passTextBox);
+            this.Controls.Add(this.searchButton);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.cryptoDataGridView);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.progressBar1);
@@ -354,5 +401,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn change24hDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn change7dDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Button searchButton;
+        private System.Windows.Forms.TextBox passTextBox;
     }
 }
