@@ -51,6 +51,11 @@
   <ItemGroup>
     <Compile Include="ConnectDB.cs" />
     <Compile Include="Cryptocurrencies.cs" />
+    <Compile Include="FinMarketsAppDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinMarketsAppDBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="GetAPI.cs" />
     <Compile Include="Welcome.cs">
       <SubType>Form</SubType>
@@ -82,6 +87,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="FinMarketsAppDBDataSet.xsc">
+      <DependentUpon>FinMarketsAppDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FinMarketsAppDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FinMarketsAppDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FinMarketsAppDBDataSet.xss">
+      <DependentUpon>FinMarketsAppDBDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

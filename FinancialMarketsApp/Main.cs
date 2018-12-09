@@ -42,6 +42,8 @@ namespace FinancialMarketsApp
                 getapi.GetData(i, response);
                 apiProgressBar.Increment(1);
                // MessageBox.Show(i.ToString());
+                int j = i + 1;
+                progrssBarlabel.Text = j+"%";
             }
 
         }
@@ -58,5 +60,16 @@ namespace FinancialMarketsApp
             MessageBox.Show(responseNBP1+"  TAB  "+responseNBP2+"  TAB  "+responseNBP3);
         }
 
+        private void Main_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'finMarketsAppDBDataSet.Cryptocurrencies' table. You can move, or remove it, as needed.
+            this.cryptocurrenciesTableAdapter.Fill(this.finMarketsAppDBDataSet.Cryptocurrencies);
+
+        }
+
+        private void cryptoDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
