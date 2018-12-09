@@ -8,12 +8,14 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
 
+
+
 namespace FinancialMarketsApp
 {
     public class GetAPI
     {
 
-        public Cryptocurrencies GetData(int i,string response)
+        public void GetData(int i,string response)
         {
             Cryptocurrencies crypto = new Cryptocurrencies();
 
@@ -24,7 +26,9 @@ namespace FinancialMarketsApp
             
                 try
                 {
-                    checkId = jsonObj["data"]["" + id + ""]["id"].ToString();
+//                checkId = jsonObj["data"]["" + id + ""].ToString();
+                checkId = jsonObj.SelectToken("$.data["+id+"].id").ToString();
+//                MessageBox.Show(checkId);
                 }
                 catch (Exception e)
                 {
@@ -33,12 +37,11 @@ namespace FinancialMarketsApp
 
                 if (checkId != null)
                 {
-
-                    string cryptoName = jsonObj["data"]["" + id + ""]["name"].ToString();
-                    string cryptoSymbol = jsonObj["data"]["" + id + ""]["symbol"].ToString();
-                    string cryptoPrice = jsonObj["data"]["" + id + ""]["quotes"]["USD"]["price"].ToString();
-                    string cryptoChange_24h = jsonObj["data"]["" + id + ""]["quotes"]["USD"]["percent_change_24h"].ToString();
-                    string cryptoChange_7d = jsonObj["data"]["" + id + ""]["quotes"]["USD"]["percent_change_7d"].ToString();
+                    string cryptoName = jsonObj.SelectToken("$.data[" + id + "].name").ToString();
+                    string cryptoSymbol = jsonObj.SelectToken("$.data[" + id + "].symbol").ToString();
+                    string cryptoPrice = jsonObj.SelectToken("$.data[" + id + "].quote.USD.price").ToString();
+                    string cryptoChange_24h = jsonObj.SelectToken("$.data[" + id + "].quote.USD.percent_change_24h").ToString();
+                    string cryptoChange_7d = jsonObj.SelectToken("$.data[" + id + "].quote.USD.percent_change_7d").ToString();
                     //     MessageBox.Show(cryptoName);
                     //     MessageBox.Show(cryptoSymbol);
                     //     MessageBox.Show(cryptoPrice);
@@ -46,7 +49,7 @@ namespace FinancialMarketsApp
                     //     MessageBox.Show(cryptoChange_7d);
 
                 ConnectDB connectDb = new ConnectDB();
-                crypto = connectDb.Get(cryptoSymbol);       // check if currency already exist in db
+                crypto = connectDb.Read(cryptoSymbol);       // check if currency already exist in db
 
                     if (crypto.Symbol == null)
                     {
@@ -56,13 +59,21 @@ namespace FinancialMarketsApp
                         crypto.Change24h = "'" + cryptoChange_24h + "'";
                         crypto.Change7d = "'" + cryptoChange_7d + "'";
 
-                        connectDb.ApiSave(crypto);
+                        connectDb.Save(crypto);
+                    }
+                    else
+                    {
+                        crypto.Symbol = "'" + cryptoSymbol + "'";
+                        crypto.Name = "'" + cryptoName + "'";
+                        crypto.Price = "'" + cryptoPrice + "'";
+                        crypto.Change24h = "'" + cryptoChange_24h + "'";
+                        crypto.Change7d = "'" + cryptoChange_7d + "'";
+
+                        connectDb.Update(crypto);
                     }
                 }
-                return crypto;
+              
              }
-     
         }
-
 }
 

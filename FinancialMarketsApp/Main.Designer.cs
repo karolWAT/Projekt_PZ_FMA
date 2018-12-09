@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.logOutButton = new System.Windows.Forms.Button();
             this.balanceLabel = new System.Windows.Forms.Label();
             this.balanceValueLabel = new System.Windows.Forms.Label();
@@ -92,6 +93,7 @@
             this.Controls.Add(this.balanceValueLabel);
             this.Controls.Add(this.balanceLabel);
             this.Controls.Add(this.logOutButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
             this.Text = "Financial Markets App";
             this.ResumeLayout(false);
