@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -50,21 +51,38 @@
             this.label1 = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.cryptoDataGridView = new System.Windows.Forms.DataGridView();
-            this.finMarketsAppDBDataSet = new FinancialMarketsApp.FinMarketsAppDBDataSet();
-            this.cryptocurrenciesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cryptocurrenciesTableAdapter = new FinancialMarketsApp.FinMarketsAppDBDataSetTableAdapters.CryptocurrenciesTableAdapter();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.symbolDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.change24hDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.change7dDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cryptocurrenciesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.finMarketsAppDBDataSet = new FinancialMarketsApp.FinMarketsAppDBDataSet();
+            this.cryptocurrenciesTableAdapter = new FinancialMarketsApp.FinMarketsAppDBDataSetTableAdapters.CryptocurrenciesTableAdapter();
             this.label2 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.searchButton = new System.Windows.Forms.Button();
-            this.passTextBox = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.searchTextBox = new System.Windows.Forms.TextBox();
+            this.currencyLabel = new System.Windows.Forms.Label();
+            this.cryptocurrenciesLabel = new System.Windows.Forms.Label();
+            this.AddToWalletBtn = new System.Windows.Forms.Button();
+            this.RemoveFromWalletBtn = new System.Windows.Forms.Button();
+            this.walletDataGridView = new System.Windows.Forms.DataGridView();
+            this.walletNameTextBox = new System.Windows.Forms.TextBox();
+            this.walletSymbolTextBox = new System.Windows.Forms.TextBox();
+            this.walletPriceTextBox = new System.Windows.Forms.TextBox();
+            this.walletQuantityTextBox = new System.Windows.Forms.TextBox();
+            this.UpdateWalletBtn = new System.Windows.Forms.Button();
+            this.walletNameLabel = new System.Windows.Forms.Label();
+            this.walletSymbolLabel = new System.Windows.Forms.Label();
+            this.walletPriceLabel = new System.Windows.Forms.Label();
+            this.walletQuantityLabel = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.cryptoDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.finMarketsAppDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cryptocurrenciesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.finMarketsAppDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.walletDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // logOutButton
@@ -85,7 +103,7 @@
             this.balanceLabel.AutoSize = true;
             this.balanceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.balanceLabel.ForeColor = System.Drawing.Color.Gold;
-            this.balanceLabel.Location = new System.Drawing.Point(631, 366);
+            this.balanceLabel.Location = new System.Drawing.Point(617, 378);
             this.balanceLabel.Name = "balanceLabel";
             this.balanceLabel.Size = new System.Drawing.Size(88, 18);
             this.balanceLabel.TabIndex = 1;
@@ -96,7 +114,7 @@
             this.balanceValueLabel.AutoSize = true;
             this.balanceValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.balanceValueLabel.ForeColor = System.Drawing.Color.Gold;
-            this.balanceValueLabel.Location = new System.Drawing.Point(725, 366);
+            this.balanceValueLabel.Location = new System.Drawing.Point(711, 378);
             this.balanceValueLabel.Name = "balanceValueLabel";
             this.balanceValueLabel.Size = new System.Drawing.Size(54, 18);
             this.balanceValueLabel.TabIndex = 2;
@@ -107,7 +125,7 @@
             this.apiButton.BackColor = System.Drawing.Color.Gold;
             this.apiButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.apiButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.apiButton.Location = new System.Drawing.Point(29, 42);
+            this.apiButton.Location = new System.Drawing.Point(29, 50);
             this.apiButton.Name = "apiButton";
             this.apiButton.Size = new System.Drawing.Size(74, 24);
             this.apiButton.TabIndex = 3;
@@ -120,7 +138,7 @@
             this.apiNbpButton.BackColor = System.Drawing.Color.Gold;
             this.apiNbpButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.apiNbpButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.apiNbpButton.Location = new System.Drawing.Point(211, 42);
+            this.apiNbpButton.Location = new System.Drawing.Point(211, 50);
             this.apiNbpButton.Name = "apiNbpButton";
             this.apiNbpButton.Size = new System.Drawing.Size(74, 24);
             this.apiNbpButton.TabIndex = 4;
@@ -131,7 +149,7 @@
             // apiProgressBar
             // 
             this.apiProgressBar.ForeColor = System.Drawing.Color.Gold;
-            this.apiProgressBar.Location = new System.Drawing.Point(29, 77);
+            this.apiProgressBar.Location = new System.Drawing.Point(29, 85);
             this.apiProgressBar.Name = "apiProgressBar";
             this.apiProgressBar.Size = new System.Drawing.Size(120, 14);
             this.apiProgressBar.Step = 1;
@@ -143,7 +161,7 @@
             this.progrssBarlabel.AutoSize = true;
             this.progrssBarlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.progrssBarlabel.ForeColor = System.Drawing.Color.Gold;
-            this.progrssBarlabel.Location = new System.Drawing.Point(155, 74);
+            this.progrssBarlabel.Location = new System.Drawing.Point(155, 82);
             this.progrssBarlabel.Name = "progrssBarlabel";
             this.progrssBarlabel.Size = new System.Drawing.Size(30, 17);
             this.progrssBarlabel.TabIndex = 6;
@@ -154,18 +172,18 @@
             this.cryptoApiLabel.AutoSize = true;
             this.cryptoApiLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cryptoApiLabel.ForeColor = System.Drawing.Color.Gold;
-            this.cryptoApiLabel.Location = new System.Drawing.Point(26, 16);
+            this.cryptoApiLabel.Location = new System.Drawing.Point(26, 13);
             this.cryptoApiLabel.Name = "cryptoApiLabel";
-            this.cryptoApiLabel.Size = new System.Drawing.Size(106, 18);
+            this.cryptoApiLabel.Size = new System.Drawing.Size(76, 18);
             this.cryptoApiLabel.TabIndex = 7;
-            this.cryptoApiLabel.Text = "CRYPTO API";
+            this.cryptoApiLabel.Text = "CMC API";
             // 
             // nbpApiLabel
             // 
             this.nbpApiLabel.AutoSize = true;
             this.nbpApiLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.nbpApiLabel.ForeColor = System.Drawing.Color.Gold;
-            this.nbpApiLabel.Location = new System.Drawing.Point(208, 16);
+            this.nbpApiLabel.Location = new System.Drawing.Point(208, 13);
             this.nbpApiLabel.Name = "nbpApiLabel";
             this.nbpApiLabel.Size = new System.Drawing.Size(72, 18);
             this.nbpApiLabel.TabIndex = 8;
@@ -176,7 +194,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.ForeColor = System.Drawing.Color.Gold;
-            this.label1.Location = new System.Drawing.Point(337, 73);
+            this.label1.Location = new System.Drawing.Point(337, 82);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(30, 17);
             this.label1.TabIndex = 10;
@@ -185,7 +203,7 @@
             // progressBar1
             // 
             this.progressBar1.ForeColor = System.Drawing.Color.Gold;
-            this.progressBar1.Location = new System.Drawing.Point(211, 76);
+            this.progressBar1.Location = new System.Drawing.Point(211, 85);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(120, 14);
             this.progressBar1.Step = 1;
@@ -196,7 +214,7 @@
             // 
             this.cryptoDataGridView.AllowUserToAddRows = false;
             this.cryptoDataGridView.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Format = "C2";
+            this.cryptoDataGridView.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.NullValue = null;
             this.cryptoDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.cryptoDataGridView.AutoGenerateColumns = false;
@@ -219,7 +237,7 @@
             this.change24hDataGridViewTextBoxColumn,
             this.change7dDataGridViewTextBoxColumn});
             this.cryptoDataGridView.DataSource = this.cryptocurrenciesBindingSource;
-            this.cryptoDataGridView.Location = new System.Drawing.Point(12, 160);
+            this.cryptoDataGridView.Location = new System.Drawing.Point(12, 191);
             this.cryptoDataGridView.Name = "cryptoDataGridView";
             this.cryptoDataGridView.ReadOnly = true;
             this.cryptoDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -231,25 +249,13 @@
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.cryptoDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.cryptoDataGridView.RowHeadersWidth = 23;
-            this.cryptoDataGridView.RowTemplate.DefaultCellStyle.Format = "C2";
+            dataGridViewCellStyle9.NullValue = null;
+            this.cryptoDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            this.cryptoDataGridView.RowTemplate.DefaultCellStyle.Format = "N2";
             this.cryptoDataGridView.RowTemplate.DefaultCellStyle.NullValue = null;
-            this.cryptoDataGridView.Size = new System.Drawing.Size(360, 154);
+            this.cryptoDataGridView.Size = new System.Drawing.Size(361, 154);
             this.cryptoDataGridView.TabIndex = 11;
-            this.cryptoDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.cryptoDataGridView_CellContentClick);
-            // 
-            // finMarketsAppDBDataSet
-            // 
-            this.finMarketsAppDBDataSet.DataSetName = "FinMarketsAppDBDataSet";
-            this.finMarketsAppDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // cryptocurrenciesBindingSource
-            // 
-            this.cryptocurrenciesBindingSource.DataMember = "Cryptocurrencies";
-            this.cryptocurrenciesBindingSource.DataSource = this.finMarketsAppDBDataSet;
-            // 
-            // cryptocurrenciesTableAdapter
-            // 
-            this.cryptocurrenciesTableAdapter.ClearBeforeFill = true;
+            this.cryptoDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.cryptoDataGridView_CellClick);
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -277,6 +283,7 @@
             // 
             this.priceDataGridViewTextBoxColumn.DataPropertyName = "price";
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.NullValue = null;
             this.priceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
             this.priceDataGridViewTextBoxColumn.HeaderText = "price";
             this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
@@ -305,12 +312,26 @@
             this.change7dDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.change7dDataGridViewTextBoxColumn.Width = 58;
             // 
+            // cryptocurrenciesBindingSource
+            // 
+            this.cryptocurrenciesBindingSource.DataMember = "Cryptocurrencies";
+            this.cryptocurrenciesBindingSource.DataSource = this.finMarketsAppDBDataSet;
+            // 
+            // finMarketsAppDBDataSet
+            // 
+            this.finMarketsAppDBDataSet.DataSetName = "FinMarketsAppDBDataSet";
+            this.finMarketsAppDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // cryptocurrenciesTableAdapter
+            // 
+            this.cryptocurrenciesTableAdapter.ClearBeforeFill = true;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.ForeColor = System.Drawing.Color.Gold;
-            this.label2.Location = new System.Drawing.Point(446, 71);
+            this.label2.Location = new System.Drawing.Point(512, 128);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 18);
             this.label2.TabIndex = 12;
@@ -326,32 +347,216 @@
             this.searchButton.BackColor = System.Drawing.Color.Gold;
             this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.searchButton.Location = new System.Drawing.Point(200, 130);
+            this.searchButton.Location = new System.Drawing.Point(240, 155);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(69, 24);
             this.searchButton.TabIndex = 15;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = false;
             // 
-            // passTextBox
+            // contextMenuStrip2
             // 
-            this.passTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.passTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.passTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.passTextBox.Location = new System.Drawing.Point(25, 130);
-            this.passTextBox.Multiline = true;
-            this.passTextBox.Name = "passTextBox";
-            this.passTextBox.PasswordChar = '*';
-            this.passTextBox.Size = new System.Drawing.Size(160, 24);
-            this.passTextBox.TabIndex = 16;
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
+            // 
+            // searchTextBox
+            // 
+            this.searchTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.searchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.searchTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.searchTextBox.Location = new System.Drawing.Point(47, 155);
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.searchTextBox.Size = new System.Drawing.Size(187, 24);
+            this.searchTextBox.TabIndex = 17;
+            // 
+            // currencyLabel
+            // 
+            this.currencyLabel.AutoSize = true;
+            this.currencyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.currencyLabel.ForeColor = System.Drawing.Color.Gold;
+            this.currencyLabel.Location = new System.Drawing.Point(210, 31);
+            this.currencyLabel.Name = "currencyLabel";
+            this.currencyLabel.Size = new System.Drawing.Size(56, 13);
+            this.currencyLabel.TabIndex = 18;
+            this.currencyLabel.Text = "currency";
+            // 
+            // cryptocurrenciesLabel
+            // 
+            this.cryptocurrenciesLabel.AutoSize = true;
+            this.cryptocurrenciesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cryptocurrenciesLabel.ForeColor = System.Drawing.Color.Gold;
+            this.cryptocurrenciesLabel.Location = new System.Drawing.Point(27, 31);
+            this.cryptocurrenciesLabel.Name = "cryptocurrenciesLabel";
+            this.cryptocurrenciesLabel.Size = new System.Drawing.Size(101, 13);
+            this.cryptocurrenciesLabel.TabIndex = 19;
+            this.cryptocurrenciesLabel.Text = "cryptocurrencies";
+            // 
+            // AddToWalletBtn
+            // 
+            this.AddToWalletBtn.BackColor = System.Drawing.Color.Gold;
+            this.AddToWalletBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.AddToWalletBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.AddToWalletBtn.Location = new System.Drawing.Point(410, 203);
+            this.AddToWalletBtn.Name = "AddToWalletBtn";
+            this.AddToWalletBtn.Size = new System.Drawing.Size(74, 24);
+            this.AddToWalletBtn.TabIndex = 20;
+            this.AddToWalletBtn.Text = "Add";
+            this.AddToWalletBtn.UseVisualStyleBackColor = false;
+            // 
+            // RemoveFromWalletBtn
+            // 
+            this.RemoveFromWalletBtn.BackColor = System.Drawing.Color.Gold;
+            this.RemoveFromWalletBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.RemoveFromWalletBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.RemoveFromWalletBtn.Location = new System.Drawing.Point(570, 203);
+            this.RemoveFromWalletBtn.Name = "RemoveFromWalletBtn";
+            this.RemoveFromWalletBtn.Size = new System.Drawing.Size(74, 24);
+            this.RemoveFromWalletBtn.TabIndex = 21;
+            this.RemoveFromWalletBtn.Text = "Remove";
+            this.RemoveFromWalletBtn.UseVisualStyleBackColor = false;
+            // 
+            // walletDataGridView
+            // 
+            this.walletDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.walletDataGridView.Location = new System.Drawing.Point(410, 233);
+            this.walletDataGridView.Name = "walletDataGridView";
+            this.walletDataGridView.Size = new System.Drawing.Size(304, 112);
+            this.walletDataGridView.TabIndex = 22;
+            // 
+            // walletNameTextBox
+            // 
+            this.walletNameTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.walletNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.walletNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.walletNameTextBox.Location = new System.Drawing.Point(410, 173);
+            this.walletNameTextBox.Name = "walletNameTextBox";
+            this.walletNameTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.walletNameTextBox.Size = new System.Drawing.Size(70, 23);
+            this.walletNameTextBox.TabIndex = 23;
+            // 
+            // walletSymbolTextBox
+            // 
+            this.walletSymbolTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.walletSymbolTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.walletSymbolTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.walletSymbolTextBox.Location = new System.Drawing.Point(486, 173);
+            this.walletSymbolTextBox.Name = "walletSymbolTextBox";
+            this.walletSymbolTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.walletSymbolTextBox.Size = new System.Drawing.Size(70, 23);
+            this.walletSymbolTextBox.TabIndex = 24;
+            // 
+            // walletPriceTextBox
+            // 
+            this.walletPriceTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.walletPriceTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.walletPriceTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.walletPriceTextBox.Location = new System.Drawing.Point(562, 173);
+            this.walletPriceTextBox.Name = "walletPriceTextBox";
+            this.walletPriceTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.walletPriceTextBox.Size = new System.Drawing.Size(70, 23);
+            this.walletPriceTextBox.TabIndex = 25;
+            // 
+            // walletQuantityTextBox
+            // 
+            this.walletQuantityTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.walletQuantityTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.walletQuantityTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.walletQuantityTextBox.Location = new System.Drawing.Point(638, 173);
+            this.walletQuantityTextBox.Name = "walletQuantityTextBox";
+            this.walletQuantityTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.walletQuantityTextBox.Size = new System.Drawing.Size(70, 23);
+            this.walletQuantityTextBox.TabIndex = 26;
+            // 
+            // UpdateWalletBtn
+            // 
+            this.UpdateWalletBtn.BackColor = System.Drawing.Color.Gold;
+            this.UpdateWalletBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.UpdateWalletBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.UpdateWalletBtn.Location = new System.Drawing.Point(490, 203);
+            this.UpdateWalletBtn.Name = "UpdateWalletBtn";
+            this.UpdateWalletBtn.Size = new System.Drawing.Size(74, 24);
+            this.UpdateWalletBtn.TabIndex = 27;
+            this.UpdateWalletBtn.Text = "Add";
+            this.UpdateWalletBtn.UseVisualStyleBackColor = false;
+            // 
+            // walletNameLabel
+            // 
+            this.walletNameLabel.AutoSize = true;
+            this.walletNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.walletNameLabel.ForeColor = System.Drawing.Color.Gold;
+            this.walletNameLabel.Location = new System.Drawing.Point(427, 157);
+            this.walletNameLabel.Name = "walletNameLabel";
+            this.walletNameLabel.Size = new System.Drawing.Size(37, 13);
+            this.walletNameLabel.TabIndex = 28;
+            this.walletNameLabel.Text = "name";
+            // 
+            // walletSymbolLabel
+            // 
+            this.walletSymbolLabel.AutoSize = true;
+            this.walletSymbolLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.walletSymbolLabel.ForeColor = System.Drawing.Color.Gold;
+            this.walletSymbolLabel.Location = new System.Drawing.Point(497, 157);
+            this.walletSymbolLabel.Name = "walletSymbolLabel";
+            this.walletSymbolLabel.Size = new System.Drawing.Size(45, 13);
+            this.walletSymbolLabel.TabIndex = 29;
+            this.walletSymbolLabel.Text = "symbol";
+            // 
+            // walletPriceLabel
+            // 
+            this.walletPriceLabel.AutoSize = true;
+            this.walletPriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.walletPriceLabel.ForeColor = System.Drawing.Color.Gold;
+            this.walletPriceLabel.Location = new System.Drawing.Point(580, 157);
+            this.walletPriceLabel.Name = "walletPriceLabel";
+            this.walletPriceLabel.Size = new System.Drawing.Size(35, 13);
+            this.walletPriceLabel.TabIndex = 30;
+            this.walletPriceLabel.Text = "price";
+            // 
+            // walletQuantityLabel
+            // 
+            this.walletQuantityLabel.AutoSize = true;
+            this.walletQuantityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.walletQuantityLabel.ForeColor = System.Drawing.Color.Gold;
+            this.walletQuantityLabel.Location = new System.Drawing.Point(644, 157);
+            this.walletQuantityLabel.Name = "walletQuantityLabel";
+            this.walletQuantityLabel.Size = new System.Drawing.Size(52, 13);
+            this.walletQuantityLabel.TabIndex = 31;
+            this.walletQuantityLabel.Text = "quantity";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.ForeColor = System.Drawing.Color.Gold;
+            this.label3.Location = new System.Drawing.Point(61, 128);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(224, 18);
+            this.label3.TabIndex = 32;
+            this.label3.Text = "CRYPTOCURRENCIES LIST";
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Desktop;
-            this.ClientSize = new System.Drawing.Size(791, 393);
-            this.Controls.Add(this.passTextBox);
+            this.ClientSize = new System.Drawing.Size(791, 405);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.walletQuantityLabel);
+            this.Controls.Add(this.walletPriceLabel);
+            this.Controls.Add(this.walletSymbolLabel);
+            this.Controls.Add(this.walletNameLabel);
+            this.Controls.Add(this.UpdateWalletBtn);
+            this.Controls.Add(this.walletQuantityTextBox);
+            this.Controls.Add(this.walletPriceTextBox);
+            this.Controls.Add(this.walletSymbolTextBox);
+            this.Controls.Add(this.walletNameTextBox);
+            this.Controls.Add(this.walletDataGridView);
+            this.Controls.Add(this.RemoveFromWalletBtn);
+            this.Controls.Add(this.AddToWalletBtn);
+            this.Controls.Add(this.cryptocurrenciesLabel);
+            this.Controls.Add(this.currencyLabel);
+            this.Controls.Add(this.searchTextBox);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cryptoDataGridView);
@@ -372,8 +577,9 @@
             this.Text = "Financial Markets App";
             this.Load += new System.EventHandler(this.Main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cryptoDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.finMarketsAppDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cryptocurrenciesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.finMarketsAppDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.walletDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -396,14 +602,30 @@
         private FinMarketsAppDBDataSet finMarketsAppDBDataSet;
         private System.Windows.Forms.BindingSource cryptocurrenciesBindingSource;
         private FinMarketsAppDBDataSetTableAdapters.CryptocurrenciesTableAdapter cryptocurrenciesTableAdapter;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Button searchButton;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.TextBox searchTextBox;
+        private System.Windows.Forms.Label currencyLabel;
+        private System.Windows.Forms.Label cryptocurrenciesLabel;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn symbolDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn change24hDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn change7dDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.Button searchButton;
-        private System.Windows.Forms.TextBox passTextBox;
+        private System.Windows.Forms.Button AddToWalletBtn;
+        private System.Windows.Forms.Button RemoveFromWalletBtn;
+        private System.Windows.Forms.DataGridView walletDataGridView;
+        private System.Windows.Forms.TextBox walletNameTextBox;
+        private System.Windows.Forms.TextBox walletSymbolTextBox;
+        private System.Windows.Forms.TextBox walletPriceTextBox;
+        private System.Windows.Forms.TextBox walletQuantityTextBox;
+        private System.Windows.Forms.Button UpdateWalletBtn;
+        private System.Windows.Forms.Label walletNameLabel;
+        private System.Windows.Forms.Label walletSymbolLabel;
+        private System.Windows.Forms.Label walletPriceLabel;
+        private System.Windows.Forms.Label walletQuantityLabel;
+        private System.Windows.Forms.Label label3;
     }
 }

@@ -37,12 +37,16 @@ namespace FinancialMarketsApp
             //Console.Write(response);
             GetAPI getapi = new GetAPI();
 
+            int j = 0;
+            progrssBarlabel.Text = j + "%";
+            apiProgressBar.Increment(-100);
+
             for (int i = 0; i < 100; i++)
             {
                 getapi.GetData(i, response);
                 apiProgressBar.Increment(1);
                // MessageBox.Show(i.ToString());
-                int j = i + 1;
+                j = i + 1;
                 progrssBarlabel.Text = j+"%";
             }
 
@@ -51,13 +55,13 @@ namespace FinancialMarketsApp
         private void apiNbpButton_Click(object sender, EventArgs e)
         {
             var client2 = new HttpClient();
-            var urlNBP1 = "http://api.nbp.pl/api/exchangerates/tables/A?format=json";
-            var urlNBP2 = "http://api.nbp.pl/api/exchangerates/tables/B?format=json";
-            var urlNBP3 = "http://api.nbp.pl/api/exchangerates/tables/C?format=json";
-            string responseNBP1 = client2.GetStringAsync(urlNBP1).Result;
-            string responseNBP2 = client2.GetStringAsync(urlNBP2).Result;
-            string responseNBP3 = client2.GetStringAsync(urlNBP3).Result;
-            MessageBox.Show(responseNBP1+"  TAB  "+responseNBP2+"  TAB  "+responseNBP3);
+            var urlNBPtabA = "http://api.nbp.pl/api/exchangerates/tables/A?format=json";
+            // var urlNBPtabB = "http://api.nbp.pl/api/exchangerates/tables/B?format=json";
+            var urlNBPgold = "http://api.nbp.pl/api/cenyzlota?format=json";
+            string responseNBPtabA = client2.GetStringAsync(urlNBPtabA).Result;
+            // string responseNBPtabB = client2.GetStringAsync(urlNBPtabB).Result;
+            string responseNBPgold = client2.GetStringAsync(urlNBPgold).Result; // cena 1g złota
+            MessageBox.Show(responseNBPtabA + "\n\n" + responseNBPgold);
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -67,9 +71,24 @@ namespace FinancialMarketsApp
 
         }
 
-        private void cryptoDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
+        void fillDataGridView()
+        {
+            // serect where like % searchText
         }
+
+        private void cryptoDataGridView_CellClick(object sender, EventArgs e)
+        {
+            if (cryptoDataGridView.CurrentRow.Index != -1)
+            {
+                walletNameTextBox.Text = cryptoDataGridView.CurrentRow.Cells[0].Value.ToString();
+                walletSymbolTextBox.Text = cryptoDataGridView.CurrentRow.Cells[1].Value.ToString();
+                walletPriceTextBox.Text = cryptoDataGridView.CurrentRow.Cells[2].Value.ToString();
+                walletQuantityTextBox.Text = "0";
+            }  
+       
+        }
+
+      
     }
 }

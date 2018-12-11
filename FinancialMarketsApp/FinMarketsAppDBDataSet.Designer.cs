@@ -399,7 +399,7 @@ namespace FinancialMarketsApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public CryptocurrenciesRow AddCryptocurrenciesRow(string name, string symbol, string price, string change24h, string change7d) {
+            public CryptocurrenciesRow AddCryptocurrenciesRow(string name, string symbol, decimal price, decimal change24h, decimal change7d) {
                 CryptocurrenciesRow rowCryptocurrenciesRow = ((CryptocurrenciesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         name,
@@ -443,17 +443,14 @@ namespace FinancialMarketsApp {
                 base.Columns.Add(this.columnname);
                 this.columnsymbol = new global::System.Data.DataColumn("symbol", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsymbol);
-                this.columnprice = new global::System.Data.DataColumn("price", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnprice = new global::System.Data.DataColumn("price", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnprice);
-                this.columnchange24h = new global::System.Data.DataColumn("change24h", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnchange24h = new global::System.Data.DataColumn("change24h", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnchange24h);
-                this.columnchange7d = new global::System.Data.DataColumn("change7d", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnchange7d = new global::System.Data.DataColumn("change7d", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnchange7d);
                 this.columnname.MaxLength = 50;
                 this.columnsymbol.MaxLength = 50;
-                this.columnprice.MaxLength = 50;
-                this.columnchange24h.MaxLength = 50;
-                this.columnchange7d.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -628,10 +625,10 @@ namespace FinancialMarketsApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string price {
+            public decimal price {
                 get {
                     try {
-                        return ((string)(this[this.tableCryptocurrencies.priceColumn]));
+                        return ((decimal)(this[this.tableCryptocurrencies.priceColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'price\' in table \'Cryptocurrencies\' is DBNull.", e);
@@ -644,10 +641,10 @@ namespace FinancialMarketsApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string change24h {
+            public decimal change24h {
                 get {
                     try {
-                        return ((string)(this[this.tableCryptocurrencies.change24hColumn]));
+                        return ((decimal)(this[this.tableCryptocurrencies.change24hColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'change24h\' in table \'Cryptocurrencies\' is DBNull.", e);
@@ -660,10 +657,10 @@ namespace FinancialMarketsApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string change7d {
+            public decimal change7d {
                 get {
                     try {
-                        return ((string)(this[this.tableCryptocurrencies.change7dColumn]));
+                        return ((decimal)(this[this.tableCryptocurrencies.change7dColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'change7d\' in table \'Cryptocurrencies\' is DBNull.", e);

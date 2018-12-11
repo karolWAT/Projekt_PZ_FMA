@@ -64,27 +64,9 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="price" msprop:Generator_ColumnVarNameInTable="columnprice" msprop:Generator_ColumnPropNameInRow="price" msprop:Generator_ColumnPropNameInTable="priceColumn" msprop:Generator_UserColumnName="price" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="change24h" msprop:Generator_ColumnVarNameInTable="columnchange24h" msprop:Generator_ColumnPropNameInRow="change24h" msprop:Generator_ColumnPropNameInTable="change24hColumn" msprop:Generator_UserColumnName="change24h" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="change7d" msprop:Generator_ColumnVarNameInTable="columnchange7d" msprop:Generator_ColumnPropNameInRow="change7d" msprop:Generator_ColumnPropNameInTable="change7dColumn" msprop:Generator_UserColumnName="change7d" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
+              <xs:element name="price" msprop:Generator_ColumnVarNameInTable="columnprice" msprop:Generator_ColumnPropNameInRow="price" msprop:Generator_ColumnPropNameInTable="priceColumn" msprop:Generator_UserColumnName="price" type="xs:decimal" minOccurs="0" />
+              <xs:element name="change24h" msprop:Generator_ColumnVarNameInTable="columnchange24h" msprop:Generator_ColumnPropNameInRow="change24h" msprop:Generator_ColumnPropNameInTable="change24hColumn" msprop:Generator_UserColumnName="change24h" type="xs:decimal" minOccurs="0" />
+              <xs:element name="change7d" msprop:Generator_ColumnVarNameInTable="columnchange7d" msprop:Generator_ColumnPropNameInRow="change7d" msprop:Generator_ColumnPropNameInTable="change7dColumn" msprop:Generator_UserColumnName="change7d" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
