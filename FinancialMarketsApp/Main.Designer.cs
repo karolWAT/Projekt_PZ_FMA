@@ -69,6 +69,13 @@
             this.AddToWalletBtn = new System.Windows.Forms.Button();
             this.RemoveFromWalletBtn = new System.Windows.Forms.Button();
             this.walletDataGridView = new System.Windows.Forms.DataGridView();
+            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.symbolDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.viewWalletBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.finMarketsAppDBDataSet1 = new FinancialMarketsApp.FinMarketsAppDBDataSet1();
             this.walletNameTextBox = new System.Windows.Forms.TextBox();
             this.walletSymbolTextBox = new System.Windows.Forms.TextBox();
             this.walletPriceTextBox = new System.Windows.Forms.TextBox();
@@ -79,20 +86,13 @@
             this.walletPriceLabel = new System.Windows.Forms.Label();
             this.walletQuantityLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.finMarketsAppDBDataSet1 = new FinancialMarketsApp.FinMarketsAppDBDataSet1();
-            this.viewWalletBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.viewWalletTableAdapter = new FinancialMarketsApp.FinMarketsAppDBDataSet1TableAdapters.ViewWalletTableAdapter();
-            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.symbolDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.cryptoDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cryptocurrenciesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.finMarketsAppDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.walletDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.finMarketsAppDBDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewWalletBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.finMarketsAppDBDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // logOutButton
@@ -363,6 +363,7 @@
             this.searchButton.TabIndex = 15;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = false;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // contextMenuStrip2
             // 
@@ -379,6 +380,7 @@
             this.searchTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.searchTextBox.Size = new System.Drawing.Size(187, 24);
             this.searchTextBox.TabIndex = 17;
+            this.searchTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchTextBox_KeyDown);
             // 
             // currencyLabel
             // 
@@ -446,6 +448,56 @@
             this.walletDataGridView.RowHeadersWidth = 24;
             this.walletDataGridView.Size = new System.Drawing.Size(355, 112);
             this.walletDataGridView.TabIndex = 22;
+            // 
+            // nameDataGridViewTextBoxColumn1
+            // 
+            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn1.HeaderText = "name";
+            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
+            this.nameDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn1.Width = 70;
+            // 
+            // symbolDataGridViewTextBoxColumn1
+            // 
+            this.symbolDataGridViewTextBoxColumn1.DataPropertyName = "symbol";
+            this.symbolDataGridViewTextBoxColumn1.HeaderText = "symbol";
+            this.symbolDataGridViewTextBoxColumn1.Name = "symbolDataGridViewTextBoxColumn1";
+            this.symbolDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.symbolDataGridViewTextBoxColumn1.Width = 55;
+            // 
+            // priceDataGridViewTextBoxColumn1
+            // 
+            this.priceDataGridViewTextBoxColumn1.DataPropertyName = "price";
+            this.priceDataGridViewTextBoxColumn1.HeaderText = "price";
+            this.priceDataGridViewTextBoxColumn1.Name = "priceDataGridViewTextBoxColumn1";
+            this.priceDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.priceDataGridViewTextBoxColumn1.Width = 70;
+            // 
+            // quantityDataGridViewTextBoxColumn
+            // 
+            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "quantity";
+            this.quantityDataGridViewTextBoxColumn.HeaderText = "quantity";
+            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            this.quantityDataGridViewTextBoxColumn.ReadOnly = true;
+            this.quantityDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // sumDataGridViewTextBoxColumn
+            // 
+            this.sumDataGridViewTextBoxColumn.DataPropertyName = "sum";
+            this.sumDataGridViewTextBoxColumn.HeaderText = "sum";
+            this.sumDataGridViewTextBoxColumn.Name = "sumDataGridViewTextBoxColumn";
+            this.sumDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sumDataGridViewTextBoxColumn.Width = 65;
+            // 
+            // viewWalletBindingSource
+            // 
+            this.viewWalletBindingSource.DataMember = "ViewWallet";
+            this.viewWalletBindingSource.DataSource = this.finMarketsAppDBDataSet1;
+            // 
+            // finMarketsAppDBDataSet1
+            // 
+            this.finMarketsAppDBDataSet1.DataSetName = "FinMarketsAppDBDataSet1";
+            this.finMarketsAppDBDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // walletNameTextBox
             // 
@@ -558,59 +610,9 @@
             this.label3.TabIndex = 32;
             this.label3.Text = "CRYPTOCURRENCIES LIST";
             // 
-            // finMarketsAppDBDataSet1
-            // 
-            this.finMarketsAppDBDataSet1.DataSetName = "FinMarketsAppDBDataSet1";
-            this.finMarketsAppDBDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // viewWalletBindingSource
-            // 
-            this.viewWalletBindingSource.DataMember = "ViewWallet";
-            this.viewWalletBindingSource.DataSource = this.finMarketsAppDBDataSet1;
-            // 
             // viewWalletTableAdapter
             // 
             this.viewWalletTableAdapter.ClearBeforeFill = true;
-            // 
-            // nameDataGridViewTextBoxColumn1
-            // 
-            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn1.HeaderText = "name";
-            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
-            this.nameDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn1.Width = 70;
-            // 
-            // symbolDataGridViewTextBoxColumn1
-            // 
-            this.symbolDataGridViewTextBoxColumn1.DataPropertyName = "symbol";
-            this.symbolDataGridViewTextBoxColumn1.HeaderText = "symbol";
-            this.symbolDataGridViewTextBoxColumn1.Name = "symbolDataGridViewTextBoxColumn1";
-            this.symbolDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.symbolDataGridViewTextBoxColumn1.Width = 55;
-            // 
-            // priceDataGridViewTextBoxColumn1
-            // 
-            this.priceDataGridViewTextBoxColumn1.DataPropertyName = "price";
-            this.priceDataGridViewTextBoxColumn1.HeaderText = "price";
-            this.priceDataGridViewTextBoxColumn1.Name = "priceDataGridViewTextBoxColumn1";
-            this.priceDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.priceDataGridViewTextBoxColumn1.Width = 70;
-            // 
-            // quantityDataGridViewTextBoxColumn
-            // 
-            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "quantity";
-            this.quantityDataGridViewTextBoxColumn.HeaderText = "quantity";
-            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
-            this.quantityDataGridViewTextBoxColumn.ReadOnly = true;
-            this.quantityDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // sumDataGridViewTextBoxColumn
-            // 
-            this.sumDataGridViewTextBoxColumn.DataPropertyName = "sum";
-            this.sumDataGridViewTextBoxColumn.HeaderText = "sum";
-            this.sumDataGridViewTextBoxColumn.Name = "sumDataGridViewTextBoxColumn";
-            this.sumDataGridViewTextBoxColumn.ReadOnly = true;
-            this.sumDataGridViewTextBoxColumn.Width = 65;
             // 
             // Main
             // 
@@ -657,8 +659,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.cryptocurrenciesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.finMarketsAppDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.walletDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.finMarketsAppDBDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewWalletBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.finMarketsAppDBDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

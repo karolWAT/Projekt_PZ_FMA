@@ -35,7 +35,7 @@
   <xs:element name="FinMarketsAppDBDataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="FinMarketsAppDBDataSet1" msprop:Generator_UserDSName="FinMarketsAppDBDataSet1">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="ViewWallet" msprop:Generator_TableClassName="ViewWalletDataTable" msprop:Generator_TableVarName="tableViewWallet" msprop:Generator_TablePropName="ViewWallet" msprop:Generator_RowDeletingName="ViewWalletRowDeleting" msprop:Generator_RowChangingName="ViewWalletRowChanging" msprop:Generator_RowEvHandlerName="ViewWalletRowChangeEventHandler" msprop:Generator_RowDeletedName="ViewWalletRowDeleted" msprop:Generator_UserTableName="ViewWallet" msprop:Generator_RowChangedName="ViewWalletRowChanged" msprop:Generator_RowEvArgName="ViewWalletRowChangeEvent" msprop:Generator_RowClassName="ViewWalletRow">
+        <xs:element name="ViewWallet" msprop:Generator_TableClassName="ViewWalletDataTable" msprop:Generator_TableVarName="tableViewWallet" msprop:Generator_RowChangedName="ViewWalletRowChanged" msprop:Generator_TablePropName="ViewWallet" msprop:Generator_RowDeletingName="ViewWalletRowDeleting" msprop:Generator_RowChangingName="ViewWalletRowChanging" msprop:Generator_RowEvHandlerName="ViewWalletRowChangeEventHandler" msprop:Generator_RowDeletedName="ViewWalletRowDeleted" msprop:Generator_RowClassName="ViewWalletRow" msprop:Generator_UserTableName="ViewWallet" msprop:Generator_RowEvArgName="ViewWalletRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name" minOccurs="0">
@@ -52,13 +52,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="price" msprop:Generator_ColumnVarNameInTable="columnprice" msprop:Generator_ColumnPropNameInRow="price" msprop:Generator_ColumnPropNameInTable="priceColumn" msprop:Generator_UserColumnName="price" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="20" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
+              <xs:element name="price" msprop:Generator_ColumnVarNameInTable="columnprice" msprop:Generator_ColumnPropNameInRow="price" msprop:Generator_ColumnPropNameInTable="priceColumn" msprop:Generator_UserColumnName="price" type="xs:decimal" minOccurs="0" />
               <xs:element name="quantity" msprop:Generator_ColumnVarNameInTable="columnquantity" msprop:Generator_ColumnPropNameInRow="quantity" msprop:Generator_ColumnPropNameInTable="quantityColumn" msprop:Generator_UserColumnName="quantity" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">

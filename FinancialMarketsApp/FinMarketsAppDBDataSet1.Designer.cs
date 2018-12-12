@@ -399,7 +399,7 @@ namespace FinancialMarketsApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ViewWalletRow AddViewWalletRow(string name, string symbol, string price, string quantity, string sum) {
+            public ViewWalletRow AddViewWalletRow(string name, string symbol, decimal price, string quantity, string sum) {
                 ViewWalletRow rowViewWalletRow = ((ViewWalletRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         name,
@@ -443,7 +443,7 @@ namespace FinancialMarketsApp {
                 base.Columns.Add(this.columnname);
                 this.columnsymbol = new global::System.Data.DataColumn("symbol", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsymbol);
-                this.columnprice = new global::System.Data.DataColumn("price", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnprice = new global::System.Data.DataColumn("price", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnprice);
                 this.columnquantity = new global::System.Data.DataColumn("quantity", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnquantity);
@@ -451,7 +451,6 @@ namespace FinancialMarketsApp {
                 base.Columns.Add(this.columnsum);
                 this.columnname.MaxLength = 50;
                 this.columnsymbol.MaxLength = 50;
-                this.columnprice.MaxLength = 20;
                 this.columnquantity.MaxLength = 50;
                 this.columnsum.MaxLength = 50;
             }
@@ -628,10 +627,10 @@ namespace FinancialMarketsApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string price {
+            public decimal price {
                 get {
                     try {
-                        return ((string)(this[this.tableViewWallet.priceColumn]));
+                        return ((decimal)(this[this.tableViewWallet.priceColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'price\' in table \'ViewWallet\' is DBNull.", e);
