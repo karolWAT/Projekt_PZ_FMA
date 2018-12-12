@@ -936,7 +936,7 @@ namespace FinancialMarketsApp.FinMarketsAppDBDataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual FinMarketsAppDBDataSet1.ViewWalletDataTable GetData() {
+        public virtual FinMarketsAppDBDataSet1.ViewWalletDataTable cryptoGetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             FinMarketsAppDBDataSet1.ViewWalletDataTable dataTable = new FinMarketsAppDBDataSet1.ViewWalletDataTable();
             this.Adapter.Fill(dataTable);

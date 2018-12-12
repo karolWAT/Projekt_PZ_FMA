@@ -15,7 +15,7 @@ namespace FinancialMarketsApp
     public class GetAPI
     {
 
-        public void GetData(int i,string response)
+        public void cryptoGetData(int i,string response)
         {
             Cryptocurrencies crypto = new Cryptocurrencies();
 

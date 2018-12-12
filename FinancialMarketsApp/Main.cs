@@ -43,7 +43,7 @@ namespace FinancialMarketsApp
 
             for (int i = 0; i < 100; i++)
             {
-                getapi.GetData(i, response);
+                getapi.cryptoGetData(i, response);
                 apiProgressBar.Increment(1);
                // MessageBox.Show(i.ToString());
                 j = i + 1;
@@ -74,11 +74,6 @@ namespace FinancialMarketsApp
         }
 
 
-        void fillDataGridView()
-        {
-            // serect where like % searchText
-        }
-
         private void cryptoDataGridView_CellClick(object sender, EventArgs e)
         {
             if (cryptoDataGridView.CurrentRow.Index != -1)
@@ -87,10 +82,27 @@ namespace FinancialMarketsApp
                 walletSymbolTextBox.Text = cryptoDataGridView.CurrentRow.Cells[1].Value.ToString();
                 walletPriceTextBox.Text = cryptoDataGridView.CurrentRow.Cells[2].Value.ToString();
                 walletQuantityTextBox.Text = "0";
+                walletNameTextBox.BackColor = Color.Gold;
+                walletSymbolTextBox.BackColor = Color.Gold;
+                walletPriceTextBox.BackColor = Color.Gold;
+                walletQuantityTextBox.BackColor = Color.Gold;
             }  
        
         }
-
-      
+        
+        private void walletDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (walletDataGridView.CurrentRow.Index != -1)
+            {
+                walletNameTextBox.Text = walletDataGridView.CurrentRow.Cells[0].Value.ToString();
+                walletSymbolTextBox.Text = walletDataGridView.CurrentRow.Cells[1].Value.ToString();
+                walletPriceTextBox.Text = walletDataGridView.CurrentRow.Cells[2].Value.ToString();
+                walletQuantityTextBox.Text = walletDataGridView.CurrentRow.Cells[3].Value.ToString();
+                walletNameTextBox.BackColor = Color.LimeGreen;
+                walletSymbolTextBox.BackColor = Color.LimeGreen;
+                walletPriceTextBox.BackColor = Color.LimeGreen;
+                walletQuantityTextBox.BackColor = Color.LimeGreen;
+            }
+        }
     }
 }

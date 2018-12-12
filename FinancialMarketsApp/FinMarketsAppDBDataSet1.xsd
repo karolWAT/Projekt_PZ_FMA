@@ -9,7 +9,7 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ViewWalletTableAdapter" GeneratorDataComponentClassName="ViewWalletTableAdapter" Name="ViewWallet" UserDataComponentName="ViewWalletTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="FinMarketsAppDBConnectionString (Settings)" DbObjectName="FinMarketsAppDB.dbo.ViewWallet" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="FinMarketsAppDBConnectionString (Settings)" DbObjectName="FinMarketsAppDB.dbo.ViewWallet" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="cryptoGetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="cryptoGetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="cryptoGetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>SELECT name, symbol, price, quantity, sum FROM dbo.ViewWallet</CommandText>

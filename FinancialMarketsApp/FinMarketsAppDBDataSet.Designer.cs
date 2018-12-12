@@ -943,7 +943,7 @@ namespace FinancialMarketsApp.FinMarketsAppDBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual FinMarketsAppDBDataSet.CryptocurrenciesDataTable GetData() {
+        public virtual FinMarketsAppDBDataSet.CryptocurrenciesDataTable cryptoGetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             FinMarketsAppDBDataSet.CryptocurrenciesDataTable dataTable = new FinMarketsAppDBDataSet.CryptocurrenciesDataTable();
             this.Adapter.Fill(dataTable);
