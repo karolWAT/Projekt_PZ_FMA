@@ -118,7 +118,19 @@ namespace FinancialMarketsApp
             return walletsC2;
         }
 
+        public bool deleteWalletsC(WalletsC walletsC)
+        {
+            string connectionString = @"Data Source=(localdb)\LocalDBKN;Initial Catalog=FinMarketsAppDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            SqlConnection connection = new SqlConnection(connectionString);
+            connection.Open();
 
+            string query = @"DELETE FROM WalletsC WHERE idCrypto = " + walletsC.idCrypto + "";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.ExecuteNonQuery();
+
+            connection.Close();
+            return true;
+        }
 
     }
 }

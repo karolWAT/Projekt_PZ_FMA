@@ -45,9 +45,9 @@ namespace FinancialMarketsApp
             {
                 getapi.cryptoGetData(i, response);
                 apiProgressBar.Increment(1);
-               // MessageBox.Show(i.ToString());
+                // MessageBox.Show(i.ToString());
                 j = i + 1;
-                progrssBarlabel.Text = j+"%";
+                progrssBarlabel.Text = j + "%";
             }
 
         }
@@ -86,7 +86,8 @@ namespace FinancialMarketsApp
                 walletNameTextBox.BackColor = searchTextBox.BackColor;
                 walletSymbolTextBox.BackColor = searchTextBox.BackColor;
                 walletPriceTextBox.BackColor = searchTextBox.BackColor;
-                walletQuantityTextBox.BackColor = searchTextBox.BackColor; ;
+                walletQuantityTextBox.BackColor = searchTextBox.BackColor;
+                ;
             }
 
         }
@@ -116,12 +117,13 @@ namespace FinancialMarketsApp
                 WalletsC walletsC = new WalletsC();
                 WalletsC walletsC2 = new WalletsC();
 
-                walletsC.idUser = 5;         // powinienem sprawdzać, który użytkownik jest aktualnie zalogowany - dodać flagę w zakładce 
-                walletsC.idWalletC = 1;      // też sprzawdzam użytkonika a póżniej jego crytpo wallet
+                walletsC.idUser =
+                    5; // powinienem sprawdzać, który użytkownik jest aktualnie zalogowany - dodać flagę w zakładce 
+                walletsC.idWalletC = 1; // też sprzawdzam użytkonika a póżniej jego crytpo wallet
                 walletsC.idCrypto = crypto.idCrypto;
                 walletsC.quantity = walletQuantityTextBox.Text;
                 walletsC.sum = 0.ToString();
-                walletsC.idAlert = 1;        // bede pewnie z gui bral dla alertu wzrostoego 1 a dla malejacego 2
+                walletsC.idAlert = 1; // bede pewnie z gui bral dla alertu wzrostoego 1 a dla malejacego 2
 
                 walletsC2 = connectDb.readWalletsC(walletsC.idUser, walletsC.idWalletC, walletsC.idCrypto);
                 if (walletsC2.idCrypto != 0)
@@ -132,12 +134,36 @@ namespace FinancialMarketsApp
                 {
                     connectDb.saveWalletsC(walletsC);
                 }
-            }
 
-//            walletDataGridView.Columns.Clear();
-//            walletDataGridView.DataSource = viewWalletBindingSource;
-//            walletDataGridView.Update();
-//            walletDataGridView.Refresh();
+                this.viewWalletTableAdapter.Fill(this.finMarketsAppDBDataSet1.ViewWallet);
+            }
+        }
+
+        private void RemoveFromWalletBtn_Click(object sender, EventArgs e)
+        {
+            Cryptocurrencies crypto = new Cryptocurrencies();
+            ConnectDB connectDb = new ConnectDB();
+            if (walletSymbolTextBox.Text != "" & walletNameTextBox.Text != "")
+            {
+                crypto = connectDb.Read(walletSymbolTextBox.Text); // to get crypto id from symbol Text Box
+                WalletsC walletsC = new WalletsC();
+                WalletsC walletsC2 = new WalletsC();
+
+                walletsC.idUser = 5; // powinienem sprawdzać, który użytkownik jest aktualnie zalogowany - dodać flagę w zakładce 
+                walletsC.idWalletC = 1; // też sprzawdzam użytkonika a póżniej jego crytpo wallet
+                walletsC.idCrypto = crypto.idCrypto;
+                walletsC.quantity = walletQuantityTextBox.Text;
+                walletsC.sum = 0.ToString();
+                walletsC.idAlert = 1; // bede pewnie z gui bral dla alertu wzrostoego 1 a dla malejacego 2
+
+                walletsC2 = connectDb.readWalletsC(walletsC.idUser, walletsC.idWalletC, walletsC.idCrypto);
+                if (walletsC2.idCrypto != 0)
+                {
+                    connectDb.deleteWalletsC(walletsC);
+                }
+
+                this.viewWalletTableAdapter.Fill(this.finMarketsAppDBDataSet1.ViewWallet);
+            }
         }
     }
 }

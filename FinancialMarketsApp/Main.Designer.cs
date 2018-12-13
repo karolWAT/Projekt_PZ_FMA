@@ -65,8 +65,8 @@
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.currencyLabel = new System.Windows.Forms.Label();
             this.cryptocurrenciesLabel = new System.Windows.Forms.Label();
-            this.AddToWalletBtn = new System.Windows.Forms.Button();
-            this.RemoveFromWalletBtn = new System.Windows.Forms.Button();
+            this.addToWalletBtn = new System.Windows.Forms.Button();
+            this.removeFromWalletBtn = new System.Windows.Forms.Button();
             this.walletDataGridView = new System.Windows.Forms.DataGridView();
             this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.symbolDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,7 +79,6 @@
             this.walletSymbolTextBox = new System.Windows.Forms.TextBox();
             this.walletPriceTextBox = new System.Windows.Forms.TextBox();
             this.walletQuantityTextBox = new System.Windows.Forms.TextBox();
-            this.UpdateWalletBtn = new System.Windows.Forms.Button();
             this.walletNameLabel = new System.Windows.Forms.Label();
             this.walletSymbolLabel = new System.Windows.Forms.Label();
             this.walletPriceLabel = new System.Windows.Forms.Label();
@@ -398,30 +397,31 @@
             this.cryptocurrenciesLabel.TabIndex = 19;
             this.cryptocurrenciesLabel.Text = "cryptocurrencies";
             // 
-            // AddToWalletBtn
+            // addToWalletBtn
             // 
-            this.AddToWalletBtn.BackColor = System.Drawing.Color.LimeGreen;
-            this.AddToWalletBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.AddToWalletBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.AddToWalletBtn.Location = new System.Drawing.Point(410, 203);
-            this.AddToWalletBtn.Name = "AddToWalletBtn";
-            this.AddToWalletBtn.Size = new System.Drawing.Size(74, 24);
-            this.AddToWalletBtn.TabIndex = 20;
-            this.AddToWalletBtn.Text = "Add";
-            this.AddToWalletBtn.UseVisualStyleBackColor = false;
-            this.AddToWalletBtn.Click += new System.EventHandler(this.AddToWalletBtn_Click);
+            this.addToWalletBtn.BackColor = System.Drawing.Color.LimeGreen;
+            this.addToWalletBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.addToWalletBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.addToWalletBtn.Location = new System.Drawing.Point(410, 203);
+            this.addToWalletBtn.Name = "addToWalletBtn";
+            this.addToWalletBtn.Size = new System.Drawing.Size(113, 24);
+            this.addToWalletBtn.TabIndex = 20;
+            this.addToWalletBtn.Text = "Add / Update";
+            this.addToWalletBtn.UseVisualStyleBackColor = false;
+            this.addToWalletBtn.Click += new System.EventHandler(this.AddToWalletBtn_Click);
             // 
-            // RemoveFromWalletBtn
+            // removeFromWalletBtn
             // 
-            this.RemoveFromWalletBtn.BackColor = System.Drawing.Color.LimeGreen;
-            this.RemoveFromWalletBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.RemoveFromWalletBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.RemoveFromWalletBtn.Location = new System.Drawing.Point(691, 203);
-            this.RemoveFromWalletBtn.Name = "RemoveFromWalletBtn";
-            this.RemoveFromWalletBtn.Size = new System.Drawing.Size(74, 24);
-            this.RemoveFromWalletBtn.TabIndex = 21;
-            this.RemoveFromWalletBtn.Text = "Remove";
-            this.RemoveFromWalletBtn.UseVisualStyleBackColor = false;
+            this.removeFromWalletBtn.BackColor = System.Drawing.Color.LimeGreen;
+            this.removeFromWalletBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.removeFromWalletBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.removeFromWalletBtn.Location = new System.Drawing.Point(529, 203);
+            this.removeFromWalletBtn.Name = "removeFromWalletBtn";
+            this.removeFromWalletBtn.Size = new System.Drawing.Size(74, 24);
+            this.removeFromWalletBtn.TabIndex = 21;
+            this.removeFromWalletBtn.Text = "Remove";
+            this.removeFromWalletBtn.UseVisualStyleBackColor = false;
+            this.removeFromWalletBtn.Click += new System.EventHandler(this.RemoveFromWalletBtn_Click);
             // 
             // walletDataGridView
             // 
@@ -539,18 +539,6 @@
             this.walletQuantityTextBox.Size = new System.Drawing.Size(76, 23);
             this.walletQuantityTextBox.TabIndex = 26;
             // 
-            // UpdateWalletBtn
-            // 
-            this.UpdateWalletBtn.BackColor = System.Drawing.Color.LimeGreen;
-            this.UpdateWalletBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.UpdateWalletBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.UpdateWalletBtn.Location = new System.Drawing.Point(490, 203);
-            this.UpdateWalletBtn.Name = "UpdateWalletBtn";
-            this.UpdateWalletBtn.Size = new System.Drawing.Size(74, 24);
-            this.UpdateWalletBtn.TabIndex = 27;
-            this.UpdateWalletBtn.Text = "Update";
-            this.UpdateWalletBtn.UseVisualStyleBackColor = false;
-            // 
             // walletNameLabel
             // 
             this.walletNameLabel.AutoSize = true;
@@ -625,14 +613,13 @@
             this.Controls.Add(this.walletPriceLabel);
             this.Controls.Add(this.walletSymbolLabel);
             this.Controls.Add(this.walletNameLabel);
-            this.Controls.Add(this.UpdateWalletBtn);
             this.Controls.Add(this.walletQuantityTextBox);
             this.Controls.Add(this.walletPriceTextBox);
             this.Controls.Add(this.walletSymbolTextBox);
             this.Controls.Add(this.walletNameTextBox);
             this.Controls.Add(this.walletDataGridView);
-            this.Controls.Add(this.RemoveFromWalletBtn);
-            this.Controls.Add(this.AddToWalletBtn);
+            this.Controls.Add(this.removeFromWalletBtn);
+            this.Controls.Add(this.addToWalletBtn);
             this.Controls.Add(this.cryptocurrenciesLabel);
             this.Controls.Add(this.currencyLabel);
             this.Controls.Add(this.searchTextBox);
@@ -695,14 +682,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn change24hDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn change7dDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button AddToWalletBtn;
-        private System.Windows.Forms.Button RemoveFromWalletBtn;
+        private System.Windows.Forms.Button addToWalletBtn;
+        private System.Windows.Forms.Button removeFromWalletBtn;
         private System.Windows.Forms.DataGridView walletDataGridView;
         private System.Windows.Forms.TextBox walletNameTextBox;
         private System.Windows.Forms.TextBox walletSymbolTextBox;
         private System.Windows.Forms.TextBox walletPriceTextBox;
         private System.Windows.Forms.TextBox walletQuantityTextBox;
-        private System.Windows.Forms.Button UpdateWalletBtn;
         private System.Windows.Forms.Label walletNameLabel;
         private System.Windows.Forms.Label walletSymbolLabel;
         private System.Windows.Forms.Label walletPriceLabel;
