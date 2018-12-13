@@ -21,6 +21,7 @@ namespace FinancialMarketsApp
             SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
+                crypto.idCrypto = Convert.ToInt32(reader["idCrypto"]);
                 crypto.Name = reader["name"].ToString();
                 crypto.Symbol = reader["symbol"].ToString();
                 crypto.Price = reader["price"].ToString();
@@ -61,6 +62,63 @@ namespace FinancialMarketsApp
             connection.Close();
             return true;
         }
+
+        public bool saveWalletsC(WalletsC walletsC)
+        {
+            string connectionString = @"Data Source=(localdb)\LocalDBKN;Initial Catalog=FinMarketsAppDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            SqlConnection connection = new SqlConnection(connectionString);
+            connection.Open();
+
+            string query = @"INSERT INTO WalletsC VALUES (" + walletsC.idUser + "," + walletsC.idWalletC + "," + walletsC.idCrypto + "," + walletsC.quantity + "," + walletsC.sum + "," + walletsC.idAlert + ")";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.ExecuteNonQuery();
+
+            connection.Close();
+            return true;
+        }
+
+        public bool updateWalletsC(WalletsC walletsC)
+        {
+            string connectionString = @"Data Source=(localdb)\LocalDBKN;Initial Catalog=FinMarketsAppDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            SqlConnection connection = new SqlConnection(connectionString);
+            connection.Open();
+
+            string query = @"UPDATE WalletsC SET idUser = " + walletsC.idUser + ",idWalletC=" + walletsC.idWalletC + ",idCrypto=" + walletsC.idCrypto + ",quantity=" + walletsC.quantity + ",sum=" + walletsC.sum + ",idAlert=" + walletsC.idAlert + " WHERE idCrypto = " + walletsC.idCrypto + "";
+            //MessageBox.Show(query);
+            SqlCommand command = new SqlCommand(query, connection);
+            command.ExecuteNonQuery();
+
+            connection.Close();
+            return true;
+        }
+
+        public WalletsC readWalletsC(int idUser, int idWalletC, int idCrypto)
+        {
+            WalletsC walletsC2 = new WalletsC();
+
+            string connectionString = @"Data Source=(localdb)\LocalDBKN;Initial Catalog=FinMarketsAppDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            SqlConnection connection = new SqlConnection(connectionString);
+            connection.Open();
+
+            string query = @"SELECT * FROM WalletsC WHERE idUser = " + idUser + " AND idWalletC = " + idWalletC + "AND idCrypto =" + idCrypto +"";
+            SqlCommand command = new SqlCommand(query, connection);
+
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                walletsC2.idUser = Convert.ToInt32(reader["idUser"]);
+                walletsC2.idWalletC = Convert.ToInt32(reader["idWalletC"]);
+                walletsC2.idCrypto = Convert.ToInt32(reader["idCrypto"]);
+                walletsC2.quantity = reader["quantity"].ToString();
+                walletsC2.sum = reader["sum"].ToString();
+                walletsC2.idAlert = Convert.ToInt32(reader["idAlert"]);
+            }
+
+            connection.Close();
+            return walletsC2;
+        }
+
+
 
     }
 }

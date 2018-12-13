@@ -32,7 +32,7 @@ namespace FinancialMarketsApp
                 }
                 catch (Exception e)
                 {
-                    //Console.WriteLine(e);
+                    Console.WriteLine(e);
                 }
 
                 if (checkId != null)

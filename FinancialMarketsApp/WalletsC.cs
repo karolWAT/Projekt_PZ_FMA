@@ -16,6 +16,8 @@ namespace FinancialMarketsApp
 
         public string quantity { get; set; }
 
+        public string sum { get; set; }
+
         public int idAlert { get; set; }
 
     }

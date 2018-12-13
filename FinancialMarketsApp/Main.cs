@@ -82,14 +82,15 @@ namespace FinancialMarketsApp
                 walletSymbolTextBox.Text = cryptoDataGridView.CurrentRow.Cells[1].Value.ToString();
                 walletPriceTextBox.Text = cryptoDataGridView.CurrentRow.Cells[2].Value.ToString();
                 walletQuantityTextBox.Text = "0";
-                walletNameTextBox.BackColor = Color.Gold;
-                walletSymbolTextBox.BackColor = Color.Gold;
-                walletPriceTextBox.BackColor = Color.Gold;
-                walletQuantityTextBox.BackColor = Color.Gold;
-            }  
-       
+
+                walletNameTextBox.BackColor = searchTextBox.BackColor;
+                walletSymbolTextBox.BackColor = searchTextBox.BackColor;
+                walletPriceTextBox.BackColor = searchTextBox.BackColor;
+                walletQuantityTextBox.BackColor = searchTextBox.BackColor; ;
+            }
+
         }
-        
+
         private void walletDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (walletDataGridView.CurrentRow.Index != -1)
@@ -98,11 +99,45 @@ namespace FinancialMarketsApp
                 walletSymbolTextBox.Text = walletDataGridView.CurrentRow.Cells[1].Value.ToString();
                 walletPriceTextBox.Text = walletDataGridView.CurrentRow.Cells[2].Value.ToString();
                 walletQuantityTextBox.Text = walletDataGridView.CurrentRow.Cells[3].Value.ToString();
-                walletNameTextBox.BackColor = Color.LimeGreen;
-                walletSymbolTextBox.BackColor = Color.LimeGreen;
-                walletPriceTextBox.BackColor = Color.LimeGreen;
-                walletQuantityTextBox.BackColor = Color.LimeGreen;
+                walletNameTextBox.BackColor = Color.GreenYellow;
+                walletSymbolTextBox.BackColor = Color.GreenYellow;
+                walletPriceTextBox.BackColor = Color.GreenYellow;
+                walletQuantityTextBox.BackColor = Color.GreenYellow;
             }
+        }
+
+        private void AddToWalletBtn_Click(object sender, EventArgs e)
+        {
+            Cryptocurrencies crypto = new Cryptocurrencies();
+            ConnectDB connectDb = new ConnectDB();
+            if (walletSymbolTextBox.Text != "" & walletNameTextBox.Text != "")
+            {
+                crypto = connectDb.Read(walletSymbolTextBox.Text); // to get crypto id from symbol Text Box
+                WalletsC walletsC = new WalletsC();
+                WalletsC walletsC2 = new WalletsC();
+
+                walletsC.idUser = 5;         // powinienem sprawdzać, który użytkownik jest aktualnie zalogowany - dodać flagę w zakładce 
+                walletsC.idWalletC = 1;      // też sprzawdzam użytkonika a póżniej jego crytpo wallet
+                walletsC.idCrypto = crypto.idCrypto;
+                walletsC.quantity = walletQuantityTextBox.Text;
+                walletsC.sum = 0.ToString();
+                walletsC.idAlert = 1;        // bede pewnie z gui bral dla alertu wzrostoego 1 a dla malejacego 2
+
+                walletsC2 = connectDb.readWalletsC(walletsC.idUser, walletsC.idWalletC, walletsC.idCrypto);
+                if (walletsC2.idCrypto != 0)
+                {
+                    connectDb.updateWalletsC(walletsC);
+                }
+                else
+                {
+                    connectDb.saveWalletsC(walletsC);
+                }
+            }
+
+//            walletDataGridView.Columns.Clear();
+//            walletDataGridView.DataSource = viewWalletBindingSource;
+//            walletDataGridView.Update();
+//            walletDataGridView.Refresh();
         }
     }
 }

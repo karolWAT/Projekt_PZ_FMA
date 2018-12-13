@@ -113,7 +113,7 @@
             this.balanceLabel.AutoSize = true;
             this.balanceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.balanceLabel.ForeColor = System.Drawing.Color.Gold;
-            this.balanceLabel.Location = new System.Drawing.Point(617, 378);
+            this.balanceLabel.Location = new System.Drawing.Point(512, 393);
             this.balanceLabel.Name = "balanceLabel";
             this.balanceLabel.Size = new System.Drawing.Size(88, 18);
             this.balanceLabel.TabIndex = 1;
@@ -124,7 +124,7 @@
             this.balanceValueLabel.AutoSize = true;
             this.balanceValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.balanceValueLabel.ForeColor = System.Drawing.Color.Gold;
-            this.balanceValueLabel.Location = new System.Drawing.Point(711, 378);
+            this.balanceValueLabel.Location = new System.Drawing.Point(606, 393);
             this.balanceValueLabel.Name = "balanceValueLabel";
             this.balanceValueLabel.Size = new System.Drawing.Size(54, 18);
             this.balanceValueLabel.TabIndex = 2;
@@ -263,7 +263,7 @@
             this.cryptoDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.cryptoDataGridView.RowTemplate.DefaultCellStyle.Format = "N2";
             this.cryptoDataGridView.RowTemplate.DefaultCellStyle.NullValue = null;
-            this.cryptoDataGridView.Size = new System.Drawing.Size(361, 154);
+            this.cryptoDataGridView.Size = new System.Drawing.Size(361, 181);
             this.cryptoDataGridView.TabIndex = 11;
             this.cryptoDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.cryptoDataGridView_CellClick);
             // 
@@ -337,7 +337,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.ForeColor = System.Drawing.Color.Gold;
-            this.label2.Location = new System.Drawing.Point(512, 128);
+            this.label2.Location = new System.Drawing.Point(527, 128);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 18);
             this.label2.TabIndex = 12;
@@ -409,6 +409,7 @@
             this.AddToWalletBtn.TabIndex = 20;
             this.AddToWalletBtn.Text = "Add";
             this.AddToWalletBtn.UseVisualStyleBackColor = false;
+            this.AddToWalletBtn.Click += new System.EventHandler(this.AddToWalletBtn_Click);
             // 
             // RemoveFromWalletBtn
             // 
@@ -440,7 +441,7 @@
             this.walletDataGridView.Name = "walletDataGridView";
             this.walletDataGridView.ReadOnly = true;
             this.walletDataGridView.RowHeadersWidth = 24;
-            this.walletDataGridView.Size = new System.Drawing.Size(355, 112);
+            this.walletDataGridView.Size = new System.Drawing.Size(355, 139);
             this.walletDataGridView.TabIndex = 22;
             this.walletDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.walletDataGridView_CellClick);
             // 
@@ -618,7 +619,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Desktop;
-            this.ClientSize = new System.Drawing.Size(791, 405);
+            this.ClientSize = new System.Drawing.Size(815, 436);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.walletQuantityLabel);
             this.Controls.Add(this.walletPriceLabel);

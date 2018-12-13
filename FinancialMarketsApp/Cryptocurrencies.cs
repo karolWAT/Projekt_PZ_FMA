@@ -8,7 +8,7 @@ namespace FinancialMarketsApp
 {
     public class Cryptocurrencies
     {
-       // public int Id { get; set; }
+        public int idCrypto { get; set; }
 
         public string Name { get; set; }
 
