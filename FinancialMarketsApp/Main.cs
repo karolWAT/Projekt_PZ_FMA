@@ -160,9 +160,23 @@ namespace FinancialMarketsApp
                 if (walletsC2.idCrypto != 0)
                 {
                     connectDb.deleteWalletsC(walletsC);
+                    this.viewWalletTableAdapter.Fill(this.finMarketsAppDBDataSet1.ViewWallet);
+                    try
+                    {
+                        if (walletDataGridView.CurrentRow.Index != -1)
+                        {
+                            walletNameTextBox.Text = walletDataGridView.CurrentRow.Cells[0].Value.ToString();
+                            walletSymbolTextBox.Text = walletDataGridView.CurrentRow.Cells[1].Value.ToString();
+                            walletPriceTextBox.Text = walletDataGridView.CurrentRow.Cells[2].Value.ToString();
+                            walletQuantityTextBox.Text = walletDataGridView.CurrentRow.Cells[3].Value.ToString();
+                        }
+                    }
+                    catch (Exception)
+                    {
+                    }
                 }
 
-                this.viewWalletTableAdapter.Fill(this.finMarketsAppDBDataSet1.ViewWallet);
+                
             }
         }
     }
