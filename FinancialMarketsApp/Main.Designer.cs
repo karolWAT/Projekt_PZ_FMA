@@ -87,6 +87,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cryptocurrenciesTableAdapter = new FinancialMarketsApp.FinMarketsAppDBDataSetTableAdapters.CryptocurrenciesTableAdapter();
             this.viewWalletTableAdapter = new FinancialMarketsApp.FinMarketsAppDBDataSet1TableAdapters.ViewWalletTableAdapter();
+            this.refreshButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.cryptoDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cryptocurrenciesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.finMarketsAppDBDataSet)).BeginInit();
@@ -335,11 +336,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.ForeColor = System.Drawing.Color.Gold;
-            this.label2.Location = new System.Drawing.Point(527, 128);
+            this.label2.Location = new System.Drawing.Point(526, 128);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 18);
+            this.label2.Size = new System.Drawing.Size(79, 20);
             this.label2.TabIndex = 12;
             this.label2.Text = "WALLET";
             // 
@@ -353,12 +354,13 @@
             this.searchButton.BackColor = System.Drawing.Color.Gold;
             this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.searchButton.Location = new System.Drawing.Point(240, 155);
+            this.searchButton.Location = new System.Drawing.Point(250, 155);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(69, 24);
             this.searchButton.TabIndex = 15;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = false;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // contextMenuStrip2
             // 
@@ -373,8 +375,9 @@
             this.searchTextBox.Location = new System.Drawing.Point(47, 155);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.searchTextBox.Size = new System.Drawing.Size(187, 24);
+            this.searchTextBox.Size = new System.Drawing.Size(197, 24);
             this.searchTextBox.TabIndex = 17;
+            this.searchTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchTextBox_KeyDown);
             // 
             // currencyLabel
             // 
@@ -413,10 +416,10 @@
             // 
             // removeFromWalletBtn
             // 
-            this.removeFromWalletBtn.BackColor = System.Drawing.Color.LimeGreen;
+            this.removeFromWalletBtn.BackColor = System.Drawing.Color.Red;
             this.removeFromWalletBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.removeFromWalletBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.removeFromWalletBtn.Location = new System.Drawing.Point(529, 203);
+            this.removeFromWalletBtn.Location = new System.Drawing.Point(691, 203);
             this.removeFromWalletBtn.Name = "removeFromWalletBtn";
             this.removeFromWalletBtn.Size = new System.Drawing.Size(74, 24);
             this.removeFromWalletBtn.TabIndex = 21;
@@ -595,11 +598,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label3.ForeColor = System.Drawing.Color.Gold;
-            this.label3.Location = new System.Drawing.Point(61, 128);
+            this.label3.Location = new System.Drawing.Point(60, 128);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(224, 18);
+            this.label3.Size = new System.Drawing.Size(240, 20);
             this.label3.TabIndex = 32;
             this.label3.Text = "CRYPTOCURRENCIES LIST";
             // 
@@ -611,12 +614,26 @@
             // 
             this.viewWalletTableAdapter.ClearBeforeFill = true;
             // 
+            // refreshButton
+            // 
+            this.refreshButton.BackColor = System.Drawing.Color.LimeGreen;
+            this.refreshButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.refreshButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.refreshButton.Location = new System.Drawing.Point(530, 203);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(125, 24);
+            this.refreshButton.TabIndex = 33;
+            this.refreshButton.Text = "Refresh prices";
+            this.refreshButton.UseVisualStyleBackColor = false;
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Desktop;
             this.ClientSize = new System.Drawing.Size(815, 436);
+            this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.walletQuantityLabel);
             this.Controls.Add(this.walletPriceLabel);
@@ -711,5 +728,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sumDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button refreshButton;
     }
 }

@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using FinancialMarketsApp;
 
 namespace FinancialMarketsApp
 {
@@ -63,7 +65,37 @@ namespace FinancialMarketsApp
             return true;
         }
 
-        public bool saveWalletsC(WalletsC walletsC)
+        public List<Cryptocurrencies> search(string searchText)
+        {
+            List<Cryptocurrencies> listCrpyto = new List<Cryptocurrencies>();
+
+            string connectionString = @"Data Source=(localdb)\LocalDBKN;Initial Catalog=FinMarketsAppDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            SqlConnection connection = new SqlConnection(connectionString);
+            connection.Open();
+
+            string query = @"SELECT * FROM Cryptocurrencies WHERE symbol like " + "'%" + searchText.Trim() + "%'";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.ExecuteNonQuery();
+
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                Cryptocurrencies crypto = new Cryptocurrencies();
+                crypto.Name = reader["name"].ToString();
+                crypto.Symbol = reader["symbol"].ToString();
+                crypto.Price = reader["price"].ToString();
+                crypto.Change7d = reader["change7d"].ToString();
+                crypto.Change24h = reader["change24h"].ToString();
+                listCrpyto.Add(crypto);
+            }
+
+            connection.Close();
+
+            return listCrpyto;
+        }
+
+
+public bool saveWalletsC(WalletsC walletsC)
         {
             string connectionString = @"Data Source=(localdb)\LocalDBKN;Initial Catalog=FinMarketsAppDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             SqlConnection connection = new SqlConnection(connectionString);

@@ -179,5 +179,74 @@ namespace FinancialMarketsApp
                 
             }
         }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            search();
+        }
+
+        private void searchTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                search();
+            }
+        }
+
+
+        private void search()
+        {
+            string searchText = searchTextBox.Text;
+
+            if (searchText != "")
+            {
+                ConnectDB connectDb = new ConnectDB();
+
+                List<Cryptocurrencies> listCrpyto = new List<Cryptocurrencies>();
+                listCrpyto = connectDb.search(searchText);
+
+                cryptoDataGridView.Columns.Clear();
+                cryptoDataGridView.DataSource = null;
+
+                cryptoDataGridView.Columns.Add("name", "name");
+                cryptoDataGridView.Columns.Add("symbol", "symbol");
+                cryptoDataGridView.Columns.Add("price", "price");
+                cryptoDataGridView.Columns.Add("change24h", "change24h");
+                cryptoDataGridView.Columns.Add("change7d", "change7d");
+                cryptoDataGridView.Columns[0].Width = 79;
+                cryptoDataGridView.Columns[1].Width = 42;
+                cryptoDataGridView.Columns[2].Width = 74;
+                cryptoDataGridView.Columns[3].Width = 65;
+                cryptoDataGridView.Columns[4].Width = 58;
+
+                int i = 0;
+                foreach (var row in listCrpyto)
+                {
+                    cryptoDataGridView.Rows.Add("", "", "", "", "");
+                    cryptoDataGridView.Rows[i].Cells[0].Value = row.Name;
+                    cryptoDataGridView.Rows[i].Cells[1].Value = row.Symbol;
+                    cryptoDataGridView.Rows[i].Cells[2].Value = row.Price;
+                    cryptoDataGridView.Rows[i].Cells[3].Value = row.Change24h;
+                    cryptoDataGridView.Rows[i].Cells[4].Value = row.Change7d;
+                    i++;
+                }
+            }
+            else
+            {
+                cryptoDataGridView.Columns.Clear();
+                cryptoDataGridView.DataSource = cryptocurrenciesBindingSource;
+                cryptoDataGridView.AutoGenerateColumns = true;
+                cryptoDataGridView.Columns[0].Width = 79;
+                cryptoDataGridView.Columns[1].Width = 42;
+                cryptoDataGridView.Columns[2].Width = 74;
+                cryptoDataGridView.Columns[3].Width = 65;
+                cryptoDataGridView.Columns[4].Width = 58;
+            }
+        }
+
+        private void refreshButton_Click(object sender, EventArgs e)
+        {
+            this.viewWalletTableAdapter.Fill(this.finMarketsAppDBDataSet1.ViewWallet);
+        }
     }
 }
