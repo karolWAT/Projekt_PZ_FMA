@@ -88,12 +88,14 @@
             this.cryptocurrenciesTableAdapter = new FinancialMarketsApp.FinMarketsAppDBDataSetTableAdapters.CryptocurrenciesTableAdapter();
             this.viewWalletTableAdapter = new FinancialMarketsApp.FinMarketsAppDBDataSet1TableAdapters.ViewWalletTableAdapter();
             this.refreshButton = new System.Windows.Forms.Button();
+            this.finMarketsAppDBDataSet2 = new FinancialMarketsApp.FinMarketsAppDBDataSet();
             ((System.ComponentModel.ISupportInitialize)(this.cryptoDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cryptocurrenciesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.finMarketsAppDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.walletDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewWalletBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.finMarketsAppDBDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.finMarketsAppDBDataSet2)).BeginInit();
             this.SuspendLayout();
             // 
             // logOutButton
@@ -627,6 +629,11 @@
             this.refreshButton.UseVisualStyleBackColor = false;
             this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
+            // finMarketsAppDBDataSet2
+            // 
+            this.finMarketsAppDBDataSet2.DataSetName = "FinMarketsAppDBDataSet";
+            this.finMarketsAppDBDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -674,6 +681,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.walletDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewWalletBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.finMarketsAppDBDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.finMarketsAppDBDataSet2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -729,5 +737,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sumDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button refreshButton;
+        private FinMarketsAppDBDataSet finMarketsAppDBDataSet2;
     }
 }

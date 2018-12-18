@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlTypes;
 using System.Drawing;
 using System.Linq;
 using System.Net.Http;
@@ -117,8 +118,7 @@ namespace FinancialMarketsApp
                 WalletsC walletsC = new WalletsC();
                 WalletsC walletsC2 = new WalletsC();
 
-                walletsC.idUser =
-                    5; // powinienem sprawdzać, który użytkownik jest aktualnie zalogowany - dodać flagę w zakładce 
+                walletsC.idUser = 5; // powinienem sprawdzać, który użytkownik jest aktualnie zalogowany - dodać flagę w zakładce 
                 walletsC.idWalletC = 1; // też sprzawdzam użytkonika a póżniej jego crytpo wallet
                 walletsC.idCrypto = crypto.idCrypto;
                 walletsC.quantity = walletQuantityTextBox.Text;
@@ -141,42 +141,45 @@ namespace FinancialMarketsApp
 
         private void RemoveFromWalletBtn_Click(object sender, EventArgs e)
         {
-            Cryptocurrencies crypto = new Cryptocurrencies();
-            ConnectDB connectDb = new ConnectDB();
-            if (walletSymbolTextBox.Text != "" & walletNameTextBox.Text != "")
+            if (MessageBox.Show("Do you want remove this cryptocurrency from your wallet?", "Warning",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                crypto = connectDb.Read(walletSymbolTextBox.Text); // to get crypto id from symbol Text Box
-                WalletsC walletsC = new WalletsC();
-                WalletsC walletsC2 = new WalletsC();
-
-                walletsC.idUser = 5; // powinienem sprawdzać, który użytkownik jest aktualnie zalogowany - dodać flagę w zakładce 
-                walletsC.idWalletC = 1; // też sprzawdzam użytkonika a póżniej jego crytpo wallet
-                walletsC.idCrypto = crypto.idCrypto;
-                walletsC.quantity = walletQuantityTextBox.Text;
-                walletsC.sum = 0.ToString();
-                walletsC.idAlert = 1; // bede pewnie z gui bral dla alertu wzrostoego 1 a dla malejacego 2
-
-                walletsC2 = connectDb.readWalletsC(walletsC.idUser, walletsC.idWalletC, walletsC.idCrypto);
-                if (walletsC2.idCrypto != 0)
+                Cryptocurrencies crypto = new Cryptocurrencies();
+                ConnectDB connectDb = new ConnectDB();
+                if (walletSymbolTextBox.Text != "" & walletNameTextBox.Text != "")
                 {
-                    connectDb.deleteWalletsC(walletsC);
-                    this.viewWalletTableAdapter.Fill(this.finMarketsAppDBDataSet1.ViewWallet);
-                    try
+                    crypto = connectDb.Read(walletSymbolTextBox.Text); // to get crypto id from symbol Text Box
+                    WalletsC walletsC = new WalletsC();
+                    WalletsC walletsC2 = new WalletsC();
+
+                    walletsC.idUser =
+                        5; // powinienem sprawdzać, który użytkownik jest aktualnie zalogowany - dodać flagę w zakładce 
+                    walletsC.idWalletC = 1; // też sprzawdzam użytkonika a póżniej jego crytpo wallet
+                    walletsC.idCrypto = crypto.idCrypto;
+                    walletsC.quantity = walletQuantityTextBox.Text;
+                    walletsC.sum = 0.ToString();
+                    walletsC.idAlert = 1; // bede pewnie z gui bral dla alertu wzrostoego 1 a dla malejacego 2
+
+                    walletsC2 = connectDb.readWalletsC(walletsC.idUser, walletsC.idWalletC, walletsC.idCrypto);
+                    if (walletsC2.idCrypto != 0)
                     {
-                        if (walletDataGridView.CurrentRow.Index != -1)
+                        connectDb.deleteWalletsC(walletsC);
+                        this.viewWalletTableAdapter.Fill(this.finMarketsAppDBDataSet1.ViewWallet);
+                        try
                         {
-                            walletNameTextBox.Text = walletDataGridView.CurrentRow.Cells[0].Value.ToString();
-                            walletSymbolTextBox.Text = walletDataGridView.CurrentRow.Cells[1].Value.ToString();
-                            walletPriceTextBox.Text = walletDataGridView.CurrentRow.Cells[2].Value.ToString();
-                            walletQuantityTextBox.Text = walletDataGridView.CurrentRow.Cells[3].Value.ToString();
+                            if (walletDataGridView.CurrentRow.Index != -1)
+                            {
+                                walletNameTextBox.Text = walletDataGridView.CurrentRow.Cells[0].Value.ToString();
+                                walletSymbolTextBox.Text = walletDataGridView.CurrentRow.Cells[1].Value.ToString();
+                                walletPriceTextBox.Text = walletDataGridView.CurrentRow.Cells[2].Value.ToString();
+                                walletQuantityTextBox.Text = walletDataGridView.CurrentRow.Cells[3].Value.ToString();
+                            }
+                        }
+                        catch (Exception)
+                        {
                         }
                     }
-                    catch (Exception)
-                    {
-                    }
                 }
-
-                
             }
         }
 
@@ -225,9 +228,9 @@ namespace FinancialMarketsApp
                     cryptoDataGridView.Rows.Add("", "", "", "", "");
                     cryptoDataGridView.Rows[i].Cells[0].Value = row.Name;
                     cryptoDataGridView.Rows[i].Cells[1].Value = row.Symbol;
-                    cryptoDataGridView.Rows[i].Cells[2].Value = row.Price;
-                    cryptoDataGridView.Rows[i].Cells[3].Value = row.Change24h;
-                    cryptoDataGridView.Rows[i].Cells[4].Value = row.Change7d;
+                    cryptoDataGridView.Rows[i].Cells[2].Value = Convert.ToDecimal(row.Price);
+                    cryptoDataGridView.Rows[i].Cells[3].Value = Convert.ToDecimal(row.Change24h);
+                    cryptoDataGridView.Rows[i].Cells[4].Value = Convert.ToDecimal(row.Change7d);
                     i++;
                 }
             }
@@ -235,6 +238,10 @@ namespace FinancialMarketsApp
             {
                 cryptoDataGridView.Columns.Clear();
                 cryptoDataGridView.DataSource = cryptocurrenciesBindingSource;
+//                this.cryptocurrenciesTableAdapter.Fill(this.finMarketsAppDBDataSet.Cryptocurrencies);
+//                cryptoDataGridView.Refresh();
+
+
                 cryptoDataGridView.AutoGenerateColumns = true;
                 cryptoDataGridView.Columns[0].Width = 79;
                 cryptoDataGridView.Columns[1].Width = 42;

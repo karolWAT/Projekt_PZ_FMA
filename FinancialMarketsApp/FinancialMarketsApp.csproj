@@ -51,6 +51,9 @@
   <ItemGroup>
     <Compile Include="ConnectDB.cs" />
     <Compile Include="Cryptocurrencies.cs" />
+    <Compile Include="FinMarketsAppDBDataSet.cs">
+      <DependentUpon>FinMarketsAppDBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FinMarketsAppDBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
