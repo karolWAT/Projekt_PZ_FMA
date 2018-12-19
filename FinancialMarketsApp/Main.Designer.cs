@@ -49,8 +49,8 @@
             this.progrssBarlabel = new System.Windows.Forms.Label();
             this.cryptoApiLabel = new System.Windows.Forms.Label();
             this.nbpApiLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.progrssBarNbplabel = new System.Windows.Forms.Label();
+            this.apiNbpProgressBar = new System.Windows.Forms.ProgressBar();
             this.cryptoDataGridView = new System.Windows.Forms.DataGridView();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.symbolDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -202,26 +202,26 @@
             this.nbpApiLabel.TabIndex = 8;
             this.nbpApiLabel.Text = "NBP API";
             // 
-            // label1
+            // progrssBarNbplabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.ForeColor = System.Drawing.Color.Gold;
-            this.label1.Location = new System.Drawing.Point(337, 82);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(30, 17);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "0%";
+            this.progrssBarNbplabel.AutoSize = true;
+            this.progrssBarNbplabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.progrssBarNbplabel.ForeColor = System.Drawing.Color.Gold;
+            this.progrssBarNbplabel.Location = new System.Drawing.Point(337, 82);
+            this.progrssBarNbplabel.Name = "progrssBarNbplabel";
+            this.progrssBarNbplabel.Size = new System.Drawing.Size(30, 17);
+            this.progrssBarNbplabel.TabIndex = 10;
+            this.progrssBarNbplabel.Text = "0%";
             // 
-            // progressBar1
+            // apiNbpProgressBar
             // 
-            this.progressBar1.ForeColor = System.Drawing.Color.Gold;
-            this.progressBar1.Location = new System.Drawing.Point(211, 85);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(120, 14);
-            this.progressBar1.Step = 1;
-            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.progressBar1.TabIndex = 9;
+            this.apiNbpProgressBar.ForeColor = System.Drawing.Color.Gold;
+            this.apiNbpProgressBar.Location = new System.Drawing.Point(211, 85);
+            this.apiNbpProgressBar.Name = "apiNbpProgressBar";
+            this.apiNbpProgressBar.Size = new System.Drawing.Size(120, 14);
+            this.apiNbpProgressBar.Step = 1;
+            this.apiNbpProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.apiNbpProgressBar.TabIndex = 9;
             // 
             // cryptoDataGridView
             // 
@@ -659,8 +659,8 @@
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cryptoDataGridView);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.progrssBarNbplabel);
+            this.Controls.Add(this.apiNbpProgressBar);
             this.Controls.Add(this.nbpApiLabel);
             this.Controls.Add(this.cryptoApiLabel);
             this.Controls.Add(this.progrssBarlabel);
@@ -698,8 +698,8 @@
         private System.Windows.Forms.Label progrssBarlabel;
         private System.Windows.Forms.Label cryptoApiLabel;
         private System.Windows.Forms.Label nbpApiLabel;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label progrssBarNbplabel;
+        private System.Windows.Forms.ProgressBar apiNbpProgressBar;
         private System.Windows.Forms.DataGridView cryptoDataGridView;
         private FinMarketsAppDBDataSet finMarketsAppDBDataSet;
         private System.Windows.Forms.BindingSource cryptocurrenciesBindingSource;

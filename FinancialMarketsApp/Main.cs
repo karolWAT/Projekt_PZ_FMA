@@ -62,7 +62,20 @@ namespace FinancialMarketsApp
             string responseNBPtabA = client2.GetStringAsync(urlNBPtabA).Result;
             // string responseNBPtabB = client2.GetStringAsync(urlNBPtabB).Result;
             string responseNBPgold = client2.GetStringAsync(urlNBPgold).Result; // cena 1g złota
+            int k = 0;
+            progrssBarNbplabel.Text = k + "%";
+            apiNbpProgressBar.Increment(-100);
+
+            for (int i = 0; i < 100; i++)
+            {
+                apiNbpProgressBar.Increment(1);
+                k = i + 1;
+                progrssBarNbplabel.Text = k + "%";
+            }
+
             MessageBox.Show(responseNBPtabA + "\n\n" + responseNBPgold);
+
+
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -110,6 +123,7 @@ namespace FinancialMarketsApp
 
         private void AddToWalletBtn_Click(object sender, EventArgs e)
         {
+
             Cryptocurrencies crypto = new Cryptocurrencies();
             ConnectDB connectDb = new ConnectDB();
             if (walletSymbolTextBox.Text != "" & walletNameTextBox.Text != "")
@@ -121,8 +135,10 @@ namespace FinancialMarketsApp
                 walletsC.idUser = 5; // powinienem sprawdzać, który użytkownik jest aktualnie zalogowany - dodać flagę w zakładce 
                 walletsC.idWalletC = 1; // też sprzawdzam użytkonika a póżniej jego crytpo wallet
                 walletsC.idCrypto = crypto.idCrypto;
+                walletsC.price = crypto.Price;
                 walletsC.quantity = walletQuantityTextBox.Text;
-                walletsC.sum = 0.ToString();
+                float tempSum = Convert.ToSingle(walletsC.price)*Convert.ToSingle(walletsC.quantity);
+                walletsC.sum = tempSum.ToString();
                 walletsC.idAlert = 1; // bede pewnie z gui bral dla alertu wzrostoego 1 a dla malejacego 2
 
                 walletsC2 = connectDb.readWalletsC(walletsC.idUser, walletsC.idWalletC, walletsC.idCrypto);
@@ -141,19 +157,19 @@ namespace FinancialMarketsApp
 
         private void RemoveFromWalletBtn_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Do you want remove this cryptocurrency from your wallet?", "Warning",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+
+            if (walletSymbolTextBox.Text != "" & walletNameTextBox.Text != "")
             {
-                Cryptocurrencies crypto = new Cryptocurrencies();
-                ConnectDB connectDb = new ConnectDB();
-                if (walletSymbolTextBox.Text != "" & walletNameTextBox.Text != "")
+                if (MessageBox.Show("Do you want remove this asset from your wallet?", "Warning",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
+                    Cryptocurrencies crypto = new Cryptocurrencies();
+                    ConnectDB connectDb = new ConnectDB();
                     crypto = connectDb.Read(walletSymbolTextBox.Text); // to get crypto id from symbol Text Box
                     WalletsC walletsC = new WalletsC();
                     WalletsC walletsC2 = new WalletsC();
 
-                    walletsC.idUser =
-                        5; // powinienem sprawdzać, który użytkownik jest aktualnie zalogowany - dodać flagę w zakładce 
+                    walletsC.idUser = 5; // powinienem sprawdzać, który użytkownik jest aktualnie zalogowany - dodać flagę w zakładce 
                     walletsC.idWalletC = 1; // też sprzawdzam użytkonika a póżniej jego crytpo wallet
                     walletsC.idCrypto = crypto.idCrypto;
                     walletsC.quantity = walletQuantityTextBox.Text;
@@ -179,8 +195,10 @@ namespace FinancialMarketsApp
                         {
                         }
                     }
+                    else MessageBox.Show("You do not have this asset in your wallet","Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
+            else MessageBox.Show("Select asset to remowe","Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void searchButton_Click(object sender, EventArgs e)
