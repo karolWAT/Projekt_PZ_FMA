@@ -65,6 +65,7 @@
       <DependentUpon>FinMarketsAppDBDataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="GetAPI.cs" />
+    <Compile Include="Users.cs" />
     <Compile Include="WalletsC.cs" />
     <Compile Include="Welcome.cs">
       <SubType>Form</SubType>

@@ -95,7 +95,7 @@ namespace FinancialMarketsApp
         }
 
 
-public bool saveWalletsC(WalletsC walletsC)
+        public bool saveWalletsC(WalletsC walletsC)
         {
             string connectionString = @"Data Source=(localdb)\LocalDBKN;Initial Catalog=FinMarketsAppDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             SqlConnection connection = new SqlConnection(connectionString);
@@ -162,6 +162,28 @@ public bool saveWalletsC(WalletsC walletsC)
 
             connection.Close();
             return true;
+        }
+
+        public Users checkLoggedUser()
+        {
+            Users user = new Users();
+
+            string connectionString = @"Data Source=(localdb)\LocalDBKN;Initial Catalog=FinMarketsAppDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            SqlConnection connection = new SqlConnection(connectionString);
+
+            connection.Open();
+            String query = @"SELECT idUsers,login FROM Users WHERE isLogged = " + 1 + "";
+            SqlCommand command2 = new SqlCommand(query, connection);
+
+            SqlDataReader reader2 = command2.ExecuteReader();
+            while (reader2.Read())
+            {
+                user.idUsers = Convert.ToInt32(reader2["idUsers"]);
+                user.login = reader2["login"].ToString();
+            }
+            connection.Close();
+            
+            return user;
         }
 
     }

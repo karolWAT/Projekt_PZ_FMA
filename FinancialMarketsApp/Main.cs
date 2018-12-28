@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Drawing;
 using System.Linq;
@@ -18,12 +19,26 @@ namespace FinancialMarketsApp
         public Main()
         {
             InitializeComponent();
+
+
         }
 
         private void logOutButton_Click(object sender, EventArgs e)
         {
             this.Hide();
             Welcome welcome = new Welcome();
+            Users user = new Users();
+
+            ConnectDB connectDb = new ConnectDB();
+            user = connectDb.checkLoggedUser(); 
+            string connectionString = @"Data Source = (localdb)\LocalDBKN; Initial Catalog = FinMarketsAppDB; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False";
+            SqlConnection connection = new SqlConnection(connectionString);
+            connection.Open();
+            String query3 = @"UPDATE Users SET isLogged = " + 0 + " WHERE idUsers = " + user.idUsers + "";
+            SqlCommand command3 = new SqlCommand(query3, connection);
+            command3.ExecuteNonQuery();
+            connection.Close();
+            
             welcome.Show();
         }
 
@@ -50,7 +65,7 @@ namespace FinancialMarketsApp
                 j = i + 1;
                 progrssBarlabel.Text = j + "%";
             }
-
+            MessageBox.Show("Updated");
         }
 
         private void apiNbpButton_Click(object sender, EventArgs e)
@@ -101,7 +116,6 @@ namespace FinancialMarketsApp
                 walletSymbolTextBox.BackColor = searchTextBox.BackColor;
                 walletPriceTextBox.BackColor = searchTextBox.BackColor;
                 walletQuantityTextBox.BackColor = searchTextBox.BackColor;
-                ;
             }
 
         }

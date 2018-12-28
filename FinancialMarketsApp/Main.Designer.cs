@@ -89,6 +89,12 @@
             this.viewWalletTableAdapter = new FinancialMarketsApp.FinMarketsAppDBDataSet1TableAdapters.ViewWalletTableAdapter();
             this.refreshButton = new System.Windows.Forms.Button();
             this.finMarketsAppDBDataSet2 = new FinancialMarketsApp.FinMarketsAppDBDataSet();
+            this.darkWhiteButton = new System.Windows.Forms.Button();
+            this.plEngButton = new System.Windows.Forms.Button();
+            this.adminLabel = new System.Windows.Forms.Label();
+            this.adminSymbolLabel = new System.Windows.Forms.Label();
+            this.adminSymbolTextBox = new System.Windows.Forms.TextBox();
+            this.removeFromDBButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.cryptoDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cryptocurrenciesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.finMarketsAppDBDataSet)).BeginInit();
@@ -103,7 +109,7 @@
             this.logOutButton.BackColor = System.Drawing.Color.Gold;
             this.logOutButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.logOutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.logOutButton.Location = new System.Drawing.Point(704, 5);
+            this.logOutButton.Location = new System.Drawing.Point(729, 10);
             this.logOutButton.Name = "logOutButton";
             this.logOutButton.Size = new System.Drawing.Size(74, 26);
             this.logOutButton.TabIndex = 0;
@@ -231,7 +237,7 @@
             dataGridViewCellStyle1.NullValue = null;
             this.cryptoDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.cryptoDataGridView.AutoGenerateColumns = false;
-            this.cryptoDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.cryptoDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.cryptoDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.cryptoDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -435,6 +441,7 @@
             this.walletDataGridView.AllowUserToDeleteRows = false;
             this.walletDataGridView.AllowUserToResizeRows = false;
             this.walletDataGridView.AutoGenerateColumns = false;
+            this.walletDataGridView.BackgroundColor = System.Drawing.Color.LimeGreen;
             dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -634,12 +641,91 @@
             this.finMarketsAppDBDataSet2.DataSetName = "FinMarketsAppDBDataSet";
             this.finMarketsAppDBDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // darkWhiteButton
+            // 
+            this.darkWhiteButton.BackColor = System.Drawing.Color.Gold;
+            this.darkWhiteButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.darkWhiteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.darkWhiteButton.Location = new System.Drawing.Point(617, 10);
+            this.darkWhiteButton.Name = "darkWhiteButton";
+            this.darkWhiteButton.Size = new System.Drawing.Size(106, 26);
+            this.darkWhiteButton.TabIndex = 34;
+            this.darkWhiteButton.Text = "Dark / White";
+            this.darkWhiteButton.UseVisualStyleBackColor = false;
+            // 
+            // plEngButton
+            // 
+            this.plEngButton.BackColor = System.Drawing.Color.Gold;
+            this.plEngButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.plEngButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.plEngButton.Location = new System.Drawing.Point(527, 10);
+            this.plEngButton.Name = "plEngButton";
+            this.plEngButton.Size = new System.Drawing.Size(84, 26);
+            this.plEngButton.TabIndex = 35;
+            this.plEngButton.Text = "PL / ENG";
+            this.plEngButton.UseVisualStyleBackColor = false;
+            // 
+            // adminLabel
+            // 
+            this.adminLabel.AutoSize = true;
+            this.adminLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.adminLabel.ForeColor = System.Drawing.Color.Gold;
+            this.adminLabel.Location = new System.Drawing.Point(12, 409);
+            this.adminLabel.Name = "adminLabel";
+            this.adminLabel.Size = new System.Drawing.Size(141, 20);
+            this.adminLabel.TabIndex = 36;
+            this.adminLabel.Text = "ADMIN OPTION:";
+            this.adminLabel.Visible = false;
+            // 
+            // adminSymbolLabel
+            // 
+            this.adminSymbolLabel.AutoSize = true;
+            this.adminSymbolLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.adminSymbolLabel.ForeColor = System.Drawing.Color.Gold;
+            this.adminSymbolLabel.Location = new System.Drawing.Point(180, 394);
+            this.adminSymbolLabel.Name = "adminSymbolLabel";
+            this.adminSymbolLabel.Size = new System.Drawing.Size(45, 13);
+            this.adminSymbolLabel.TabIndex = 38;
+            this.adminSymbolLabel.Text = "symbol";
+            this.adminSymbolLabel.Visible = false;
+            // 
+            // adminSymbolTextBox
+            // 
+            this.adminSymbolTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.adminSymbolTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.adminSymbolTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.adminSymbolTextBox.Location = new System.Drawing.Point(168, 410);
+            this.adminSymbolTextBox.Name = "adminSymbolTextBox";
+            this.adminSymbolTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.adminSymbolTextBox.Size = new System.Drawing.Size(76, 23);
+            this.adminSymbolTextBox.TabIndex = 37;
+            this.adminSymbolTextBox.Visible = false;
+            // 
+            // removeFromDBButton
+            // 
+            this.removeFromDBButton.BackColor = System.Drawing.Color.Red;
+            this.removeFromDBButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.removeFromDBButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.removeFromDBButton.Location = new System.Drawing.Point(257, 410);
+            this.removeFromDBButton.Name = "removeFromDBButton";
+            this.removeFromDBButton.Size = new System.Drawing.Size(74, 24);
+            this.removeFromDBButton.TabIndex = 39;
+            this.removeFromDBButton.Text = "Remove";
+            this.removeFromDBButton.UseVisualStyleBackColor = false;
+            this.removeFromDBButton.Visible = false;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Desktop;
-            this.ClientSize = new System.Drawing.Size(815, 436);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.ClientSize = new System.Drawing.Size(815, 457);
+            this.Controls.Add(this.removeFromDBButton);
+            this.Controls.Add(this.adminSymbolLabel);
+            this.Controls.Add(this.adminSymbolTextBox);
+            this.Controls.Add(this.adminLabel);
+            this.Controls.Add(this.plEngButton);
+            this.Controls.Add(this.darkWhiteButton);
             this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.walletQuantityLabel);
@@ -738,5 +824,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn sumDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button refreshButton;
         private FinMarketsAppDBDataSet finMarketsAppDBDataSet2;
+        private System.Windows.Forms.Button darkWhiteButton;
+        private System.Windows.Forms.Button plEngButton;
+        private System.Windows.Forms.Label adminLabel;
+        private System.Windows.Forms.Label adminSymbolLabel;
+        private System.Windows.Forms.TextBox adminSymbolTextBox;
+        private System.Windows.Forms.Button removeFromDBButton;
     }
 }
