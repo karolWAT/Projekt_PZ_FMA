@@ -101,7 +101,7 @@ public bool saveWalletsC(WalletsC walletsC)
             SqlConnection connection = new SqlConnection(connectionString);
             connection.Open();
 
-            string query = @"INSERT INTO WalletsC VALUES (" + walletsC.idUser + "," + walletsC.idWalletC + "," + walletsC.idCrypto + "," + walletsC.quantity + "," + "'"+walletsC.sum+"'" + "," + walletsC.idAlert + ")";
+            string query = @"INSERT INTO WalletsC VALUES (" + walletsC.idUser + "," + walletsC.idWalletC + "," + walletsC.idCrypto + "," + "'"+walletsC.quantity+"'" + "," + "'"+walletsC.sum+"'" + "," + walletsC.idAlert + ")";
             SqlCommand command = new SqlCommand(query, connection);
             command.ExecuteNonQuery();
 
@@ -115,7 +115,7 @@ public bool saveWalletsC(WalletsC walletsC)
             SqlConnection connection = new SqlConnection(connectionString);
             connection.Open();
 
-            string query = @"UPDATE WalletsC SET idUser = " + walletsC.idUser + ",idWalletC=" + walletsC.idWalletC + ",idCrypto=" + walletsC.idCrypto + ",quantity=" + walletsC.quantity + ",sum=" + "'"+walletsC.sum+"'" + ",idAlert=" + walletsC.idAlert + " WHERE idCrypto = " + walletsC.idCrypto + "";
+            string query = @"UPDATE WalletsC SET idUser = " + walletsC.idUser + ",idWalletC=" + walletsC.idWalletC + ",idCrypto=" + walletsC.idCrypto + ",quantity=" + "'"+walletsC.quantity+"'" + ",sum=" + "'"+walletsC.sum+"'" + ",idAlert=" + walletsC.idAlert + " WHERE idCrypto = " + walletsC.idCrypto + "";
             //MessageBox.Show(query);
             SqlCommand command = new SqlCommand(query, connection);
             command.ExecuteNonQuery();
