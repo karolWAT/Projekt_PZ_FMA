@@ -164,6 +164,21 @@ namespace FinancialMarketsApp
             return true;
         }
 
+        public bool deleteFromDB(Cryptocurrencies crypto)
+        {
+            string connectionString = @"Data Source=(localdb)\LocalDBKN;Initial Catalog=FinMarketsAppDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            SqlConnection connection = new SqlConnection(connectionString);
+            connection.Open();
+
+            string query = @"DELETE FROM Cryptocurrencies WHERE symbol = " + crypto.Symbol + "";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.ExecuteNonQuery();
+
+            connection.Close();
+            return true;
+        }
+
+
         public Users checkLoggedUser()
         {
             Users user = new Users();
@@ -172,7 +187,7 @@ namespace FinancialMarketsApp
             SqlConnection connection = new SqlConnection(connectionString);
 
             connection.Open();
-            String query = @"SELECT idUsers,login FROM Users WHERE isLogged = " + 1 + "";
+            String query = @"SELECT idUsers,login,isAdmin FROM Users WHERE isLogged = " + 1 + "";
             SqlCommand command2 = new SqlCommand(query, connection);
 
             SqlDataReader reader2 = command2.ExecuteReader();
@@ -180,6 +195,7 @@ namespace FinancialMarketsApp
             {
                 user.idUsers = Convert.ToInt32(reader2["idUsers"]);
                 user.login = reader2["login"].ToString();
+                user.isAdmin = Convert.ToInt32(reader2["isAdmin"]);
             }
             connection.Close();
             

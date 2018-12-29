@@ -20,7 +20,18 @@ namespace FinancialMarketsApp
         {
             InitializeComponent();
 
+            Users user = new Users();
+            ConnectDB connectDb = new ConnectDB();
+            user = connectDb.checkLoggedUser();
+            userNameLabel.Text = user.login;
 
+            if (user.isAdmin == 1)
+            {
+                adminLabel.Visible = true;
+                adminSymbolLabel.Visible = true;
+                adminSymbolTextBox.Visible = true;
+                removeFromDBButton.Visible = true;
+            }
         }
 
         private void logOutButton_Click(object sender, EventArgs e)
@@ -90,7 +101,6 @@ namespace FinancialMarketsApp
 
             MessageBox.Show(responseNBPtabA + "\n\n" + responseNBPgold);
 
-
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -111,11 +121,14 @@ namespace FinancialMarketsApp
                 walletSymbolTextBox.Text = cryptoDataGridView.CurrentRow.Cells[1].Value.ToString();
                 walletPriceTextBox.Text = cryptoDataGridView.CurrentRow.Cells[2].Value.ToString();
                 walletQuantityTextBox.Text = "0";
-
+                
                 walletNameTextBox.BackColor = searchTextBox.BackColor;
                 walletSymbolTextBox.BackColor = searchTextBox.BackColor;
                 walletPriceTextBox.BackColor = searchTextBox.BackColor;
                 walletQuantityTextBox.BackColor = searchTextBox.BackColor;
+
+                // ADMIN OPTION
+                adminSymbolTextBox.Text = cryptoDataGridView.CurrentRow.Cells[1].Value.ToString();
             }
 
         }
@@ -286,6 +299,14 @@ namespace FinancialMarketsApp
         private void refreshButton_Click(object sender, EventArgs e)
         {
             this.viewWalletTableAdapter.Fill(this.finMarketsAppDBDataSet1.ViewWallet);
+        }
+
+        private void removeFromDBButton_Click(object sender, EventArgs e)
+        {
+            Cryptocurrencies crypto = new Cryptocurrencies();
+            crypto.Symbol = "'" + adminSymbolTextBox.Text + "'";
+            ConnectDB connectDb = new ConnectDB();
+            connectDb.deleteFromDB(crypto);
         }
     }
 }

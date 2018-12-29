@@ -95,6 +95,7 @@
             this.adminSymbolLabel = new System.Windows.Forms.Label();
             this.adminSymbolTextBox = new System.Windows.Forms.TextBox();
             this.removeFromDBButton = new System.Windows.Forms.Button();
+            this.userNameLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.cryptoDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cryptocurrenciesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.finMarketsAppDBDataSet)).BeginInit();
@@ -122,7 +123,7 @@
             this.balanceLabel.AutoSize = true;
             this.balanceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.balanceLabel.ForeColor = System.Drawing.Color.Gold;
-            this.balanceLabel.Location = new System.Drawing.Point(512, 393);
+            this.balanceLabel.Location = new System.Drawing.Point(512, 425);
             this.balanceLabel.Name = "balanceLabel";
             this.balanceLabel.Size = new System.Drawing.Size(88, 18);
             this.balanceLabel.TabIndex = 1;
@@ -133,7 +134,7 @@
             this.balanceValueLabel.AutoSize = true;
             this.balanceValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.balanceValueLabel.ForeColor = System.Drawing.Color.Gold;
-            this.balanceValueLabel.Location = new System.Drawing.Point(606, 393);
+            this.balanceValueLabel.Location = new System.Drawing.Point(606, 425);
             this.balanceValueLabel.Name = "balanceValueLabel";
             this.balanceValueLabel.Size = new System.Drawing.Size(54, 18);
             this.balanceValueLabel.TabIndex = 2;
@@ -144,7 +145,7 @@
             this.apiButton.BackColor = System.Drawing.Color.Gold;
             this.apiButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.apiButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.apiButton.Location = new System.Drawing.Point(29, 50);
+            this.apiButton.Location = new System.Drawing.Point(16, 65);
             this.apiButton.Name = "apiButton";
             this.apiButton.Size = new System.Drawing.Size(74, 24);
             this.apiButton.TabIndex = 3;
@@ -157,7 +158,7 @@
             this.apiNbpButton.BackColor = System.Drawing.Color.Gold;
             this.apiNbpButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.apiNbpButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.apiNbpButton.Location = new System.Drawing.Point(211, 50);
+            this.apiNbpButton.Location = new System.Drawing.Point(198, 65);
             this.apiNbpButton.Name = "apiNbpButton";
             this.apiNbpButton.Size = new System.Drawing.Size(74, 24);
             this.apiNbpButton.TabIndex = 4;
@@ -168,7 +169,7 @@
             // apiProgressBar
             // 
             this.apiProgressBar.ForeColor = System.Drawing.Color.Gold;
-            this.apiProgressBar.Location = new System.Drawing.Point(29, 85);
+            this.apiProgressBar.Location = new System.Drawing.Point(16, 100);
             this.apiProgressBar.Name = "apiProgressBar";
             this.apiProgressBar.Size = new System.Drawing.Size(120, 14);
             this.apiProgressBar.Step = 1;
@@ -180,7 +181,7 @@
             this.progrssBarlabel.AutoSize = true;
             this.progrssBarlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.progrssBarlabel.ForeColor = System.Drawing.Color.Gold;
-            this.progrssBarlabel.Location = new System.Drawing.Point(155, 82);
+            this.progrssBarlabel.Location = new System.Drawing.Point(142, 97);
             this.progrssBarlabel.Name = "progrssBarlabel";
             this.progrssBarlabel.Size = new System.Drawing.Size(30, 17);
             this.progrssBarlabel.TabIndex = 6;
@@ -191,7 +192,7 @@
             this.cryptoApiLabel.AutoSize = true;
             this.cryptoApiLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cryptoApiLabel.ForeColor = System.Drawing.Color.Gold;
-            this.cryptoApiLabel.Location = new System.Drawing.Point(26, 13);
+            this.cryptoApiLabel.Location = new System.Drawing.Point(13, 28);
             this.cryptoApiLabel.Name = "cryptoApiLabel";
             this.cryptoApiLabel.Size = new System.Drawing.Size(76, 18);
             this.cryptoApiLabel.TabIndex = 7;
@@ -202,7 +203,7 @@
             this.nbpApiLabel.AutoSize = true;
             this.nbpApiLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.nbpApiLabel.ForeColor = System.Drawing.Color.Gold;
-            this.nbpApiLabel.Location = new System.Drawing.Point(208, 13);
+            this.nbpApiLabel.Location = new System.Drawing.Point(195, 28);
             this.nbpApiLabel.Name = "nbpApiLabel";
             this.nbpApiLabel.Size = new System.Drawing.Size(72, 18);
             this.nbpApiLabel.TabIndex = 8;
@@ -213,7 +214,7 @@
             this.progrssBarNbplabel.AutoSize = true;
             this.progrssBarNbplabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.progrssBarNbplabel.ForeColor = System.Drawing.Color.Gold;
-            this.progrssBarNbplabel.Location = new System.Drawing.Point(337, 82);
+            this.progrssBarNbplabel.Location = new System.Drawing.Point(324, 97);
             this.progrssBarNbplabel.Name = "progrssBarNbplabel";
             this.progrssBarNbplabel.Size = new System.Drawing.Size(30, 17);
             this.progrssBarNbplabel.TabIndex = 10;
@@ -222,7 +223,7 @@
             // apiNbpProgressBar
             // 
             this.apiNbpProgressBar.ForeColor = System.Drawing.Color.Gold;
-            this.apiNbpProgressBar.Location = new System.Drawing.Point(211, 85);
+            this.apiNbpProgressBar.Location = new System.Drawing.Point(198, 100);
             this.apiNbpProgressBar.Name = "apiNbpProgressBar";
             this.apiNbpProgressBar.Size = new System.Drawing.Size(120, 14);
             this.apiNbpProgressBar.Step = 1;
@@ -256,7 +257,7 @@
             this.change24hDataGridViewTextBoxColumn,
             this.change7dDataGridViewTextBoxColumn});
             this.cryptoDataGridView.DataSource = this.cryptocurrenciesBindingSource;
-            this.cryptoDataGridView.Location = new System.Drawing.Point(12, 191);
+            this.cryptoDataGridView.Location = new System.Drawing.Point(12, 223);
             this.cryptoDataGridView.Name = "cryptoDataGridView";
             this.cryptoDataGridView.ReadOnly = true;
             this.cryptoDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -346,7 +347,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.ForeColor = System.Drawing.Color.Gold;
-            this.label2.Location = new System.Drawing.Point(526, 128);
+            this.label2.Location = new System.Drawing.Point(526, 160);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 20);
             this.label2.TabIndex = 12;
@@ -362,7 +363,7 @@
             this.searchButton.BackColor = System.Drawing.Color.Gold;
             this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.searchButton.Location = new System.Drawing.Point(250, 155);
+            this.searchButton.Location = new System.Drawing.Point(250, 187);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(69, 24);
             this.searchButton.TabIndex = 15;
@@ -380,7 +381,7 @@
             this.searchTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.searchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.searchTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.searchTextBox.Location = new System.Drawing.Point(47, 155);
+            this.searchTextBox.Location = new System.Drawing.Point(47, 187);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.searchTextBox.Size = new System.Drawing.Size(197, 24);
@@ -392,7 +393,7 @@
             this.currencyLabel.AutoSize = true;
             this.currencyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.currencyLabel.ForeColor = System.Drawing.Color.Gold;
-            this.currencyLabel.Location = new System.Drawing.Point(210, 31);
+            this.currencyLabel.Location = new System.Drawing.Point(197, 46);
             this.currencyLabel.Name = "currencyLabel";
             this.currencyLabel.Size = new System.Drawing.Size(56, 13);
             this.currencyLabel.TabIndex = 18;
@@ -403,7 +404,7 @@
             this.cryptocurrenciesLabel.AutoSize = true;
             this.cryptocurrenciesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cryptocurrenciesLabel.ForeColor = System.Drawing.Color.Gold;
-            this.cryptocurrenciesLabel.Location = new System.Drawing.Point(27, 31);
+            this.cryptocurrenciesLabel.Location = new System.Drawing.Point(14, 46);
             this.cryptocurrenciesLabel.Name = "cryptocurrenciesLabel";
             this.cryptocurrenciesLabel.Size = new System.Drawing.Size(101, 13);
             this.cryptocurrenciesLabel.TabIndex = 19;
@@ -414,7 +415,7 @@
             this.addToWalletBtn.BackColor = System.Drawing.Color.LimeGreen;
             this.addToWalletBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.addToWalletBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.addToWalletBtn.Location = new System.Drawing.Point(410, 203);
+            this.addToWalletBtn.Location = new System.Drawing.Point(410, 235);
             this.addToWalletBtn.Name = "addToWalletBtn";
             this.addToWalletBtn.Size = new System.Drawing.Size(113, 24);
             this.addToWalletBtn.TabIndex = 20;
@@ -427,7 +428,7 @@
             this.removeFromWalletBtn.BackColor = System.Drawing.Color.Red;
             this.removeFromWalletBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.removeFromWalletBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.removeFromWalletBtn.Location = new System.Drawing.Point(691, 203);
+            this.removeFromWalletBtn.Location = new System.Drawing.Point(691, 235);
             this.removeFromWalletBtn.Name = "removeFromWalletBtn";
             this.removeFromWalletBtn.Size = new System.Drawing.Size(74, 24);
             this.removeFromWalletBtn.TabIndex = 21;
@@ -458,7 +459,7 @@
             this.quantityDataGridViewTextBoxColumn,
             this.sumDataGridViewTextBoxColumn});
             this.walletDataGridView.DataSource = this.viewWalletBindingSource;
-            this.walletDataGridView.Location = new System.Drawing.Point(410, 233);
+            this.walletDataGridView.Location = new System.Drawing.Point(410, 265);
             this.walletDataGridView.Name = "walletDataGridView";
             this.walletDataGridView.ReadOnly = true;
             this.walletDataGridView.RowHeadersWidth = 24;
@@ -521,7 +522,7 @@
             this.walletNameTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.walletNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.walletNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.walletNameTextBox.Location = new System.Drawing.Point(410, 173);
+            this.walletNameTextBox.Location = new System.Drawing.Point(410, 205);
             this.walletNameTextBox.Name = "walletNameTextBox";
             this.walletNameTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.walletNameTextBox.Size = new System.Drawing.Size(76, 23);
@@ -532,7 +533,7 @@
             this.walletSymbolTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.walletSymbolTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.walletSymbolTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.walletSymbolTextBox.Location = new System.Drawing.Point(490, 173);
+            this.walletSymbolTextBox.Location = new System.Drawing.Point(490, 205);
             this.walletSymbolTextBox.Name = "walletSymbolTextBox";
             this.walletSymbolTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.walletSymbolTextBox.Size = new System.Drawing.Size(76, 23);
@@ -543,7 +544,7 @@
             this.walletPriceTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.walletPriceTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.walletPriceTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.walletPriceTextBox.Location = new System.Drawing.Point(570, 173);
+            this.walletPriceTextBox.Location = new System.Drawing.Point(570, 205);
             this.walletPriceTextBox.Name = "walletPriceTextBox";
             this.walletPriceTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.walletPriceTextBox.Size = new System.Drawing.Size(76, 23);
@@ -554,7 +555,7 @@
             this.walletQuantityTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.walletQuantityTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.walletQuantityTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.walletQuantityTextBox.Location = new System.Drawing.Point(650, 173);
+            this.walletQuantityTextBox.Location = new System.Drawing.Point(650, 205);
             this.walletQuantityTextBox.Name = "walletQuantityTextBox";
             this.walletQuantityTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.walletQuantityTextBox.Size = new System.Drawing.Size(76, 23);
@@ -565,7 +566,7 @@
             this.walletNameLabel.AutoSize = true;
             this.walletNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.walletNameLabel.ForeColor = System.Drawing.Color.Gold;
-            this.walletNameLabel.Location = new System.Drawing.Point(427, 157);
+            this.walletNameLabel.Location = new System.Drawing.Point(427, 189);
             this.walletNameLabel.Name = "walletNameLabel";
             this.walletNameLabel.Size = new System.Drawing.Size(37, 13);
             this.walletNameLabel.TabIndex = 28;
@@ -576,7 +577,7 @@
             this.walletSymbolLabel.AutoSize = true;
             this.walletSymbolLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.walletSymbolLabel.ForeColor = System.Drawing.Color.Gold;
-            this.walletSymbolLabel.Location = new System.Drawing.Point(502, 157);
+            this.walletSymbolLabel.Location = new System.Drawing.Point(502, 189);
             this.walletSymbolLabel.Name = "walletSymbolLabel";
             this.walletSymbolLabel.Size = new System.Drawing.Size(45, 13);
             this.walletSymbolLabel.TabIndex = 29;
@@ -587,7 +588,7 @@
             this.walletPriceLabel.AutoSize = true;
             this.walletPriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.walletPriceLabel.ForeColor = System.Drawing.Color.Gold;
-            this.walletPriceLabel.Location = new System.Drawing.Point(585, 157);
+            this.walletPriceLabel.Location = new System.Drawing.Point(585, 189);
             this.walletPriceLabel.Name = "walletPriceLabel";
             this.walletPriceLabel.Size = new System.Drawing.Size(35, 13);
             this.walletPriceLabel.TabIndex = 30;
@@ -598,7 +599,7 @@
             this.walletQuantityLabel.AutoSize = true;
             this.walletQuantityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.walletQuantityLabel.ForeColor = System.Drawing.Color.Gold;
-            this.walletQuantityLabel.Location = new System.Drawing.Point(663, 157);
+            this.walletQuantityLabel.Location = new System.Drawing.Point(663, 189);
             this.walletQuantityLabel.Name = "walletQuantityLabel";
             this.walletQuantityLabel.Size = new System.Drawing.Size(52, 13);
             this.walletQuantityLabel.TabIndex = 31;
@@ -609,7 +610,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label3.ForeColor = System.Drawing.Color.Gold;
-            this.label3.Location = new System.Drawing.Point(60, 128);
+            this.label3.Location = new System.Drawing.Point(60, 160);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(240, 20);
             this.label3.TabIndex = 32;
@@ -628,7 +629,7 @@
             this.refreshButton.BackColor = System.Drawing.Color.LimeGreen;
             this.refreshButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.refreshButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.refreshButton.Location = new System.Drawing.Point(530, 203);
+            this.refreshButton.Location = new System.Drawing.Point(530, 235);
             this.refreshButton.Name = "refreshButton";
             this.refreshButton.Size = new System.Drawing.Size(125, 24);
             this.refreshButton.TabIndex = 33;
@@ -670,7 +671,7 @@
             this.adminLabel.AutoSize = true;
             this.adminLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.adminLabel.ForeColor = System.Drawing.Color.Gold;
-            this.adminLabel.Location = new System.Drawing.Point(12, 409);
+            this.adminLabel.Location = new System.Drawing.Point(12, 434);
             this.adminLabel.Name = "adminLabel";
             this.adminLabel.Size = new System.Drawing.Size(141, 20);
             this.adminLabel.TabIndex = 36;
@@ -682,7 +683,7 @@
             this.adminSymbolLabel.AutoSize = true;
             this.adminSymbolLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.adminSymbolLabel.ForeColor = System.Drawing.Color.Gold;
-            this.adminSymbolLabel.Location = new System.Drawing.Point(180, 394);
+            this.adminSymbolLabel.Location = new System.Drawing.Point(180, 419);
             this.adminSymbolLabel.Name = "adminSymbolLabel";
             this.adminSymbolLabel.Size = new System.Drawing.Size(45, 13);
             this.adminSymbolLabel.TabIndex = 38;
@@ -694,7 +695,7 @@
             this.adminSymbolTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.adminSymbolTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.adminSymbolTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.adminSymbolTextBox.Location = new System.Drawing.Point(168, 410);
+            this.adminSymbolTextBox.Location = new System.Drawing.Point(168, 435);
             this.adminSymbolTextBox.Name = "adminSymbolTextBox";
             this.adminSymbolTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.adminSymbolTextBox.Size = new System.Drawing.Size(76, 23);
@@ -706,20 +707,33 @@
             this.removeFromDBButton.BackColor = System.Drawing.Color.Red;
             this.removeFromDBButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.removeFromDBButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.removeFromDBButton.Location = new System.Drawing.Point(257, 410);
+            this.removeFromDBButton.Location = new System.Drawing.Point(257, 435);
             this.removeFromDBButton.Name = "removeFromDBButton";
             this.removeFromDBButton.Size = new System.Drawing.Size(74, 24);
             this.removeFromDBButton.TabIndex = 39;
             this.removeFromDBButton.Text = "Remove";
             this.removeFromDBButton.UseVisualStyleBackColor = false;
             this.removeFromDBButton.Visible = false;
+            this.removeFromDBButton.Click += new System.EventHandler(this.removeFromDBButton_Click);
+            // 
+            // userNameLabel
+            // 
+            this.userNameLabel.AutoSize = true;
+            this.userNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.userNameLabel.ForeColor = System.Drawing.Color.Gold;
+            this.userNameLabel.Location = new System.Drawing.Point(744, 42);
+            this.userNameLabel.Name = "userNameLabel";
+            this.userNameLabel.Size = new System.Drawing.Size(41, 18);
+            this.userNameLabel.TabIndex = 40;
+            this.userNameLabel.Text = "user";
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(815, 457);
+            this.ClientSize = new System.Drawing.Size(821, 477);
+            this.Controls.Add(this.userNameLabel);
             this.Controls.Add(this.removeFromDBButton);
             this.Controls.Add(this.adminSymbolLabel);
             this.Controls.Add(this.adminSymbolTextBox);
@@ -830,5 +844,6 @@
         private System.Windows.Forms.Label adminSymbolLabel;
         private System.Windows.Forms.TextBox adminSymbolTextBox;
         private System.Windows.Forms.Button removeFromDBButton;
+        private System.Windows.Forms.Label userNameLabel;
     }
 }
