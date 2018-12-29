@@ -16,6 +16,8 @@ namespace FinancialMarketsApp
 {
     public partial class Main : Form
     {
+        public int searchInt = 0;
+
         public Main()
         {
             InitializeComponent();
@@ -230,14 +232,29 @@ namespace FinancialMarketsApp
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            search();
+            if (searchTextBox.Text == "" & searchInt == 0)
+            {
+                search();
+                searchInt++;
+            }
+            else if(searchTextBox.Text != "")
+            {
+                search();
+                searchInt = 0;
+            }
         }
 
         private void searchTextBox_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (searchTextBox.Text == "" & searchInt == 0)
             {
                 search();
+                searchInt++;
+            }
+            else if (searchTextBox.Text != "")
+            {
+                search();
+                searchInt = 0;
             }
         }
 
@@ -263,9 +280,13 @@ namespace FinancialMarketsApp
                 cryptoDataGridView.Columns.Add("change7d", "change7d");
                 cryptoDataGridView.Columns[0].Width = 79;
                 cryptoDataGridView.Columns[1].Width = 42;
+                cryptoDataGridView.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopRight;
                 cryptoDataGridView.Columns[2].Width = 74;
+                cryptoDataGridView.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopRight;
                 cryptoDataGridView.Columns[3].Width = 65;
+                cryptoDataGridView.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopRight;
                 cryptoDataGridView.Columns[4].Width = 58;
+                cryptoDataGridView.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopRight;
 
                 int i = 0;
                 foreach (var row in listCrpyto)
@@ -281,18 +302,21 @@ namespace FinancialMarketsApp
             }
             else
             {
+
                 cryptoDataGridView.Columns.Clear();
                 cryptoDataGridView.DataSource = cryptocurrenciesBindingSource;
-//                this.cryptocurrenciesTableAdapter.Fill(this.finMarketsAppDBDataSet.Cryptocurrencies);
-//                cryptoDataGridView.Refresh();
-
 
                 cryptoDataGridView.AutoGenerateColumns = true;
                 cryptoDataGridView.Columns[0].Width = 79;
                 cryptoDataGridView.Columns[1].Width = 42;
+                cryptoDataGridView.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopRight;
                 cryptoDataGridView.Columns[2].Width = 74;
+                cryptoDataGridView.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopRight;
                 cryptoDataGridView.Columns[3].Width = 65;
+                cryptoDataGridView.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopRight;
                 cryptoDataGridView.Columns[4].Width = 58;
+                cryptoDataGridView.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopRight;
+
             }
         }
 
@@ -307,6 +331,7 @@ namespace FinancialMarketsApp
             crypto.Symbol = "'" + adminSymbolTextBox.Text + "'";
             ConnectDB connectDb = new ConnectDB();
             connectDb.deleteFromDB(crypto);
+            this.cryptocurrenciesTableAdapter.Fill(this.finMarketsAppDBDataSet.Cryptocurrencies);
         }
     }
 }

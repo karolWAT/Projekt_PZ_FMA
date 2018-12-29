@@ -18,8 +18,8 @@ namespace FinancialMarketsApp
         public Welcome()
         {
            InitializeComponent();
-//           Main main = new Main();     // TEST
-//           main.Show();                // TEST
+           Main main = new Main();     // TEST
+           main.Show();                // TEST
         }
 
         private void exitButton_Click(object sender, EventArgs e)
