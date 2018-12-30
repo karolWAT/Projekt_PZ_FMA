@@ -202,5 +202,25 @@ namespace FinancialMarketsApp
             return user;
         }
 
+        public float calculateBalance()
+        {
+            float balance = 0;
+            float sum = 0;
+            string connectionString = @"Data Source=(localdb)\LocalDBKN;Initial Catalog=FinMarketsAppDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            SqlConnection connection = new SqlConnection(connectionString);
+            connection.Open();
+            String query = @"SELECT sum FROM dbo.ViewWallet";
+            SqlCommand command = new SqlCommand(query, connection);
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                sum = Convert.ToSingle(reader["sum"].ToString());
+                balance = balance + sum;
+            }
+
+            connection.Close();
+            return balance;
+        }
+
     }
 }

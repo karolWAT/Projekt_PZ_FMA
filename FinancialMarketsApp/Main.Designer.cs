@@ -121,22 +121,22 @@
             // balanceLabel
             // 
             this.balanceLabel.AutoSize = true;
-            this.balanceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.balanceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.balanceLabel.ForeColor = System.Drawing.Color.Gold;
-            this.balanceLabel.Location = new System.Drawing.Point(512, 425);
+            this.balanceLabel.Location = new System.Drawing.Point(517, 415);
             this.balanceLabel.Name = "balanceLabel";
-            this.balanceLabel.Size = new System.Drawing.Size(88, 18);
+            this.balanceLabel.Size = new System.Drawing.Size(96, 20);
             this.balanceLabel.TabIndex = 1;
             this.balanceLabel.Text = "BALANCE:";
             // 
             // balanceValueLabel
             // 
             this.balanceValueLabel.AutoSize = true;
-            this.balanceValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.balanceValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.balanceValueLabel.ForeColor = System.Drawing.Color.Gold;
-            this.balanceValueLabel.Location = new System.Drawing.Point(606, 425);
+            this.balanceValueLabel.Location = new System.Drawing.Point(606, 415);
             this.balanceValueLabel.Name = "balanceValueLabel";
-            this.balanceValueLabel.Size = new System.Drawing.Size(54, 18);
+            this.balanceValueLabel.Size = new System.Drawing.Size(59, 20);
             this.balanceValueLabel.TabIndex = 2;
             this.balanceValueLabel.Text = "0,00 $";
             // 

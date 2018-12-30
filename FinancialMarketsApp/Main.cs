@@ -22,6 +22,20 @@ namespace FinancialMarketsApp
         {
             InitializeComponent();
 
+            checkUser();
+            calculateWalletbalance();
+        }
+
+        private void calculateWalletbalance()
+        {
+            float balance = 0;
+            ConnectDB connectDb = new ConnectDB();
+            balance = connectDb.calculateBalance();
+            balanceValueLabel.Text = balance.ToString() + " $";
+        }
+
+        private void checkUser()
+        {
             Users user = new Users();
             ConnectDB connectDb = new ConnectDB();
             user = connectDb.checkLoggedUser();
@@ -161,7 +175,10 @@ namespace FinancialMarketsApp
                 WalletsC walletsC = new WalletsC();
                 WalletsC walletsC2 = new WalletsC();
 
-                walletsC.idUser = 5; // powinienem sprawdzać, który użytkownik jest aktualnie zalogowany - dodać flagę w zakładce 
+                Users user = new Users();
+                user = connectDb.checkLoggedUser();
+                walletsC.idUser = user.idUsers;
+
                 walletsC.idWalletC = 1; // też sprzawdzam użytkonika a póżniej jego crytpo wallet
                 walletsC.idCrypto = crypto.idCrypto;
                 walletsC.price = crypto.Price;
@@ -181,6 +198,7 @@ namespace FinancialMarketsApp
                 }
 
                 this.viewWalletTableAdapter.Fill(this.finMarketsAppDBDataSet1.ViewWallet);
+                calculateWalletbalance();
             }
         }
 
@@ -194,11 +212,14 @@ namespace FinancialMarketsApp
                 {
                     Cryptocurrencies crypto = new Cryptocurrencies();
                     ConnectDB connectDb = new ConnectDB();
-                    crypto = connectDb.Read(walletSymbolTextBox.Text); // to get crypto id from symbol Text Box
+                    crypto = connectDb.Read(walletSymbolTextBox.Text);  // to get crypto id from symbol Text Box
                     WalletsC walletsC = new WalletsC();
                     WalletsC walletsC2 = new WalletsC();
 
-                    walletsC.idUser = 5; // powinienem sprawdzać, który użytkownik jest aktualnie zalogowany - dodać flagę w zakładce 
+                    Users user = new Users();
+                    user = connectDb.checkLoggedUser();
+                    walletsC.idUser = user.idUsers;
+
                     walletsC.idWalletC = 1; // też sprzawdzam użytkonika a póżniej jego crytpo wallet
                     walletsC.idCrypto = crypto.idCrypto;
                     walletsC.quantity = walletQuantityTextBox.Text;
@@ -210,6 +231,7 @@ namespace FinancialMarketsApp
                     {
                         connectDb.deleteWalletsC(walletsC);
                         this.viewWalletTableAdapter.Fill(this.finMarketsAppDBDataSet1.ViewWallet);
+                        calculateWalletbalance();
                         try
                         {
                             if (walletDataGridView.CurrentRow.Index != -1)
@@ -323,6 +345,7 @@ namespace FinancialMarketsApp
         private void refreshButton_Click(object sender, EventArgs e)
         {
             this.viewWalletTableAdapter.Fill(this.finMarketsAppDBDataSet1.ViewWallet);
+            calculateWalletbalance();
         }
 
         private void removeFromDBButton_Click(object sender, EventArgs e)
