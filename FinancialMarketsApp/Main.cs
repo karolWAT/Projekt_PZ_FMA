@@ -121,11 +121,8 @@ namespace FinancialMarketsApp
 
         private void Main_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'finMarketsAppDBDataSet1.ViewWallet' table. You can move, or remove it, as needed.
             this.viewWalletTableAdapter.Fill(this.finMarketsAppDBDataSet1.ViewWallet);
-            // TODO: This line of code loads data into the 'finMarketsAppDBDataSet.Cryptocurrencies' table. You can move, or remove it, as needed.
             this.cryptocurrenciesTableAdapter.Fill(this.finMarketsAppDBDataSet.Cryptocurrencies);
-
         }
 
 
@@ -355,6 +352,44 @@ namespace FinancialMarketsApp
             ConnectDB connectDb = new ConnectDB();
             connectDb.deleteFromDB(crypto);
             this.cryptocurrenciesTableAdapter.Fill(this.finMarketsAppDBDataSet.Cryptocurrencies);
+        }
+
+        private void darkWhiteButton_Click(object sender, EventArgs e)
+        {
+            if (BackColor != Color.Black)
+            {
+                BackColor = Color.Black;
+                walletDataGridView.BackgroundColor = Color.Green;
+                addToWalletBtn.BackColor = Color.Green;
+                refreshBtn.BackColor = Color.Green;
+            }
+            else
+            {
+                BackColor = Color.SteelBlue;
+                walletDataGridView.BackgroundColor = Color.LimeGreen;
+                addToWalletBtn.BackColor = Color.LimeGreen;
+                refreshBtn.BackColor = Color.LimeGreen;
+            }
+        }
+
+        private void plEngButton_Click(object sender, EventArgs e)
+        {
+            cryptocurrenciesLabel.Text = "kryptowaluty";
+            currenciesLabel.Text = "waluty";
+            apiButton.Text = "Odśwież";
+            apiNbpButton.Text = "Odśwież";
+            darkLightButton.Text = "Ciemny/Jasny";
+            logOutButton.Text = "Wyloguj";
+            cryptocurrenciesListLabel.Text = "LISTA KRYPTOWALUT";
+            searchButton.Text = "Szukaj";
+            walletLabel.Text = "PORTFEL";
+            walletNameLabel.Text = "nazwa";
+            walletPriceLabel.Text = "cena";
+            walletQuantityLabel.Text = "ilość";
+            addToWalletBtn.Text = "Dodaj/Aktualizuj";
+            refreshBtn.Text = "Odśwież ceny";
+            removeFromWalletBtn.Text = "Usuń";
+            balanceLabel.Text = "SALDO:";
         }
     }
 }
