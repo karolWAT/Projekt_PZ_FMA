@@ -374,22 +374,42 @@ namespace FinancialMarketsApp
 
         private void plEngButton_Click(object sender, EventArgs e)
         {
-            cryptocurrenciesLabel.Text = "kryptowaluty";
-            currenciesLabel.Text = "waluty";
-            apiButton.Text = "Odśwież";
-            apiNbpButton.Text = "Odśwież";
-            darkLightButton.Text = "Ciemny/Jasny";
-            logOutButton.Text = "Wyloguj";
-            cryptocurrenciesListLabel.Text = "LISTA KRYPTOWALUT";
-            searchButton.Text = "Szukaj";
-            walletLabel.Text = "PORTFEL";
-            walletNameLabel.Text = "nazwa";
-            walletPriceLabel.Text = "cena";
-            walletQuantityLabel.Text = "ilość";
-            addToWalletBtn.Text = "Dodaj/Aktualizuj";
-            refreshBtn.Text = "Odśwież ceny";
-            removeFromWalletBtn.Text = "Usuń";
-            balanceLabel.Text = "SALDO:";
+            if (walletLabel.Text == "WALLET") {
+                cryptocurrenciesLabel.Text = "kryptowaluty";
+                currenciesLabel.Text = "waluty";
+                apiButton.Text = "Odśwież";
+                apiNbpButton.Text = "Odśwież";
+                darkLightButton.Text = "Ciemny/Jasny";
+                logOutButton.Text = "Wyloguj";
+                cryptocurrenciesListLabel.Text = "LISTA KRYPTOWALUT";
+                searchButton.Text = "Szukaj";
+                walletLabel.Text = "PORTFEL";
+                walletNameLabel.Text = "nazwa";
+                walletPriceLabel.Text = "cena";
+                walletQuantityLabel.Text = "ilość";
+                addToWalletBtn.Text = "Dodaj/Aktualizuj";
+                refreshBtn.Text = "Odśwież ceny";
+                removeFromWalletBtn.Text = "Usuń";
+                balanceLabel.Text = "SALDO:";
+            } else
+            {
+                cryptocurrenciesLabel.Text = "cryptocurrencies";
+                currenciesLabel.Text = "currencies";
+                apiButton.Text = "Refresh";
+                apiNbpButton.Text = "Refresh";
+                darkLightButton.Text = "Dark / Light";
+                logOutButton.Text = "Log out";
+                cryptocurrenciesListLabel.Text = "CRYPTOCURRENCIES LIST";
+                searchButton.Text = "Search";
+                walletLabel.Text = "WALLET";
+                walletNameLabel.Text = "name";
+                walletPriceLabel.Text = "price";
+                walletQuantityLabel.Text = "quantity";
+                addToWalletBtn.Text = "Add / Update";
+                refreshBtn.Text = "Refresh prices";
+                removeFromWalletBtn.Text = "Remove";
+                balanceLabel.Text = "BALANCE:";
+            }
         }
     }
 }
