@@ -39,6 +39,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.logOutButton = new System.Windows.Forms.Button();
             this.balanceLabel = new System.Windows.Forms.Label();
@@ -69,11 +73,6 @@
             this.addToWalletBtn = new System.Windows.Forms.Button();
             this.removeFromWalletBtn = new System.Windows.Forms.Button();
             this.walletDataGridView = new System.Windows.Forms.DataGridView();
-            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.symbolDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.viewWalletBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.finMarketsAppDBDataSet1 = new FinancialMarketsApp.FinMarketsAppDBDataSet1();
             this.walletNameTextBox = new System.Windows.Forms.TextBox();
@@ -98,6 +97,11 @@
             this.userNameLabel = new System.Windows.Forms.Label();
             this.downloadButton = new System.Windows.Forms.Button();
             this.downloadLabel = new System.Windows.Forms.Label();
+            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.symbolDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.cryptoDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cryptocurrenciesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.finMarketsAppDBDataSet)).BeginInit();
@@ -285,7 +289,6 @@
             this.cryptoDataGridView.RowHeadersWidth = 23;
             dataGridViewCellStyle9.NullValue = null;
             this.cryptoDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle9;
-            this.cryptoDataGridView.RowTemplate.DefaultCellStyle.Format = "N2";
             this.cryptoDataGridView.RowTemplate.DefaultCellStyle.NullValue = null;
             this.cryptoDataGridView.Size = new System.Drawing.Size(481, 267);
             this.cryptoDataGridView.TabIndex = 11;
@@ -490,46 +493,6 @@
             this.walletDataGridView.Size = new System.Drawing.Size(473, 171);
             this.walletDataGridView.TabIndex = 22;
             this.walletDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.walletDataGridView_CellClick);
-            // 
-            // nameDataGridViewTextBoxColumn1
-            // 
-            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn1.HeaderText = "name";
-            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
-            this.nameDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn1.Width = 70;
-            // 
-            // symbolDataGridViewTextBoxColumn1
-            // 
-            this.symbolDataGridViewTextBoxColumn1.DataPropertyName = "symbol";
-            this.symbolDataGridViewTextBoxColumn1.HeaderText = "symbol";
-            this.symbolDataGridViewTextBoxColumn1.Name = "symbolDataGridViewTextBoxColumn1";
-            this.symbolDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.symbolDataGridViewTextBoxColumn1.Width = 55;
-            // 
-            // priceDataGridViewTextBoxColumn1
-            // 
-            this.priceDataGridViewTextBoxColumn1.DataPropertyName = "price";
-            this.priceDataGridViewTextBoxColumn1.HeaderText = "price";
-            this.priceDataGridViewTextBoxColumn1.Name = "priceDataGridViewTextBoxColumn1";
-            this.priceDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.priceDataGridViewTextBoxColumn1.Width = 70;
-            // 
-            // quantityDataGridViewTextBoxColumn
-            // 
-            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "quantity";
-            this.quantityDataGridViewTextBoxColumn.HeaderText = "quantity";
-            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
-            this.quantityDataGridViewTextBoxColumn.ReadOnly = true;
-            this.quantityDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // sumDataGridViewTextBoxColumn
-            // 
-            this.sumDataGridViewTextBoxColumn.DataPropertyName = "sum";
-            this.sumDataGridViewTextBoxColumn.HeaderText = "sum";
-            this.sumDataGridViewTextBoxColumn.Name = "sumDataGridViewTextBoxColumn";
-            this.sumDataGridViewTextBoxColumn.ReadOnly = true;
-            this.sumDataGridViewTextBoxColumn.Width = 65;
             // 
             // viewWalletBindingSource
             // 
@@ -796,6 +759,54 @@
             this.downloadLabel.Text = "Save wallet to file";
             this.downloadLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // nameDataGridViewTextBoxColumn1
+            // 
+            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn1.HeaderText = "name";
+            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
+            this.nameDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn1.Width = 70;
+            // 
+            // symbolDataGridViewTextBoxColumn1
+            // 
+            this.symbolDataGridViewTextBoxColumn1.DataPropertyName = "symbol";
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.symbolDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle11;
+            this.symbolDataGridViewTextBoxColumn1.HeaderText = "symbol";
+            this.symbolDataGridViewTextBoxColumn1.Name = "symbolDataGridViewTextBoxColumn1";
+            this.symbolDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.symbolDataGridViewTextBoxColumn1.Width = 55;
+            // 
+            // priceDataGridViewTextBoxColumn1
+            // 
+            this.priceDataGridViewTextBoxColumn1.DataPropertyName = "price";
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.priceDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle12;
+            this.priceDataGridViewTextBoxColumn1.HeaderText = "price";
+            this.priceDataGridViewTextBoxColumn1.Name = "priceDataGridViewTextBoxColumn1";
+            this.priceDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.priceDataGridViewTextBoxColumn1.Width = 70;
+            // 
+            // quantityDataGridViewTextBoxColumn
+            // 
+            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "quantity";
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.quantityDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle13;
+            this.quantityDataGridViewTextBoxColumn.HeaderText = "quantity";
+            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            this.quantityDataGridViewTextBoxColumn.ReadOnly = true;
+            this.quantityDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // sumDataGridViewTextBoxColumn
+            // 
+            this.sumDataGridViewTextBoxColumn.DataPropertyName = "sum";
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.sumDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle14;
+            this.sumDataGridViewTextBoxColumn.HeaderText = "sum";
+            this.sumDataGridViewTextBoxColumn.Name = "sumDataGridViewTextBoxColumn";
+            this.sumDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sumDataGridViewTextBoxColumn.Width = 65;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -903,11 +914,6 @@
         private FinMarketsAppDBDataSet1 finMarketsAppDBDataSet1;
         private System.Windows.Forms.BindingSource viewWalletBindingSource;
         private FinMarketsAppDBDataSet1TableAdapters.ViewWalletTableAdapter viewWalletTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn symbolDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sumDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button refreshBtn;
         private FinMarketsAppDBDataSet finMarketsAppDBDataSet2;
         private System.Windows.Forms.Button darkLightButton;
@@ -919,5 +925,10 @@
         private System.Windows.Forms.Label userNameLabel;
         private System.Windows.Forms.Button downloadButton;
         private System.Windows.Forms.Label downloadLabel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn symbolDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sumDataGridViewTextBoxColumn;
     }
 }

@@ -1,16 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Data.SqlTypes;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FinancialMarketsApp
@@ -318,9 +311,9 @@ namespace FinancialMarketsApp
                     cryptoDataGridView.Rows.Add("", "", "", "", "");
                     cryptoDataGridView.Rows[i].Cells[0].Value = row.Name;
                     cryptoDataGridView.Rows[i].Cells[1].Value = row.Symbol;
-                    cryptoDataGridView.Rows[i].Cells[2].Value = row.Price;
-                    cryptoDataGridView.Rows[i].Cells[3].Value = row.Change24h;
-                    cryptoDataGridView.Rows[i].Cells[4].Value = row.Change7d;
+                    cryptoDataGridView.Rows[i].Cells[2].Value = Convert.ToDecimal(row.Price);
+                    cryptoDataGridView.Rows[i].Cells[3].Value = Convert.ToDecimal(row.Change24h);
+                    cryptoDataGridView.Rows[i].Cells[4].Value = Convert.ToDecimal(row.Change7d);
                     i++;
                 }
             }
@@ -459,6 +452,7 @@ namespace FinancialMarketsApp
                 File.AppendAllText(saveFile.FileName, dashes + Environment.NewLine + balanceLabel.Text + " " + balanceValueLabel.Text + Environment.NewLine + Environment.NewLine);
             }
         }
+
     }    
         
 }
