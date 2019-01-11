@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -57,15 +58,16 @@ namespace FinancialMarketsApp
             Users user = new Users();
 
             ConnectDB connectDb = new ConnectDB();
-            user = connectDb.checkLoggedUser(); 
-            string connectionString = @"Data Source = (localdb)\LocalDBKN; Initial Catalog = FinMarketsAppDB; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False";
+            user = connectDb.checkLoggedUser();
+            string connectionString =
+                @"Data Source = (localdb)\LocalDBKN; Initial Catalog = FinMarketsAppDB; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False";
             SqlConnection connection = new SqlConnection(connectionString);
             connection.Open();
             String query3 = @"UPDATE Users SET isLogged = " + 0 + " WHERE idUsers = " + user.idUsers + "";
             SqlCommand command3 = new SqlCommand(query3, connection);
             command3.ExecuteNonQuery();
             connection.Close();
-            
+
             welcome.Show();
         }
 
@@ -92,6 +94,7 @@ namespace FinancialMarketsApp
                 j = i + 1;
                 progrssBarlabel.Text = j + "%";
             }
+
             MessageBox.Show("Updated");
         }
 
@@ -134,7 +137,7 @@ namespace FinancialMarketsApp
                 walletSymbolTextBox.Text = cryptoDataGridView.CurrentRow.Cells[1].Value.ToString();
                 walletPriceTextBox.Text = cryptoDataGridView.CurrentRow.Cells[2].Value.ToString();
                 walletQuantityTextBox.Text = "0";
-                
+
                 walletNameTextBox.BackColor = searchTextBox.BackColor;
                 walletSymbolTextBox.BackColor = searchTextBox.BackColor;
                 walletPriceTextBox.BackColor = searchTextBox.BackColor;
@@ -180,7 +183,7 @@ namespace FinancialMarketsApp
                 walletsC.idCrypto = crypto.idCrypto;
                 walletsC.price = crypto.Price;
                 walletsC.quantity = walletQuantityTextBox.Text;
-                float tempSum = Convert.ToSingle(walletsC.price)*Convert.ToSingle(walletsC.quantity);
+                float tempSum = Convert.ToSingle(walletsC.price) * Convert.ToSingle(walletsC.quantity);
                 walletsC.sum = tempSum.ToString();
                 walletsC.idAlert = 1; // bede pewnie z gui bral dla alertu wzrostoego 1 a dla malejacego 2
 
@@ -209,7 +212,7 @@ namespace FinancialMarketsApp
                 {
                     Cryptocurrencies crypto = new Cryptocurrencies();
                     ConnectDB connectDb = new ConnectDB();
-                    crypto = connectDb.Read(walletSymbolTextBox.Text);  // to get crypto id from symbol Text Box
+                    crypto = connectDb.Read(walletSymbolTextBox.Text); // to get crypto id from symbol Text Box
                     WalletsC walletsC = new WalletsC();
                     WalletsC walletsC2 = new WalletsC();
 
@@ -243,10 +246,12 @@ namespace FinancialMarketsApp
                         {
                         }
                     }
-                    else MessageBox.Show("You do not have this asset in your wallet","Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    else
+                        MessageBox.Show("You do not have this asset in your wallet", "Warning", MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
                 }
             }
-            else MessageBox.Show("Select asset to remowe","Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else MessageBox.Show("Select asset to remowe", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void searchButton_Click(object sender, EventArgs e)
@@ -256,7 +261,7 @@ namespace FinancialMarketsApp
                 search();
                 searchInt++;
             }
-            else if(searchTextBox.Text != "")
+            else if (searchTextBox.Text != "")
             {
                 search();
                 searchInt = 0;
@@ -313,9 +318,9 @@ namespace FinancialMarketsApp
                     cryptoDataGridView.Rows.Add("", "", "", "", "");
                     cryptoDataGridView.Rows[i].Cells[0].Value = row.Name;
                     cryptoDataGridView.Rows[i].Cells[1].Value = row.Symbol;
-                    cryptoDataGridView.Rows[i].Cells[2].Value = Convert.ToDecimal(row.Price);
-                    cryptoDataGridView.Rows[i].Cells[3].Value = Convert.ToDecimal(row.Change24h);
-                    cryptoDataGridView.Rows[i].Cells[4].Value = Convert.ToDecimal(row.Change7d);
+                    cryptoDataGridView.Rows[i].Cells[2].Value = row.Price;
+                    cryptoDataGridView.Rows[i].Cells[3].Value = row.Change24h;
+                    cryptoDataGridView.Rows[i].Cells[4].Value = row.Change7d;
                     i++;
                 }
             }
@@ -374,7 +379,8 @@ namespace FinancialMarketsApp
 
         private void plEngButton_Click(object sender, EventArgs e)
         {
-            if (walletLabel.Text == "WALLET") {
+            if (walletLabel.Text == "WALLET")
+            {
                 cryptocurrenciesLabel.Text = "kryptowaluty";
                 currenciesLabel.Text = "waluty";
                 apiButton.Text = "Odśwież";
@@ -391,7 +397,10 @@ namespace FinancialMarketsApp
                 refreshBtn.Text = "Odśwież ceny";
                 removeFromWalletBtn.Text = "Usuń";
                 balanceLabel.Text = "SALDO:";
-            } else
+                downloadButton.Text = "Pobierz";
+                downloadLabel.Text = "Zapisz do pliku";
+            }
+            else
             {
                 cryptocurrenciesLabel.Text = "cryptocurrencies";
                 currenciesLabel.Text = "currencies";
@@ -409,7 +418,47 @@ namespace FinancialMarketsApp
                 refreshBtn.Text = "Refresh prices";
                 removeFromWalletBtn.Text = "Remove";
                 balanceLabel.Text = "BALANCE:";
+                downloadButton.Text = "Download";
+                downloadLabel.Text = "Save wallet to file";
             }
         }
-    }
+
+        private void downloadButton_Click(object sender, EventArgs e)
+        {
+            String contentName = String.Empty;
+            String contentSymbol = String.Empty;
+            String contentPrice = String.Empty;
+            String contentQuantity = String.Empty;
+            String contentSum = String.Empty;
+            String dashes = "--------------------------------------";
+
+            DateTime thisDay = DateTime.Today;
+
+            SaveFileDialog saveFile = new SaveFileDialog();
+            saveFile.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            saveFile.Title = "Save File";
+            saveFile.ShowDialog();
+ 
+            if (saveFile.FileName != "")
+            {
+                File.AppendAllText(saveFile.FileName, walletLabel.Text + " ");
+                File.AppendAllText(saveFile.FileName, thisDay.ToString("d") + Environment.NewLine);
+
+                for (int i = 0; i < walletDataGridView.RowCount; i++)
+                {
+                    if (walletDataGridView.CurrentRow.Index != -1)
+                    {
+                        contentName = walletDataGridView.Rows[i].Cells[0].Value.ToString();
+                        contentSymbol = walletDataGridView.Rows[i].Cells[1].Value.ToString();
+                        contentPrice = walletDataGridView.Rows[i].Cells[2].Value.ToString();
+                        contentQuantity = walletDataGridView.Rows[i].Cells[3].Value.ToString();
+                        contentSum = walletDataGridView.Rows[i].Cells[4].Value.ToString();
+                        File.AppendAllText(saveFile.FileName, contentName + "  " + contentSymbol + "  " + contentPrice + "  " + contentQuantity + "  " + contentSum + Environment.NewLine);
+                    }
+                }
+                File.AppendAllText(saveFile.FileName, dashes + Environment.NewLine + balanceLabel.Text + " " + balanceValueLabel.Text + Environment.NewLine + Environment.NewLine);
+            }
+        }
+    }    
+        
 }

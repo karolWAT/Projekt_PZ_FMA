@@ -53,6 +53,7 @@ namespace FinancialMarketsApp
 
                     if (crypto.Symbol == null)
                     {
+
                         crypto.Symbol = "'" + cryptoSymbol + "'";
                         crypto.Name = "'" + cryptoName + "'";
                         crypto.Price = "'" + cryptoPrice + "'";
