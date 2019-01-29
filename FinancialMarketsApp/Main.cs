@@ -15,6 +15,7 @@ namespace FinancialMarketsApp
         public Main()
         {
             InitializeComponent();
+            notifyIcon1.Visible = false;
 
             checkUser();
             calculateWalletbalance();
@@ -354,16 +355,19 @@ namespace FinancialMarketsApp
 
         private void darkWhiteButton_Click(object sender, EventArgs e)
         {
-            if (BackColor != Color.Black)
+//            if (BackColor != Color.Black)
+            if (BackgroundImage != Properties.Resources.backlogo3)
             {
-                BackColor = Color.Black;
+                // BackColor = Color.Black;
+                BackgroundImage = Properties.Resources.backlogo3;
                 walletDataGridView.BackgroundColor = Color.Green;
                 addToWalletBtn.BackColor = Color.Green;
                 refreshBtn.BackColor = Color.Green;
             }
             else
             {
-                BackColor = Color.SteelBlue;
+                // BackColor = Color.SteelBlue;
+                BackgroundImage = Properties.Resources.backlogo4;
                 walletDataGridView.BackgroundColor = Color.LimeGreen;
                 addToWalletBtn.BackColor = Color.LimeGreen;
                 refreshBtn.BackColor = Color.LimeGreen;
@@ -453,6 +457,22 @@ namespace FinancialMarketsApp
             }
         }
 
+        private void Main_Resize(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Minimized)
+            {
+                ShowIcon = false;
+                notifyIcon1.Visible = true;
+                ShowInTaskbar = false;
+            }
+        }
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            ShowInTaskbar = true;
+            notifyIcon1.Visible = false;
+            WindowState = FormWindowState.Normal;
+        }
     }    
         
 }
