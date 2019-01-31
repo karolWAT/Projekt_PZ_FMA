@@ -65,6 +65,11 @@
       <DependentUpon>FinMarketsAppDBDataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="GetAPI.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Users.cs" />
     <Compile Include="WalletsC.cs" />
     <Compile Include="Welcome.cs">
@@ -89,14 +94,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="FinMarketsAppDBDataSet.xsc">
       <DependentUpon>FinMarketsAppDBDataSet.xsd</DependentUpon>
     </None>
@@ -153,6 +153,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="img\backlogo4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\backlogo13.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\backlogo5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\backlogo20.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

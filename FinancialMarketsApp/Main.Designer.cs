@@ -130,12 +130,12 @@
             // 
             this.balanceLabel.AutoSize = true;
             this.balanceLabel.BackColor = System.Drawing.Color.Transparent;
-            this.balanceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.balanceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.balanceLabel.ForeColor = System.Drawing.Color.Gold;
-            this.balanceLabel.Location = new System.Drawing.Point(658, 516);
+            this.balanceLabel.Location = new System.Drawing.Point(636, 516);
             this.balanceLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.balanceLabel.Name = "balanceLabel";
-            this.balanceLabel.Size = new System.Drawing.Size(120, 25);
+            this.balanceLabel.Size = new System.Drawing.Size(137, 29);
             this.balanceLabel.TabIndex = 1;
             this.balanceLabel.Text = "BALANCE:";
             // 
@@ -143,12 +143,12 @@
             // 
             this.balanceValueLabel.AutoSize = true;
             this.balanceValueLabel.BackColor = System.Drawing.Color.Transparent;
-            this.balanceValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.balanceValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.balanceValueLabel.ForeColor = System.Drawing.Color.Gold;
-            this.balanceValueLabel.Location = new System.Drawing.Point(777, 516);
+            this.balanceValueLabel.Location = new System.Drawing.Point(791, 516);
             this.balanceValueLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.balanceValueLabel.Name = "balanceValueLabel";
-            this.balanceValueLabel.Size = new System.Drawing.Size(72, 25);
+            this.balanceValueLabel.Size = new System.Drawing.Size(83, 29);
             this.balanceValueLabel.TabIndex = 2;
             this.balanceValueLabel.Text = "0,00 $";
             // 
@@ -370,12 +370,12 @@
             // 
             this.walletLabel.AutoSize = true;
             this.walletLabel.BackColor = System.Drawing.Color.Transparent;
-            this.walletLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.walletLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.walletLabel.ForeColor = System.Drawing.Color.Gold;
-            this.walletLabel.Location = new System.Drawing.Point(673, 197);
+            this.walletLabel.Location = new System.Drawing.Point(679, 193);
             this.walletLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.walletLabel.Name = "walletLabel";
-            this.walletLabel.Size = new System.Drawing.Size(100, 25);
+            this.walletLabel.Size = new System.Drawing.Size(114, 29);
             this.walletLabel.TabIndex = 12;
             this.walletLabel.Text = "WALLET";
             // 
@@ -446,7 +446,7 @@
             // 
             // addToWalletBtn
             // 
-            this.addToWalletBtn.BackColor = System.Drawing.Color.LimeGreen;
+            this.addToWalletBtn.BackColor = System.Drawing.Color.DodgerBlue;
             this.addToWalletBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.addToWalletBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.addToWalletBtn.Location = new System.Drawing.Point(519, 289);
@@ -478,7 +478,7 @@
             this.walletDataGridView.AllowUserToDeleteRows = false;
             this.walletDataGridView.AllowUserToResizeRows = false;
             this.walletDataGridView.AutoGenerateColumns = false;
-            this.walletDataGridView.BackgroundColor = System.Drawing.Color.LimeGreen;
+            this.walletDataGridView.BackgroundColor = System.Drawing.Color.DodgerBlue;
             dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -614,12 +614,12 @@
             // 
             this.walletNameLabel.AutoSize = true;
             this.walletNameLabel.BackColor = System.Drawing.Color.Transparent;
-            this.walletNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.walletNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.walletNameLabel.ForeColor = System.Drawing.Color.Gold;
-            this.walletNameLabel.Location = new System.Drawing.Point(541, 233);
+            this.walletNameLabel.Location = new System.Drawing.Point(531, 228);
             this.walletNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.walletNameLabel.Name = "walletNameLabel";
-            this.walletNameLabel.Size = new System.Drawing.Size(47, 17);
+            this.walletNameLabel.Size = new System.Drawing.Size(54, 20);
             this.walletNameLabel.TabIndex = 28;
             this.walletNameLabel.Text = "name";
             // 
@@ -627,12 +627,12 @@
             // 
             this.walletSymbolLabel.AutoSize = true;
             this.walletSymbolLabel.BackColor = System.Drawing.Color.Transparent;
-            this.walletSymbolLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.walletSymbolLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.walletSymbolLabel.ForeColor = System.Drawing.Color.Gold;
-            this.walletSymbolLabel.Location = new System.Drawing.Point(641, 233);
+            this.walletSymbolLabel.Location = new System.Drawing.Point(631, 228);
             this.walletSymbolLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.walletSymbolLabel.Name = "walletSymbolLabel";
-            this.walletSymbolLabel.Size = new System.Drawing.Size(58, 17);
+            this.walletSymbolLabel.Size = new System.Drawing.Size(68, 20);
             this.walletSymbolLabel.TabIndex = 29;
             this.walletSymbolLabel.Text = "symbol";
             // 
@@ -640,12 +640,12 @@
             // 
             this.walletPriceLabel.AutoSize = true;
             this.walletPriceLabel.BackColor = System.Drawing.Color.Transparent;
-            this.walletPriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.walletPriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.walletPriceLabel.ForeColor = System.Drawing.Color.Gold;
-            this.walletPriceLabel.Location = new System.Drawing.Point(752, 233);
+            this.walletPriceLabel.Location = new System.Drawing.Point(742, 228);
             this.walletPriceLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.walletPriceLabel.Name = "walletPriceLabel";
-            this.walletPriceLabel.Size = new System.Drawing.Size(44, 17);
+            this.walletPriceLabel.Size = new System.Drawing.Size(51, 20);
             this.walletPriceLabel.TabIndex = 30;
             this.walletPriceLabel.Text = "price";
             // 
@@ -653,12 +653,12 @@
             // 
             this.walletQuantityLabel.AutoSize = true;
             this.walletQuantityLabel.BackColor = System.Drawing.Color.Transparent;
-            this.walletQuantityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.walletQuantityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.walletQuantityLabel.ForeColor = System.Drawing.Color.Gold;
-            this.walletQuantityLabel.Location = new System.Drawing.Point(856, 233);
+            this.walletQuantityLabel.Location = new System.Drawing.Point(846, 228);
             this.walletQuantityLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.walletQuantityLabel.Name = "walletQuantityLabel";
-            this.walletQuantityLabel.Size = new System.Drawing.Size(66, 17);
+            this.walletQuantityLabel.Size = new System.Drawing.Size(75, 20);
             this.walletQuantityLabel.TabIndex = 31;
             this.walletQuantityLabel.Text = "quantity";
             // 
@@ -666,12 +666,12 @@
             // 
             this.cryptocurrenciesListLabel.AutoSize = true;
             this.cryptocurrenciesListLabel.BackColor = System.Drawing.Color.Transparent;
-            this.cryptocurrenciesListLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cryptocurrenciesListLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cryptocurrenciesListLabel.ForeColor = System.Drawing.Color.Gold;
-            this.cryptocurrenciesListLabel.Location = new System.Drawing.Point(80, 197);
+            this.cryptocurrenciesListLabel.Location = new System.Drawing.Point(74, 193);
             this.cryptocurrenciesListLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.cryptocurrenciesListLabel.Name = "cryptocurrenciesListLabel";
-            this.cryptocurrenciesListLabel.Size = new System.Drawing.Size(293, 25);
+            this.cryptocurrenciesListLabel.Size = new System.Drawing.Size(349, 29);
             this.cryptocurrenciesListLabel.TabIndex = 32;
             this.cryptocurrenciesListLabel.Text = "CRYPTOCURRENCIES LIST";
             // 
@@ -685,7 +685,7 @@
             // 
             // refreshBtn
             // 
-            this.refreshBtn.BackColor = System.Drawing.Color.LimeGreen;
+            this.refreshBtn.BackColor = System.Drawing.Color.DodgerBlue;
             this.refreshBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.refreshBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.refreshBtn.Location = new System.Drawing.Point(707, 289);
@@ -748,12 +748,12 @@
             // 
             this.adminSymbolLabel.AutoSize = true;
             this.adminSymbolLabel.BackColor = System.Drawing.Color.Transparent;
-            this.adminSymbolLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.adminSymbolLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.adminSymbolLabel.ForeColor = System.Drawing.Color.Gold;
-            this.adminSymbolLabel.Location = new System.Drawing.Point(240, 571);
+            this.adminSymbolLabel.Location = new System.Drawing.Point(236, 566);
             this.adminSymbolLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.adminSymbolLabel.Name = "adminSymbolLabel";
-            this.adminSymbolLabel.Size = new System.Drawing.Size(58, 17);
+            this.adminSymbolLabel.Size = new System.Drawing.Size(68, 20);
             this.adminSymbolLabel.TabIndex = 38;
             this.adminSymbolLabel.Text = "symbol";
             this.adminSymbolLabel.Visible = false;
@@ -816,7 +816,7 @@
             // downloadLabel
             // 
             this.downloadLabel.BackColor = System.Drawing.Color.Transparent;
-            this.downloadLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.downloadLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.downloadLabel.ForeColor = System.Drawing.Color.Gold;
             this.downloadLabel.Location = new System.Drawing.Point(1011, 339);
             this.downloadLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -838,6 +838,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
+            this.BackgroundImage = global::FinancialMarketsApp.Properties.Resources.backlogo20;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1134, 639);
             this.Controls.Add(this.downloadLabel);

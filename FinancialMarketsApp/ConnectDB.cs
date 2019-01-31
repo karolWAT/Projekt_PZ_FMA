@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-
+using System.Windows.Forms;
 
 namespace FinancialMarketsApp
 {
@@ -220,6 +220,56 @@ namespace FinancialMarketsApp
             connection.Close();
             return balance;
         }
+
+
+        public bool calculateChangeWallet()
+        {
+            float[] changeWallet = new float[20];
+            float price = 0;
+            float priceWhenAdded = 0;
+            int[] tempIdUser = new int[20];
+            int[] tempIdCrypto = new int[20];
+            int startIndex = 0;
+            int length = 4;
+            int walletCounter = 0;
+
+            string connectionString = @"Data Source=(localdb)\LocalDBKN;Initial Catalog=FinMarketsAppDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            SqlConnection connection = new SqlConnection(connectionString);
+            connection.Open();
+            String query = @"SELECT price, priceWhenAdded,idUser,WalletsC.idCrypto FROM Cryptocurrencies,WalletsC WHERE Cryptocurrencies.idCrypto = WalletsC.idCrypto";
+            //            String query = @"SELECT sum FROM dbo.ViewWallet";
+            SqlCommand command = new SqlCommand(query, connection);
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                tempIdUser[walletCounter] = Convert.ToInt32(reader["idUser"]);
+                tempIdCrypto[walletCounter] = Convert.ToInt32(reader["idCrypto"]);
+                price = Convert.ToSingle(reader["price"].ToString());
+                priceWhenAdded = Convert.ToSingle(reader["priceWhenAdded"].ToString());
+                changeWallet[walletCounter] = ((priceWhenAdded / price) - 1) * 100;
+                MessageBox.Show(changeWallet[walletCounter].ToString().Substring(startIndex, length));
+
+                walletCounter++;
+            }
+            connection.Close();
+
+
+            connection.Open();
+            walletCounter--;
+
+            while (walletCounter >= 0)
+            {
+                String tempChangeWallet = changeWallet[walletCounter].ToString().Substring(startIndex, length);
+                string query2 = @"UPDATE WalletsC SET changeWallet = " + "'" + tempChangeWallet + "'" + " WHERE idCrypto = " + tempIdCrypto[walletCounter] + " AND idUser = " + tempIdUser[walletCounter] + "";
+                SqlCommand command2 = new SqlCommand(query2, connection);
+                command2.ExecuteNonQuery();
+                walletCounter--;
+            }
+
+            connection.Close();
+            return true;
+        }
+
 
     }
 }

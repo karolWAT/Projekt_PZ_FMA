@@ -73,9 +73,29 @@ namespace FinancialMarketsApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap backlogo13 {
+            get {
+                object obj = ResourceManager.GetObject("backlogo13", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap backlogo2 {
             get {
                 object obj = ResourceManager.GetObject("backlogo2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap backlogo20 {
+            get {
+                object obj = ResourceManager.GetObject("backlogo20", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -12,6 +12,8 @@ namespace FinancialMarketsApp
     {
         public int searchInt = 0;
 
+        public int BackgroundFlag { get; private set; }
+
         public Main()
         {
             InitializeComponent();
@@ -342,6 +344,8 @@ namespace FinancialMarketsApp
         {
             this.viewWalletTableAdapter.Fill(this.finMarketsAppDBDataSet1.ViewWallet);
             calculateWalletbalance();
+            ConnectDB connectDb = new ConnectDB();
+            connectDb.calculateChangeWallet();
         }
 
         private void removeFromDBButton_Click(object sender, EventArgs e)
@@ -355,22 +359,24 @@ namespace FinancialMarketsApp
 
         private void darkWhiteButton_Click(object sender, EventArgs e)
         {
-//            if (BackColor != Color.Black)
-            if (BackgroundImage != Properties.Resources.backlogo3)
+            // if (BackColor != Color.Black)
+            if (BackgroundFlag == 0)
             {
                 // BackColor = Color.Black;
-                BackgroundImage = Properties.Resources.backlogo3;
+                this.BackgroundImage = Properties.Resources.backlogo13;
                 walletDataGridView.BackgroundColor = Color.Green;
                 addToWalletBtn.BackColor = Color.Green;
                 refreshBtn.BackColor = Color.Green;
+                BackgroundFlag = 1;
             }
             else
             {
                 // BackColor = Color.SteelBlue;
-                BackgroundImage = Properties.Resources.backlogo4;
-                walletDataGridView.BackgroundColor = Color.LimeGreen;
-                addToWalletBtn.BackColor = Color.LimeGreen;
-                refreshBtn.BackColor = Color.LimeGreen;
+                this.BackgroundImage = Properties.Resources.backlogo20;
+                walletDataGridView.BackgroundColor = Color.DodgerBlue;
+                addToWalletBtn.BackColor = Color.DodgerBlue;
+                refreshBtn.BackColor = Color.DodgerBlue;
+                BackgroundFlag = 0;
             }
         }
 
@@ -464,6 +470,9 @@ namespace FinancialMarketsApp
                 ShowIcon = false;
                 notifyIcon1.Visible = true;
                 ShowInTaskbar = false;
+                //                notifyIcon1.BalloonTipTitle = "Financial Markets App";
+                //                notifyIcon1.BalloonTipText = "Application minimized";
+                notifyIcon1.ShowBalloonTip(500, "Financial Markets App", "Application minimalized", ToolTipIcon.None);
             }
         }
 
