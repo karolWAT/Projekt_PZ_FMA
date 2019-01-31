@@ -232,7 +232,8 @@ namespace FinancialMarketsApp
             int startIndex = 0;
             int length = 4;
             int walletCounter = 0;
-
+        
+        
             string connectionString = @"Data Source=(localdb)\LocalDBKN;Initial Catalog=FinMarketsAppDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             SqlConnection connection = new SqlConnection(connectionString);
             connection.Open();
