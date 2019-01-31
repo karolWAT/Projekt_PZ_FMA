@@ -64,6 +64,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FinMarketsAppDBDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="FinMarketsAppDBDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinMarketsAppDBDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="GetAPI.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -118,6 +123,17 @@
     </None>
     <None Include="FinMarketsAppDBDataSet1.xss">
       <DependentUpon>FinMarketsAppDBDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="FinMarketsAppDBDataSet2.xsc">
+      <DependentUpon>FinMarketsAppDBDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="FinMarketsAppDBDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FinMarketsAppDBDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FinMarketsAppDBDataSet2.xss">
+      <DependentUpon>FinMarketsAppDBDataSet2.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

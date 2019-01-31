@@ -20,17 +20,17 @@ namespace FinancialMarketsApp {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("FinMarketsAppDBDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("FinMarketsAppDBDataSet2")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class FinMarketsAppDBDataSet : global::System.Data.DataSet {
+    public partial class FinMarketsAppDBDataSet2 : global::System.Data.DataSet {
         
-        private CryptocurrenciesDataTable tableCryptocurrencies;
+        private ViewWalletDataTable tableViewWallet;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public FinMarketsAppDBDataSet() {
+        public FinMarketsAppDBDataSet2() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace FinancialMarketsApp {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected FinMarketsAppDBDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected FinMarketsAppDBDataSet2(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace FinancialMarketsApp {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["Cryptocurrencies"] != null)) {
-                    base.Tables.Add(new CryptocurrenciesDataTable(ds.Tables["Cryptocurrencies"]));
+                if ((ds.Tables["ViewWallet"] != null)) {
+                    base.Tables.Add(new ViewWalletDataTable(ds.Tables["ViewWallet"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace FinancialMarketsApp {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public CryptocurrenciesDataTable Cryptocurrencies {
+        public ViewWalletDataTable ViewWallet {
             get {
-                return this.tableCryptocurrencies;
+                return this.tableViewWallet;
             }
         }
         
@@ -127,7 +127,7 @@ namespace FinancialMarketsApp {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            FinMarketsAppDBDataSet cln = ((FinMarketsAppDBDataSet)(base.Clone()));
+            FinMarketsAppDBDataSet2 cln = ((FinMarketsAppDBDataSet2)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace FinancialMarketsApp {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["Cryptocurrencies"] != null)) {
-                    base.Tables.Add(new CryptocurrenciesDataTable(ds.Tables["Cryptocurrencies"]));
+                if ((ds.Tables["ViewWallet"] != null)) {
+                    base.Tables.Add(new ViewWalletDataTable(ds.Tables["ViewWallet"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace FinancialMarketsApp {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableCryptocurrencies = ((CryptocurrenciesDataTable)(base.Tables["Cryptocurrencies"]));
+            this.tableViewWallet = ((ViewWalletDataTable)(base.Tables["ViewWallet"]));
             if ((initTable == true)) {
-                if ((this.tableCryptocurrencies != null)) {
-                    this.tableCryptocurrencies.InitVars();
+                if ((this.tableViewWallet != null)) {
+                    this.tableViewWallet.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace FinancialMarketsApp {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "FinMarketsAppDBDataSet";
+            this.DataSetName = "FinMarketsAppDBDataSet2";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/FinMarketsAppDBDataSet.xsd";
+            this.Namespace = "http://tempuri.org/FinMarketsAppDBDataSet2.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableCryptocurrencies = new CryptocurrenciesDataTable();
-            base.Tables.Add(this.tableCryptocurrencies);
+            this.tableViewWallet = new ViewWalletDataTable();
+            base.Tables.Add(this.tableViewWallet);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerializeCryptocurrencies() {
+        private bool ShouldSerializeViewWallet() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace FinancialMarketsApp {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            FinMarketsAppDBDataSet ds = new FinMarketsAppDBDataSet();
+            FinMarketsAppDBDataSet2 ds = new FinMarketsAppDBDataSet2();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,14 +270,14 @@ namespace FinancialMarketsApp {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void CryptocurrenciesRowChangeEventHandler(object sender, CryptocurrenciesRowChangeEvent e);
+        public delegate void ViewWalletRowChangeEventHandler(object sender, ViewWalletRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class CryptocurrenciesDataTable : global::System.Data.TypedTableBase<CryptocurrenciesRow> {
+        public partial class ViewWalletDataTable : global::System.Data.TypedTableBase<ViewWalletRow> {
             
             private global::System.Data.DataColumn columnname;
             
@@ -285,14 +285,18 @@ namespace FinancialMarketsApp {
             
             private global::System.Data.DataColumn columnprice;
             
-            private global::System.Data.DataColumn columnchange24h;
+            private global::System.Data.DataColumn columnquantity;
             
-            private global::System.Data.DataColumn columnchange7d;
+            private global::System.Data.DataColumn columnsum;
+            
+            private global::System.Data.DataColumn columnpriceWhenAdded;
+            
+            private global::System.Data.DataColumn columnchangeWallet;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public CryptocurrenciesDataTable() {
-                this.TableName = "Cryptocurrencies";
+            public ViewWalletDataTable() {
+                this.TableName = "ViewWallet";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -300,7 +304,7 @@ namespace FinancialMarketsApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal CryptocurrenciesDataTable(global::System.Data.DataTable table) {
+            internal ViewWalletDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -317,7 +321,7 @@ namespace FinancialMarketsApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected CryptocurrenciesDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected ViewWalletDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -348,17 +352,33 @@ namespace FinancialMarketsApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn change24hColumn {
+            public global::System.Data.DataColumn quantityColumn {
                 get {
-                    return this.columnchange24h;
+                    return this.columnquantity;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn change7dColumn {
+            public global::System.Data.DataColumn sumColumn {
                 get {
-                    return this.columnchange7d;
+                    return this.columnsum;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn priceWhenAddedColumn {
+                get {
+                    return this.columnpriceWhenAdded;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn changeWalletColumn {
+                get {
+                    return this.columnchangeWallet;
                 }
             }
             
@@ -373,49 +393,51 @@ namespace FinancialMarketsApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public CryptocurrenciesRow this[int index] {
+            public ViewWalletRow this[int index] {
                 get {
-                    return ((CryptocurrenciesRow)(this.Rows[index]));
+                    return ((ViewWalletRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event CryptocurrenciesRowChangeEventHandler CryptocurrenciesRowChanging;
+            public event ViewWalletRowChangeEventHandler ViewWalletRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event CryptocurrenciesRowChangeEventHandler CryptocurrenciesRowChanged;
+            public event ViewWalletRowChangeEventHandler ViewWalletRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event CryptocurrenciesRowChangeEventHandler CryptocurrenciesRowDeleting;
+            public event ViewWalletRowChangeEventHandler ViewWalletRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event CryptocurrenciesRowChangeEventHandler CryptocurrenciesRowDeleted;
+            public event ViewWalletRowChangeEventHandler ViewWalletRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void AddCryptocurrenciesRow(CryptocurrenciesRow row) {
+            public void AddViewWalletRow(ViewWalletRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public CryptocurrenciesRow AddCryptocurrenciesRow(string name, string symbol, decimal price, decimal change24h, decimal change7d) {
-                CryptocurrenciesRow rowCryptocurrenciesRow = ((CryptocurrenciesRow)(this.NewRow()));
+            public ViewWalletRow AddViewWalletRow(string name, string symbol, string price, string quantity, string sum, string priceWhenAdded, string changeWallet) {
+                ViewWalletRow rowViewWalletRow = ((ViewWalletRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         name,
                         symbol,
                         price,
-                        change24h,
-                        change7d};
-                rowCryptocurrenciesRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowCryptocurrenciesRow);
-                return rowCryptocurrenciesRow;
+                        quantity,
+                        sum,
+                        priceWhenAdded,
+                        changeWallet};
+                rowViewWalletRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowViewWalletRow);
+                return rowViewWalletRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                CryptocurrenciesDataTable cln = ((CryptocurrenciesDataTable)(base.Clone()));
+                ViewWalletDataTable cln = ((ViewWalletDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -423,7 +445,7 @@ namespace FinancialMarketsApp {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new CryptocurrenciesDataTable();
+                return new ViewWalletDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -432,8 +454,10 @@ namespace FinancialMarketsApp {
                 this.columnname = base.Columns["name"];
                 this.columnsymbol = base.Columns["symbol"];
                 this.columnprice = base.Columns["price"];
-                this.columnchange24h = base.Columns["change24h"];
-                this.columnchange7d = base.Columns["change7d"];
+                this.columnquantity = base.Columns["quantity"];
+                this.columnsum = base.Columns["sum"];
+                this.columnpriceWhenAdded = base.Columns["priceWhenAdded"];
+                this.columnchangeWallet = base.Columns["changeWallet"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -443,40 +467,49 @@ namespace FinancialMarketsApp {
                 base.Columns.Add(this.columnname);
                 this.columnsymbol = new global::System.Data.DataColumn("symbol", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsymbol);
-                this.columnprice = new global::System.Data.DataColumn("price", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.columnprice = new global::System.Data.DataColumn("price", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnprice);
-                this.columnchange24h = new global::System.Data.DataColumn("change24h", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnchange24h);
-                this.columnchange7d = new global::System.Data.DataColumn("change7d", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnchange7d);
+                this.columnquantity = new global::System.Data.DataColumn("quantity", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnquantity);
+                this.columnsum = new global::System.Data.DataColumn("sum", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsum);
+                this.columnpriceWhenAdded = new global::System.Data.DataColumn("priceWhenAdded", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpriceWhenAdded);
+                this.columnchangeWallet = new global::System.Data.DataColumn("changeWallet", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnchangeWallet);
                 this.columnname.MaxLength = 50;
                 this.columnsymbol.MaxLength = 50;
+                this.columnprice.MaxLength = 50;
+                this.columnquantity.MaxLength = 50;
+                this.columnsum.MaxLength = 50;
+                this.columnpriceWhenAdded.MaxLength = 50;
+                this.columnchangeWallet.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public CryptocurrenciesRow NewCryptocurrenciesRow() {
-                return ((CryptocurrenciesRow)(this.NewRow()));
+            public ViewWalletRow NewViewWalletRow() {
+                return ((ViewWalletRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new CryptocurrenciesRow(builder);
+                return new ViewWalletRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(CryptocurrenciesRow);
+                return typeof(ViewWalletRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.CryptocurrenciesRowChanged != null)) {
-                    this.CryptocurrenciesRowChanged(this, new CryptocurrenciesRowChangeEvent(((CryptocurrenciesRow)(e.Row)), e.Action));
+                if ((this.ViewWalletRowChanged != null)) {
+                    this.ViewWalletRowChanged(this, new ViewWalletRowChangeEvent(((ViewWalletRow)(e.Row)), e.Action));
                 }
             }
             
@@ -484,8 +517,8 @@ namespace FinancialMarketsApp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.CryptocurrenciesRowChanging != null)) {
-                    this.CryptocurrenciesRowChanging(this, new CryptocurrenciesRowChangeEvent(((CryptocurrenciesRow)(e.Row)), e.Action));
+                if ((this.ViewWalletRowChanging != null)) {
+                    this.ViewWalletRowChanging(this, new ViewWalletRowChangeEvent(((ViewWalletRow)(e.Row)), e.Action));
                 }
             }
             
@@ -493,8 +526,8 @@ namespace FinancialMarketsApp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.CryptocurrenciesRowDeleted != null)) {
-                    this.CryptocurrenciesRowDeleted(this, new CryptocurrenciesRowChangeEvent(((CryptocurrenciesRow)(e.Row)), e.Action));
+                if ((this.ViewWalletRowDeleted != null)) {
+                    this.ViewWalletRowDeleted(this, new ViewWalletRowChangeEvent(((ViewWalletRow)(e.Row)), e.Action));
                 }
             }
             
@@ -502,14 +535,14 @@ namespace FinancialMarketsApp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.CryptocurrenciesRowDeleting != null)) {
-                    this.CryptocurrenciesRowDeleting(this, new CryptocurrenciesRowChangeEvent(((CryptocurrenciesRow)(e.Row)), e.Action));
+                if ((this.ViewWalletRowDeleting != null)) {
+                    this.ViewWalletRowDeleting(this, new ViewWalletRowChangeEvent(((ViewWalletRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void RemoveCryptocurrenciesRow(CryptocurrenciesRow row) {
+            public void RemoveViewWalletRow(ViewWalletRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -518,7 +551,7 @@ namespace FinancialMarketsApp {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                FinMarketsAppDBDataSet ds = new FinMarketsAppDBDataSet();
+                FinMarketsAppDBDataSet2 ds = new FinMarketsAppDBDataSet2();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -536,7 +569,7 @@ namespace FinancialMarketsApp {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "CryptocurrenciesDataTable";
+                attribute2.FixedValue = "ViewWalletDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -580,15 +613,15 @@ namespace FinancialMarketsApp {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class CryptocurrenciesRow : global::System.Data.DataRow {
+        public partial class ViewWalletRow : global::System.Data.DataRow {
             
-            private CryptocurrenciesDataTable tableCryptocurrencies;
+            private ViewWalletDataTable tableViewWallet;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal CryptocurrenciesRow(global::System.Data.DataRowBuilder rb) : 
+            internal ViewWalletRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableCryptocurrencies = ((CryptocurrenciesDataTable)(this.Table));
+                this.tableViewWallet = ((ViewWalletDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -596,14 +629,14 @@ namespace FinancialMarketsApp {
             public string name {
                 get {
                     try {
-                        return ((string)(this[this.tableCryptocurrencies.nameColumn]));
+                        return ((string)(this[this.tableViewWallet.nameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'name\' in table \'Cryptocurrencies\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'name\' in table \'ViewWallet\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableCryptocurrencies.nameColumn] = value;
+                    this[this.tableViewWallet.nameColumn] = value;
                 }
             }
             
@@ -612,123 +645,179 @@ namespace FinancialMarketsApp {
             public string symbol {
                 get {
                     try {
-                        return ((string)(this[this.tableCryptocurrencies.symbolColumn]));
+                        return ((string)(this[this.tableViewWallet.symbolColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'symbol\' in table \'Cryptocurrencies\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'symbol\' in table \'ViewWallet\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableCryptocurrencies.symbolColumn] = value;
+                    this[this.tableViewWallet.symbolColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public decimal price {
+            public string price {
                 get {
                     try {
-                        return ((decimal)(this[this.tableCryptocurrencies.priceColumn]));
+                        return ((string)(this[this.tableViewWallet.priceColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'price\' in table \'Cryptocurrencies\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'price\' in table \'ViewWallet\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableCryptocurrencies.priceColumn] = value;
+                    this[this.tableViewWallet.priceColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public decimal change24h {
+            public string quantity {
                 get {
                     try {
-                        return ((decimal)(this[this.tableCryptocurrencies.change24hColumn]));
+                        return ((string)(this[this.tableViewWallet.quantityColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'change24h\' in table \'Cryptocurrencies\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'quantity\' in table \'ViewWallet\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableCryptocurrencies.change24hColumn] = value;
+                    this[this.tableViewWallet.quantityColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public decimal change7d {
+            public string sum {
                 get {
                     try {
-                        return ((decimal)(this[this.tableCryptocurrencies.change7dColumn]));
+                        return ((string)(this[this.tableViewWallet.sumColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'change7d\' in table \'Cryptocurrencies\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'sum\' in table \'ViewWallet\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableCryptocurrencies.change7dColumn] = value;
+                    this[this.tableViewWallet.sumColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string priceWhenAdded {
+                get {
+                    try {
+                        return ((string)(this[this.tableViewWallet.priceWhenAddedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'priceWhenAdded\' in table \'ViewWallet\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewWallet.priceWhenAddedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string changeWallet {
+                get {
+                    try {
+                        return ((string)(this[this.tableViewWallet.changeWalletColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'changeWallet\' in table \'ViewWallet\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewWallet.changeWalletColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsnameNull() {
-                return this.IsNull(this.tableCryptocurrencies.nameColumn);
+                return this.IsNull(this.tableViewWallet.nameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetnameNull() {
-                this[this.tableCryptocurrencies.nameColumn] = global::System.Convert.DBNull;
+                this[this.tableViewWallet.nameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IssymbolNull() {
-                return this.IsNull(this.tableCryptocurrencies.symbolColumn);
+                return this.IsNull(this.tableViewWallet.symbolColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetsymbolNull() {
-                this[this.tableCryptocurrencies.symbolColumn] = global::System.Convert.DBNull;
+                this[this.tableViewWallet.symbolColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IspriceNull() {
-                return this.IsNull(this.tableCryptocurrencies.priceColumn);
+                return this.IsNull(this.tableViewWallet.priceColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetpriceNull() {
-                this[this.tableCryptocurrencies.priceColumn] = global::System.Convert.DBNull;
+                this[this.tableViewWallet.priceColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool Ischange24hNull() {
-                return this.IsNull(this.tableCryptocurrencies.change24hColumn);
+            public bool IsquantityNull() {
+                return this.IsNull(this.tableViewWallet.quantityColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void Setchange24hNull() {
-                this[this.tableCryptocurrencies.change24hColumn] = global::System.Convert.DBNull;
+            public void SetquantityNull() {
+                this[this.tableViewWallet.quantityColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool Ischange7dNull() {
-                return this.IsNull(this.tableCryptocurrencies.change7dColumn);
+            public bool IssumNull() {
+                return this.IsNull(this.tableViewWallet.sumColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void Setchange7dNull() {
-                this[this.tableCryptocurrencies.change7dColumn] = global::System.Convert.DBNull;
+            public void SetsumNull() {
+                this[this.tableViewWallet.sumColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IspriceWhenAddedNull() {
+                return this.IsNull(this.tableViewWallet.priceWhenAddedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetpriceWhenAddedNull() {
+                this[this.tableViewWallet.priceWhenAddedColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IschangeWalletNull() {
+                return this.IsNull(this.tableViewWallet.changeWalletColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetchangeWalletNull() {
+                this[this.tableViewWallet.changeWalletColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -736,22 +825,22 @@ namespace FinancialMarketsApp {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class CryptocurrenciesRowChangeEvent : global::System.EventArgs {
+        public class ViewWalletRowChangeEvent : global::System.EventArgs {
             
-            private CryptocurrenciesRow eventRow;
+            private ViewWalletRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public CryptocurrenciesRowChangeEvent(CryptocurrenciesRow row, global::System.Data.DataRowAction action) {
+            public ViewWalletRowChangeEvent(ViewWalletRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public CryptocurrenciesRow Row {
+            public ViewWalletRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -767,7 +856,7 @@ namespace FinancialMarketsApp {
         }
     }
 }
-namespace FinancialMarketsApp.FinMarketsAppDBDataSetTableAdapters {
+namespace FinancialMarketsApp.FinMarketsAppDBDataSet2TableAdapters {
     
     
     /// <summary>
@@ -779,7 +868,7 @@ namespace FinancialMarketsApp.FinMarketsAppDBDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class CryptocurrenciesTableAdapter : global::System.ComponentModel.Component {
+    public partial class ViewWalletTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -793,7 +882,7 @@ namespace FinancialMarketsApp.FinMarketsAppDBDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public CryptocurrenciesTableAdapter() {
+        public ViewWalletTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -890,23 +979,15 @@ namespace FinancialMarketsApp.FinMarketsAppDBDataSetTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Cryptocurrencies";
+            tableMapping.DataSetTable = "ViewWallet";
             tableMapping.ColumnMappings.Add("name", "name");
             tableMapping.ColumnMappings.Add("symbol", "symbol");
             tableMapping.ColumnMappings.Add("price", "price");
-            tableMapping.ColumnMappings.Add("change24h", "change24h");
-            tableMapping.ColumnMappings.Add("change7d", "change7d");
+            tableMapping.ColumnMappings.Add("quantity", "quantity");
+            tableMapping.ColumnMappings.Add("sum", "sum");
+            tableMapping.ColumnMappings.Add("priceWhenAdded", "priceWhenAdded");
+            tableMapping.ColumnMappings.Add("changeWallet", "changeWallet");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Cryptocurrencies] ([name], [symbol], [price], [change24h], [ch" +
-                "ange7d]) VALUES (@name, @symbol, @price, @change24h, @change7d)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@symbol", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "symbol", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@price", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@change24h", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "change24h", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@change7d", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "change7d", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -919,22 +1000,19 @@ namespace FinancialMarketsApp.FinMarketsAppDBDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT name, symbol, price, change24h, change7d FROM dbo.Cryptocurrencies";
+            this._commandCollection[0].CommandText = "SELECT name, symbol, price, quantity, sum, priceWhenAdded, changeWallet FROM dbo." +
+                "ViewWallet";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT name, symbol, price, change24h, change7d FROM dbo.Cryptocurrencies";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(FinMarketsAppDBDataSet.CryptocurrenciesDataTable dataTable) {
+        public virtual int Fill(FinMarketsAppDBDataSet2.ViewWalletDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -947,104 +1025,11 @@ namespace FinancialMarketsApp.FinMarketsAppDBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual FinMarketsAppDBDataSet.CryptocurrenciesDataTable cryptoGetData() {
+        public virtual FinMarketsAppDBDataSet2.ViewWalletDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            FinMarketsAppDBDataSet.CryptocurrenciesDataTable dataTable = new FinMarketsAppDBDataSet.CryptocurrenciesDataTable();
+            FinMarketsAppDBDataSet2.ViewWalletDataTable dataTable = new FinMarketsAppDBDataSet2.ViewWalletDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(FinMarketsAppDBDataSet.CryptocurrenciesDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(FinMarketsAppDBDataSet.CryptocurrenciesDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(FinMarketsAppDBDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "Cryptocurrencies");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string name, string symbol, string price, string change24h, string change7d) {
-            if ((name == null)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(name));
-            }
-            if ((symbol == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(symbol));
-            }
-            if ((price == null)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(price));
-            }
-            if ((change24h == null)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(change24h));
-            }
-            if ((change7d == null)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(change7d));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
         }
     }
     
@@ -1060,8 +1045,6 @@ namespace FinancialMarketsApp.FinMarketsAppDBDataSetTableAdapters {
         
         private UpdateOrderOption _updateOrder;
         
-        private CryptocurrenciesTableAdapter _cryptocurrenciesTableAdapter;
-        
         private bool _backupDataSetBeforeUpdate;
         
         private global::System.Data.IDbConnection _connection;
@@ -1074,20 +1057,6 @@ namespace FinancialMarketsApp.FinMarketsAppDBDataSetTableAdapters {
             }
             set {
                 this._updateOrder = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public CryptocurrenciesTableAdapter CryptocurrenciesTableAdapter {
-            get {
-                return this._cryptocurrenciesTableAdapter;
-            }
-            set {
-                this._cryptocurrenciesTableAdapter = value;
             }
         }
         
@@ -1110,10 +1079,6 @@ namespace FinancialMarketsApp.FinMarketsAppDBDataSetTableAdapters {
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._cryptocurrenciesTableAdapter != null) 
-                            && (this._cryptocurrenciesTableAdapter.Connection != null))) {
-                    return this._cryptocurrenciesTableAdapter.Connection;
-                }
                 return null;
             }
             set {
@@ -1127,9 +1092,6 @@ namespace FinancialMarketsApp.FinMarketsAppDBDataSetTableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._cryptocurrenciesTableAdapter != null)) {
-                    count = (count + 1);
-                }
                 return count;
             }
         }
@@ -1139,17 +1101,8 @@ namespace FinancialMarketsApp.FinMarketsAppDBDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateUpdatedRows(FinMarketsAppDBDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(FinMarketsAppDBDataSet2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._cryptocurrenciesTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Cryptocurrencies.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._cryptocurrenciesTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             return result;
         }
         
@@ -1158,16 +1111,8 @@ namespace FinancialMarketsApp.FinMarketsAppDBDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateInsertedRows(FinMarketsAppDBDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(FinMarketsAppDBDataSet2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._cryptocurrenciesTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Cryptocurrencies.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._cryptocurrenciesTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             return result;
         }
         
@@ -1176,16 +1121,8 @@ namespace FinancialMarketsApp.FinMarketsAppDBDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateDeletedRows(FinMarketsAppDBDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(FinMarketsAppDBDataSet2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._cryptocurrenciesTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Cryptocurrencies.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._cryptocurrenciesTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             return result;
         }
         
@@ -1218,17 +1155,12 @@ namespace FinancialMarketsApp.FinMarketsAppDBDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public virtual int UpdateAll(FinMarketsAppDBDataSet dataSet) {
+        public virtual int UpdateAll(FinMarketsAppDBDataSet2 dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
             if ((dataSet.HasChanges() == false)) {
                 return 0;
-            }
-            if (((this._cryptocurrenciesTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._cryptocurrenciesTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
             }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
@@ -1262,15 +1194,6 @@ namespace FinancialMarketsApp.FinMarketsAppDBDataSetTableAdapters {
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._cryptocurrenciesTableAdapter != null)) {
-                    revertConnections.Add(this._cryptocurrenciesTableAdapter, this._cryptocurrenciesTableAdapter.Connection);
-                    this._cryptocurrenciesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._cryptocurrenciesTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._cryptocurrenciesTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._cryptocurrenciesTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._cryptocurrenciesTableAdapter.Adapter);
-                    }
-                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -1328,10 +1251,6 @@ namespace FinancialMarketsApp.FinMarketsAppDBDataSetTableAdapters {
             finally {
                 if (workConnOpened) {
                     workConnection.Close();
-                }
-                if ((this._cryptocurrenciesTableAdapter != null)) {
-                    this._cryptocurrenciesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._cryptocurrenciesTableAdapter]));
-                    this._cryptocurrenciesTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

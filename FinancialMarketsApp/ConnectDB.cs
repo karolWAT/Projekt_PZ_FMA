@@ -100,7 +100,7 @@ namespace FinancialMarketsApp
             SqlConnection connection = new SqlConnection(connectionString);
             connection.Open();
 
-            string query = @"INSERT INTO WalletsC VALUES (" + walletsC.idUser + "," + walletsC.idWalletC + "," + walletsC.idCrypto + "," + "'"+walletsC.quantity+"'" + "," + "'"+walletsC.sum+"'" + "," + walletsC.idAlert + ")";
+            string query = @"INSERT INTO WalletsC VALUES (" + walletsC.idUser + "," + walletsC.idWalletC + "," + walletsC.idCrypto + "," + "'"+walletsC.quantity+"'" + "," + "'"+walletsC.sum+"'" + "," + walletsC.idAlert + "," + "'"+walletsC.price+"'" + ", 0" + ")";
             SqlCommand command = new SqlCommand(query, connection);
             command.ExecuteNonQuery();
 
@@ -114,7 +114,7 @@ namespace FinancialMarketsApp
             SqlConnection connection = new SqlConnection(connectionString);
             connection.Open();
 
-            string query = @"UPDATE WalletsC SET idUser = " + walletsC.idUser + ",idWalletC=" + walletsC.idWalletC + ",idCrypto=" + walletsC.idCrypto + ",quantity=" + "'"+walletsC.quantity+"'" + ",sum=" + "'"+walletsC.sum+"'" + ",idAlert=" + walletsC.idAlert + " WHERE idCrypto = " + walletsC.idCrypto + "";
+            string query = @"UPDATE WalletsC SET idUser = " + walletsC.idUser + ",idWalletC=" + walletsC.idWalletC + ",idCrypto=" + walletsC.idCrypto + ",quantity=" + "'"+walletsC.quantity+"'" + ",sum=" + "'"+walletsC.sum+"'" + ",idAlert=" + walletsC.idAlert + "," + "priceWhenAdded=" + "'"+walletsC.price+"'" + " WHERE idCrypto = " + walletsC.idCrypto + "";
             //MessageBox.Show(query);
             SqlCommand command = new SqlCommand(query, connection);
             command.ExecuteNonQuery();
@@ -248,7 +248,7 @@ namespace FinancialMarketsApp
                 price = Convert.ToSingle(reader["price"].ToString());
                 priceWhenAdded = Convert.ToSingle(reader["priceWhenAdded"].ToString());
                 changeWallet[walletCounter] = ((priceWhenAdded / price) - 1) * 100;
-                MessageBox.Show(changeWallet[walletCounter].ToString().Substring(startIndex, length));
+//                MessageBox.Show(changeWallet[walletCounter].ToString().Substring(startIndex, length));
 
                 walletCounter++;
             }
