@@ -262,7 +262,7 @@ namespace FinancialMarketsApp
             {
                 String tempChangeWallet = "";
 //                MessageBox.Show(changeWallet[walletCounter].ToString());
-                if (changeWallet[walletCounter].ToString() != "")
+                if (changeWallet[walletCounter] != 0)
                 {
                     tempChangeWallet = changeWallet[walletCounter].ToString().Substring(startIndex, length);
                 } else tempChangeWallet = "0";

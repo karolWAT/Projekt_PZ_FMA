@@ -199,6 +199,7 @@ namespace FinancialMarketsApp
                 this.viewWalletTableAdapter1.Fill(this.finMarketsAppDBDataSet21.ViewWallet);
 //                this.viewWalletTableAdapter.Fill(this.finMarketsAppDBDataSet1.ViewWallet);
                 calculateWalletbalance();
+                refreshWallet();
             }
         }
 
@@ -233,6 +234,7 @@ namespace FinancialMarketsApp
                         this.viewWalletTableAdapter1.Fill(this.finMarketsAppDBDataSet21.ViewWallet);
 //                        this.viewWalletTableAdapter.Fill(this.finMarketsAppDBDataSet1.ViewWallet);
                         calculateWalletbalance();
+                        refreshWallet();
                         try
                         {
                             if (walletDataGridView.CurrentRow.Index != -1)
@@ -365,11 +367,11 @@ namespace FinancialMarketsApp
             {
                 // MessageBox.Show(walletDataGridView.Rows[i].Cells[5].Value.ToString());
                 // MessageBox.Show(walletDataGridView.Rows[i].Cells[5].Value.ToString());
-                if (Convert.ToDecimal(walletDataGridView.Rows[i].Cells[5].Value) >= 5)
+                if (Convert.ToDecimal(walletDataGridView.Rows[i].Cells[5].Value) >= 1)
                 {
                     walletDataGridView.Rows[i].Cells[5].Style.BackColor = Color.GreenYellow;
                 }
-                else if (Convert.ToDecimal(walletDataGridView.Rows[i].Cells[5].Value) <= -5)
+                else if (Convert.ToDecimal(walletDataGridView.Rows[i].Cells[5].Value) <= -1)
                 {
                     walletDataGridView.Rows[i].Cells[5].Style.BackColor = Color.Red;
                 }
