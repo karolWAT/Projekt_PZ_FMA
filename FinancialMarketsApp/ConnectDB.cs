@@ -230,7 +230,7 @@ namespace FinancialMarketsApp
             int[] tempIdUser = new int[20];
             int[] tempIdCrypto = new int[20];
             int startIndex = 0;
-            int length = 4;
+            int length = 5;
             int walletCounter = 0;
         
         
@@ -243,13 +243,13 @@ namespace FinancialMarketsApp
             SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
+//                Convert.ToInt32(reader["idCrypto"])
                 tempIdUser[walletCounter] = Convert.ToInt32(reader["idUser"]);
                 tempIdCrypto[walletCounter] = Convert.ToInt32(reader["idCrypto"]);
                 price = Convert.ToSingle(reader["price"].ToString());
                 priceWhenAdded = Convert.ToSingle(reader["priceWhenAdded"].ToString());
-                changeWallet[walletCounter] = ((priceWhenAdded / price) - 1) * 100;
+                changeWallet[walletCounter] = ((price/priceWhenAdded)-1)*100;
 //                MessageBox.Show(changeWallet[walletCounter].ToString().Substring(startIndex, length));
-
                 walletCounter++;
             }
             connection.Close();
@@ -260,7 +260,13 @@ namespace FinancialMarketsApp
 
             while (walletCounter >= 0)
             {
-                String tempChangeWallet = changeWallet[walletCounter].ToString().Substring(startIndex, length);
+                String tempChangeWallet = "";
+//                MessageBox.Show(changeWallet[walletCounter].ToString());
+                if (changeWallet[walletCounter].ToString() != "")
+                {
+                    tempChangeWallet = changeWallet[walletCounter].ToString().Substring(startIndex, length);
+                } else tempChangeWallet = "0";
+
                 string query2 = @"UPDATE WalletsC SET changeWallet = " + "'" + tempChangeWallet + "'" + " WHERE idCrypto = " + tempIdCrypto[walletCounter] + " AND idUser = " + tempIdUser[walletCounter] + "";
                 SqlCommand command2 = new SqlCommand(query2, connection);
                 command2.ExecuteNonQuery();

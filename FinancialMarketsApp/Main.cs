@@ -17,10 +17,7 @@ namespace FinancialMarketsApp
         public Main()
         {
             InitializeComponent();
-            notifyIcon1.Visible = false;
 
-            checkUser();
-            calculateWalletbalance();
         }
 
         private void calculateWalletbalance()
@@ -115,7 +112,7 @@ namespace FinancialMarketsApp
             }
 
             MessageBox.Show(responseNBPtabA + "\n\n" + responseNBPgold);
-
+            this.cryptocurrenciesTableAdapter.Fill(this.finMarketsAppDBDataSet.Cryptocurrencies);
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -124,6 +121,11 @@ namespace FinancialMarketsApp
             this.viewWalletTableAdapter1.Fill(this.finMarketsAppDBDataSet21.ViewWallet);
 //            this.viewWalletTableAdapter.Fill(this.finMarketsAppDBDataSet1.ViewWallet);
             this.cryptocurrenciesTableAdapter.Fill(this.finMarketsAppDBDataSet.Cryptocurrencies);
+
+            notifyIcon1.Visible = false;
+            checkUser();
+            calculateWalletbalance();
+            refreshWallet();
         }
 
 
@@ -348,21 +350,30 @@ namespace FinancialMarketsApp
             this.viewWalletTableAdapter1.Fill(this.finMarketsAppDBDataSet21.ViewWallet);
 //            this.viewWalletTableAdapter.Fill(this.finMarketsAppDBDataSet1.ViewWallet);
             calculateWalletbalance();
+            refreshWallet();
+        }
+
+        private void refreshWallet()
+        {
             ConnectDB connectDb = new ConnectDB();
             connectDb.calculateChangeWallet();
 
             int i = walletDataGridView.RowCount;
             i--;
 
-            while (i>=0)
+            while (i >= 0)
             {
-                
-                //MessageBox.Show(walletDataGridView.Rows[i].Cells[5].Value.ToString());
-                if (Convert.ToDecimal(walletDataGridView.Rows[i].Cells[5].Value) >= 8)
+                // MessageBox.Show(walletDataGridView.Rows[i].Cells[5].Value.ToString());
+                // MessageBox.Show(walletDataGridView.Rows[i].Cells[5].Value.ToString());
+                if (Convert.ToDecimal(walletDataGridView.Rows[i].Cells[5].Value) >= 5)
                 {
-//                    walletDataGridView.Rows[i].Cells[5];
-                    MessageBox.Show(walletDataGridView.Rows[i].Cells[5].Value.ToString());
+                    walletDataGridView.Rows[i].Cells[5].Style.BackColor = Color.GreenYellow;
                 }
+                else if (Convert.ToDecimal(walletDataGridView.Rows[i].Cells[5].Value) <= -5)
+                {
+                    walletDataGridView.Rows[i].Cells[5].Style.BackColor = Color.Red;
+                }
+
                 i--;
             }
         }
@@ -452,6 +463,7 @@ namespace FinancialMarketsApp
             String contentPrice = String.Empty;
             String contentQuantity = String.Empty;
             String contentSum = String.Empty;
+            String contentChange = String.Empty;
             String dashes = "--------------------------------------";
 
             DateTime thisDay = DateTime.Today;
@@ -475,7 +487,8 @@ namespace FinancialMarketsApp
                         contentPrice = walletDataGridView.Rows[i].Cells[2].Value.ToString();
                         contentQuantity = walletDataGridView.Rows[i].Cells[3].Value.ToString();
                         contentSum = walletDataGridView.Rows[i].Cells[4].Value.ToString();
-                        File.AppendAllText(saveFile.FileName, contentName + "  " + contentSymbol + "  " + contentPrice + "  " + contentQuantity + "  " + contentSum + Environment.NewLine);
+                        contentChange = walletDataGridView.Rows[i].Cells[5].Value.ToString();
+                        File.AppendAllText(saveFile.FileName, contentName + "  " + contentSymbol + "  " + contentPrice + "  " + contentQuantity + "  " + contentSum + "  " + contentChange + Environment.NewLine);
                     }
                 }
                 File.AppendAllText(saveFile.FileName, dashes + Environment.NewLine + balanceLabel.Text + " " + balanceValueLabel.Text + Environment.NewLine + Environment.NewLine);
