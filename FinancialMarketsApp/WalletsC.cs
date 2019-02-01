@@ -22,7 +22,13 @@ namespace FinancialMarketsApp
 
         public int idAlert { get; set; }
 
+        public string priceWhenAdded { get; set; }
+
         public string changeWallet { get; set; }
+
+        public string alertUp { get; set; }
+
+        public string alertDown { get; set; }
     }
 
 }

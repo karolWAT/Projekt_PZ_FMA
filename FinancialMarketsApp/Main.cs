@@ -102,12 +102,20 @@ namespace FinancialMarketsApp
             var client = new HttpClient();
             var url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=100";
             client.DefaultRequestHeaders.Add("X-CMC_PRO_API_KEY", "f742b5ad-230c-4dfe-b1dc-7fbe4ec51be4");
-            string response = client.GetStringAsync(url).Result;
-            GetAPI getapi = new GetAPI();
-            for (int i = 0; i < 100; i++)
+            try
             {
-                getapi.cryptoGetData(i, response);
+                string response = client.GetStringAsync(url).Result;
+                GetAPI getapi = new GetAPI();
+                for (int i = 0; i < 100; i++)
+                {
+                    getapi.cryptoGetData(i, response);
+                }
             }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            
         }
 
         private void apiNbpButton_Click(object sender, EventArgs e)
@@ -177,7 +185,7 @@ namespace FinancialMarketsApp
             refreshWallet();
 
             System.Timers.Timer timer = new System.Timers.Timer();
-            timer.Interval = 10*60*1000;
+            timer.Interval = 5*60*1000;
             timer.Elapsed += timerElapsed;
             timer.Start();
         }
@@ -197,6 +205,8 @@ namespace FinancialMarketsApp
                 walletSymbolTextBox.Text = cryptoDataGridView.CurrentRow.Cells[1].Value.ToString();
                 walletPriceTextBox.Text = cryptoDataGridView.CurrentRow.Cells[2].Value.ToString();
                 walletQuantityTextBox.Text = "0";
+                alertUpTextBox.Text = "0";
+                alertDownTextBox.Text = "0";
 
                 walletNameTextBox.BackColor = searchTextBox.BackColor;
                 walletSymbolTextBox.BackColor = searchTextBox.BackColor;
@@ -211,8 +221,15 @@ namespace FinancialMarketsApp
 
         private void walletDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            ConnectDB connectDb = new ConnectDB();
+            Users user = new Users();
+            user = connectDb.checkLoggedUser();
+            (decimal[] up, decimal[] down) = connectDb.CalculateChangeWallet(user);
+
             if (walletDataGridView.CurrentRow.Index != -1)
             {
+                int i = walletDataGridView.CurrentRow.Index;
+
                 walletNameTextBox.Text = walletDataGridView.CurrentRow.Cells[0].Value.ToString();
                 walletSymbolTextBox.Text = walletDataGridView.CurrentRow.Cells[1].Value.ToString();
                 walletPriceTextBox.Text = walletDataGridView.CurrentRow.Cells[2].Value.ToString();
@@ -221,6 +238,9 @@ namespace FinancialMarketsApp
                 walletSymbolTextBox.BackColor = Color.GreenYellow;
                 walletPriceTextBox.BackColor = Color.GreenYellow;
                 walletQuantityTextBox.BackColor = Color.GreenYellow;
+
+                alertUpTextBox.Text = up[i].ToString();
+                alertDownTextBox.Text = down[i].ToString();
             }
         }
 
@@ -239,18 +259,21 @@ namespace FinancialMarketsApp
                 user = connectDb.checkLoggedUser();
                 walletsC.idUser = user.idUsers;
 
-                walletsC.idWalletC = 1; // też sprzawdzam użytkonika a póżniej jego crytpo wallet
+                walletsC.idWalletC = 1; 
                 walletsC.idCrypto = crypto.idCrypto;
+                walletsC.priceWhenAdded = crypto.Price;
                 walletsC.price = crypto.Price;
                 walletsC.quantity = walletQuantityTextBox.Text;
                 float tempSum = Convert.ToSingle(walletsC.price) * Convert.ToSingle(walletsC.quantity);
                 walletsC.sum = tempSum.ToString();
-                walletsC.idAlert = 1; // bede pewnie z gui bral dla alertu wzrostoego 1 a dla malejacego 2
+                walletsC.idAlert = 1;
+                walletsC.alertUp = alertUpTextBox.Text;
+                walletsC.alertDown = alertDownTextBox.Text;
 
                 walletsC2 = connectDb.readWalletsC(walletsC.idUser, walletsC.idWalletC, walletsC.idCrypto);
                 if (walletsC2.idCrypto != 0)
                 {
-                    connectDb.updateWalletsC(walletsC);
+                    connectDb.updateWalletsC(walletsC, user);
                 }
                 else
                 {
@@ -418,22 +441,28 @@ namespace FinancialMarketsApp
         private void refreshWallet()
         {
             ConnectDB connectDb = new ConnectDB();
-            connectDb.calculateChangeWallet();
+            
+            Users user = new Users();
+            user = connectDb.checkLoggedUser();
+
+            (decimal[] up, decimal[] down) = connectDb.CalculateChangeWallet(user);
 
             int i = walletDataGridView.RowCount;
             i--;
 
             while (i >= 0)
             {
+//                MessageBox.Show(up[i].ToString());
+//                MessageBox.Show(down[i].ToString());
                 // MessageBox.Show(walletDataGridView.Rows[i].Cells[5].Value.ToString());
                 // MessageBox.Show(walletDataGridView.Rows[i].Cells[5].Value.ToString());
-                if (Convert.ToDecimal(walletDataGridView.Rows[i].Cells[6].Value) >= Convert.ToDecimal(1.00))
+                if (Convert.ToDecimal(walletDataGridView.Rows[i].Cells[6].Value) >= up[i])
                 {
                     notifyIcon1.Visible = true;
                     walletDataGridView.Rows[i].Cells[6].Style.BackColor = Color.GreenYellow;
                     notifyIcon1.ShowBalloonTip(300, "Financial Markets App - Alert", walletDataGridView.Rows[i].Cells[0].Value.ToString() + " price above your limit", ToolTipIcon.None);
                 }
-                else if (Convert.ToDecimal(walletDataGridView.Rows[i].Cells[6].Value) <= Convert.ToDecimal(-1.00))
+                else if (Convert.ToDecimal(walletDataGridView.Rows[i].Cells[6].Value) <= -down[i])
                 {
                     notifyIcon1.Visible = true;
                     walletDataGridView.Rows[i].Cells[6].Style.BackColor = Color.Red;
@@ -484,7 +513,7 @@ namespace FinancialMarketsApp
                 cryptocurrenciesLabel.Text = "kryptowaluty";
                 currenciesLabel.Text = "waluty";
                 apiButton.Text = "Odśwież";
-                apiNbpButton.Text = "Odśwież";
+                apiNbpButton.Text = "Pokaż";
                 darkLightButton.Text = "Ciemny/Jasny";
                 logOutButton.Text = "Wyloguj";
                 cryptocurrenciesListLabel.Text = "LISTA KRYPTOWALUT";
@@ -505,7 +534,7 @@ namespace FinancialMarketsApp
                 cryptocurrenciesLabel.Text = "cryptocurrencies";
                 currenciesLabel.Text = "currencies";
                 apiButton.Text = "Refresh";
-                apiNbpButton.Text = "Refresh";
+                apiNbpButton.Text = "Show";
                 darkLightButton.Text = "Dark / Light";
                 logOutButton.Text = "Log out";
                 cryptocurrenciesListLabel.Text = "CRYPTOCURRENCIES LIST";
@@ -581,23 +610,7 @@ namespace FinancialMarketsApp
             notifyIcon1.Visible = false;
             WindowState = FormWindowState.Normal;
 
-            int i = walletDataGridView.RowCount;
-            i--;
-            while (i >= 0)
-            {
-                // MessageBox.Show(walletDataGridView.Rows[i].Cells[6].Value.ToString());
-                // MessageBox.Show(walletDataGridView.Rows[i].Cells[6].Value.ToString());
-                if (Convert.ToDecimal(walletDataGridView.Rows[i].Cells[6].Value) >= Convert.ToDecimal(1.00))
-                {
-                    walletDataGridView.Rows[i].Cells[6].Style.BackColor = Color.GreenYellow;
-                }
-                else if (Convert.ToDecimal(walletDataGridView.Rows[i].Cells[6].Value) <= Convert.ToDecimal(-1.00))
-                {
-                    walletDataGridView.Rows[i].Cells[6].Style.BackColor = Color.Red;
-                }
-                i--;
-            }
-
+            refreshWallet();
 
         }
     }    

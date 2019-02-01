@@ -100,7 +100,7 @@ namespace FinancialMarketsApp
             SqlConnection connection = new SqlConnection(connectionString);
             connection.Open();
 
-            string query = @"INSERT INTO WalletsC VALUES (" + walletsC.idUser + "," + walletsC.idWalletC + "," + walletsC.idCrypto + "," + "'"+walletsC.quantity+"'" + "," + "'"+walletsC.sum+"'" + "," + walletsC.idAlert + "," + "'"+walletsC.price+"'" + ", 0" + ")";
+            string query = @"INSERT INTO WalletsC VALUES (" + walletsC.idUser + "," + walletsC.idWalletC + "," + walletsC.idCrypto + "," + "'"+walletsC.quantity+"'" + "," + "'"+walletsC.sum+"'" + "," + walletsC.idAlert + "," + "'"+walletsC.priceWhenAdded+ "'" + ", 0," + "'"+walletsC.alertUp+"'" + "," + "'" +walletsC.alertDown+"'" + ")";
             SqlCommand command = new SqlCommand(query, connection);
             command.ExecuteNonQuery();
 
@@ -108,17 +108,34 @@ namespace FinancialMarketsApp
             return true;
         }
 
-        public bool updateWalletsC(WalletsC walletsC)
+        public bool updateWalletsC(WalletsC walletsC, Users user)
         {
+            float price = 0;
+            float priceWhenAdded = 0;
+
             string connectionString = @"Data Source=(localdb)\LocalDBKN;Initial Catalog=FinMarketsAppDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             SqlConnection connection = new SqlConnection(connectionString);
             connection.Open();
+            
+            String query2 = @"SELECT price, priceWhenAdded FROM WalletsC,Cryptocurrencies WHERE Cryptocurrencies.idCrypto = WalletsC.idCrypto AND WalletsC.idUser = " + user.idUsers + "AND WalletsC.idCrypto =" + walletsC.idCrypto + "";
+            //   String query = @"SELECT sum FROM dbo.ViewWallet";
+            SqlCommand command2 = new SqlCommand(query2, connection);
+            SqlDataReader reader = command2.ExecuteReader();
+            while(reader.Read())
+            {
+                price = Convert.ToSingle(reader["price"].ToString());
+                priceWhenAdded = Convert.ToSingle(reader["priceWhenAdded"].ToString());
+            }
+            connection.Close();
 
-            string query = @"UPDATE WalletsC SET idUser = " + walletsC.idUser + ",idWalletC=" + walletsC.idWalletC + ",idCrypto=" + walletsC.idCrypto + ",quantity=" + "'"+walletsC.quantity+"'" + ",sum=" + "'"+walletsC.sum+"'" + ",idAlert=" + walletsC.idAlert + "," + "priceWhenAdded=" + "'"+walletsC.price+"'" + " WHERE idCrypto = " + walletsC.idCrypto + "";
+            connection.Open();
+            if (price != priceWhenAdded) { 
+//            string query = @"UPDATE WalletsC SET idUser = " + walletsC.idUser + ",idWalletC=" + walletsC.idWalletC + ",idCrypto=" + walletsC.idCrypto + ",quantity=" + "'"+walletsC.quantity+"'" + ",sum=" + "'"+walletsC.sum+"'" + ",idAlert=" + walletsC.idAlert + "," + "priceWhenAdded=" + "'"+walletsC.priceWhenAdded + "'" + "," + "alertUp=" + "'"+walletsC.alertUp+"'" + "," + "alertDown=" + "'"+walletsC.alertDown+"'" + " WHERE idCrypto = " + walletsC.idCrypto + "";
+            string query = @"UPDATE WalletsC SET idUser = " + walletsC.idUser + ",idWalletC=" + walletsC.idWalletC + ",idCrypto=" + walletsC.idCrypto + ",quantity=" + "'"+walletsC.quantity+"'" + ",sum=" + "'"+walletsC.sum+"'" + ",idAlert=" + walletsC.idAlert + "," + "priceWhenAdded=" + "'"+ priceWhenAdded + "'" + "," + "alertUp=" + "'"+walletsC.alertUp+"'" + "," + "alertDown=" + "'"+walletsC.alertDown+"'" + " WHERE idCrypto = " + walletsC.idCrypto + "";
             //MessageBox.Show(query);
             SqlCommand command = new SqlCommand(query, connection);
             command.ExecuteNonQuery();
-
+            }
             connection.Close();
             return true;
         }
@@ -222,7 +239,7 @@ namespace FinancialMarketsApp
         }
 
 
-        public bool calculateChangeWallet()
+        public (decimal[],decimal[]) CalculateChangeWallet(Users user)
         {
             float[] changeWallet = new float[20];
             float price = 0;
@@ -232,24 +249,29 @@ namespace FinancialMarketsApp
             int startIndex = 0;
             int length = 5;
             int walletCounter = 0;
-        
-        
+
+            decimal[] tempAlerUp = new decimal[20];
+            decimal[] tempAlerDown = new decimal[20];
+
             string connectionString = @"Data Source=(localdb)\LocalDBKN;Initial Catalog=FinMarketsAppDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             SqlConnection connection = new SqlConnection(connectionString);
             connection.Open();
-            String query = @"SELECT price, priceWhenAdded,idUser,WalletsC.idCrypto FROM Cryptocurrencies,WalletsC WHERE Cryptocurrencies.idCrypto = WalletsC.idCrypto";
-            //            String query = @"SELECT sum FROM dbo.ViewWallet";
+            String query = @"SELECT price, priceWhenAdded,idUser,alertUp,alertDown,WalletsC.idCrypto FROM Cryptocurrencies,WalletsC WHERE Cryptocurrencies.idCrypto = WalletsC.idCrypto AND WalletsC.idUser = " + user.idUsers + "";
+            //   String query = @"SELECT sum FROM dbo.ViewWallet";
             SqlCommand command = new SqlCommand(query, connection);
             SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
-//                Convert.ToInt32(reader["idCrypto"])
+//              Convert.ToInt32(reader["idCrypto"])
                 tempIdUser[walletCounter] = Convert.ToInt32(reader["idUser"]);
                 tempIdCrypto[walletCounter] = Convert.ToInt32(reader["idCrypto"]);
                 price = Convert.ToSingle(reader["price"].ToString());
                 priceWhenAdded = Convert.ToSingle(reader["priceWhenAdded"].ToString());
                 changeWallet[walletCounter] = ((price/priceWhenAdded)-1)*100;
-//                MessageBox.Show(changeWallet[walletCounter].ToString().Substring(startIndex, length));
+                //                MessageBox.Show(changeWallet[walletCounter].ToString().Substring(startIndex, length));
+                tempAlerUp[walletCounter] = Convert.ToDecimal(reader["alertUp"].ToString());
+                tempAlerDown[walletCounter] = Convert.ToDecimal(reader["alertDown"].ToString());
+
                 walletCounter++;
             }
             connection.Close();
@@ -274,7 +296,7 @@ namespace FinancialMarketsApp
             }
 
             connection.Close();
-            return true;
+            return (tempAlerUp,tempAlerDown);
         }
 
 
