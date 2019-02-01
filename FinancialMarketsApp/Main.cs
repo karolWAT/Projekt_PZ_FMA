@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Net.Http;
+using System.Timers;
 using System.Windows.Forms;
 
 namespace FinancialMarketsApp
@@ -17,7 +18,6 @@ namespace FinancialMarketsApp
         public Main()
         {
             InitializeComponent();
-
         }
 
         private void calculateWalletbalance()
@@ -78,6 +78,10 @@ namespace FinancialMarketsApp
             int j = 0;
             progrssBarlabel.Text = j + "%";
             apiProgressBar.Increment(-100);
+//            apiProgressBar.Invoke(new Action(delegate ()
+//            {
+//                apiProgressBar.Increment(-100);
+//            }));
 
             for (int i = 0; i < 100; i++)
             {
@@ -89,6 +93,19 @@ namespace FinancialMarketsApp
             }
 
             MessageBox.Show("Updated");
+        }
+
+        private void apiButtonAuto()
+        {
+            var client = new HttpClient();
+            var url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=100";
+            client.DefaultRequestHeaders.Add("X-CMC_PRO_API_KEY", "f742b5ad-230c-4dfe-b1dc-7fbe4ec51be4");
+            string response = client.GetStringAsync(url).Result;
+            GetAPI getapi = new GetAPI();
+            for (int i = 0; i < 100; i++)
+            {
+                getapi.cryptoGetData(i, response);
+            }
         }
 
         private void apiNbpButton_Click(object sender, EventArgs e)
@@ -112,7 +129,6 @@ namespace FinancialMarketsApp
             }
 
             MessageBox.Show(responseNBPtabA + "\n\n" + responseNBPgold);
-            this.cryptocurrenciesTableAdapter.Fill(this.finMarketsAppDBDataSet.Cryptocurrencies);
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -126,8 +142,19 @@ namespace FinancialMarketsApp
             checkUser();
             calculateWalletbalance();
             refreshWallet();
+
+            System.Timers.Timer timer = new System.Timers.Timer();
+            timer.Interval = 10*60*1000;
+            timer.Elapsed += timerElapsed;
+            timer.Start();
         }
 
+        private void timerElapsed(object sender, ElapsedEventArgs e)
+        {
+            apiButtonAuto();
+            calculateWalletbalance();
+            refreshWallet();
+       }
 
         private void cryptoDataGridView_CellClick(object sender, EventArgs e)
         {
@@ -251,7 +278,7 @@ namespace FinancialMarketsApp
                     }
                     else
                         MessageBox.Show("You do not have this asset in your wallet", "Warning", MessageBoxButtons.OK,
-                            MessageBoxIcon.Warning);
+                        MessageBoxIcon.Warning);
                 }
             }
             else MessageBox.Show("Select asset to remowe", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -367,17 +394,22 @@ namespace FinancialMarketsApp
             {
                 // MessageBox.Show(walletDataGridView.Rows[i].Cells[5].Value.ToString());
                 // MessageBox.Show(walletDataGridView.Rows[i].Cells[5].Value.ToString());
-                if (Convert.ToDecimal(walletDataGridView.Rows[i].Cells[5].Value) >= 1)
+                if (Convert.ToDecimal(walletDataGridView.Rows[i].Cells[6].Value) >= Convert.ToDecimal(1.00))
                 {
-                    walletDataGridView.Rows[i].Cells[5].Style.BackColor = Color.GreenYellow;
+                    notifyIcon1.Visible = true;
+                    walletDataGridView.Rows[i].Cells[6].Style.BackColor = Color.GreenYellow;
+                    notifyIcon1.ShowBalloonTip(300, "Financial Markets App - Alert", walletDataGridView.Rows[i].Cells[0].Value.ToString() + " price above your limit", ToolTipIcon.None);
                 }
-                else if (Convert.ToDecimal(walletDataGridView.Rows[i].Cells[5].Value) <= -1)
+                else if (Convert.ToDecimal(walletDataGridView.Rows[i].Cells[6].Value) <= Convert.ToDecimal(-1.00))
                 {
-                    walletDataGridView.Rows[i].Cells[5].Style.BackColor = Color.Red;
+                    notifyIcon1.Visible = true;
+                    walletDataGridView.Rows[i].Cells[6].Style.BackColor = Color.Red;
+                    notifyIcon1.ShowBalloonTip(300, "Financial Markets App - Alert", walletDataGridView.Rows[i].Cells[0].Value.ToString() + " price below your limit", ToolTipIcon.None);
                 }
 
                 i--;
             }
+
         }
 
         private void removeFromDBButton_Click(object sender, EventArgs e)
@@ -506,7 +538,7 @@ namespace FinancialMarketsApp
                 ShowInTaskbar = false;
                 //                notifyIcon1.BalloonTipTitle = "Financial Markets App";
                 //                notifyIcon1.BalloonTipText = "Application minimized";
-                notifyIcon1.ShowBalloonTip(500, "Financial Markets App", "Application minimalized", ToolTipIcon.None);
+                notifyIcon1.ShowBalloonTip(400, "Financial Markets App", "Application minimalized", ToolTipIcon.None);
             }
         }
 
@@ -515,6 +547,25 @@ namespace FinancialMarketsApp
             ShowInTaskbar = true;
             notifyIcon1.Visible = false;
             WindowState = FormWindowState.Normal;
+
+            int i = walletDataGridView.RowCount;
+            i--;
+            while (i >= 0)
+            {
+                // MessageBox.Show(walletDataGridView.Rows[i].Cells[6].Value.ToString());
+                // MessageBox.Show(walletDataGridView.Rows[i].Cells[6].Value.ToString());
+                if (Convert.ToDecimal(walletDataGridView.Rows[i].Cells[6].Value) >= Convert.ToDecimal(1.00))
+                {
+                    walletDataGridView.Rows[i].Cells[6].Style.BackColor = Color.GreenYellow;
+                }
+                else if (Convert.ToDecimal(walletDataGridView.Rows[i].Cells[6].Value) <= Convert.ToDecimal(-1.00))
+                {
+                    walletDataGridView.Rows[i].Cells[6].Style.BackColor = Color.Red;
+                }
+                i--;
+            }
+
+
         }
     }    
         

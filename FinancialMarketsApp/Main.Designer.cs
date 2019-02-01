@@ -45,6 +45,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.logOutButton = new System.Windows.Forms.Button();
             this.balanceLabel = new System.Windows.Forms.Label();
             this.balanceValueLabel = new System.Windows.Forms.Label();
@@ -107,6 +108,7 @@
             this.priceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceWhenAdded = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.changeWallet = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.cryptoDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cryptocurrenciesBindingSource)).BeginInit();
@@ -124,7 +126,7 @@
             this.logOutButton.BackColor = System.Drawing.Color.Gold;
             this.logOutButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.logOutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.logOutButton.Location = new System.Drawing.Point(1141, 11);
+            this.logOutButton.Location = new System.Drawing.Point(1266, 15);
             this.logOutButton.Margin = new System.Windows.Forms.Padding(4);
             this.logOutButton.Name = "logOutButton";
             this.logOutButton.Size = new System.Drawing.Size(100, 32);
@@ -139,7 +141,7 @@
             this.balanceLabel.BackColor = System.Drawing.Color.Transparent;
             this.balanceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.balanceLabel.ForeColor = System.Drawing.Color.Gold;
-            this.balanceLabel.Location = new System.Drawing.Point(652, 531);
+            this.balanceLabel.Location = new System.Drawing.Point(718, 533);
             this.balanceLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.balanceLabel.Name = "balanceLabel";
             this.balanceLabel.Size = new System.Drawing.Size(137, 29);
@@ -152,7 +154,7 @@
             this.balanceValueLabel.BackColor = System.Drawing.Color.Transparent;
             this.balanceValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.balanceValueLabel.ForeColor = System.Drawing.Color.Gold;
-            this.balanceValueLabel.Location = new System.Drawing.Point(807, 531);
+            this.balanceValueLabel.Location = new System.Drawing.Point(873, 533);
             this.balanceValueLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.balanceValueLabel.Name = "balanceValueLabel";
             this.balanceValueLabel.Size = new System.Drawing.Size(83, 29);
@@ -501,6 +503,7 @@
             this.priceDataGridViewTextBoxColumn1,
             this.quantityDataGridViewTextBoxColumn,
             this.sumDataGridViewTextBoxColumn,
+            this.priceWhenAdded,
             this.changeWallet});
             this.walletDataGridView.DataSource = this.viewWalletBindingSource1;
             this.walletDataGridView.Location = new System.Drawing.Point(535, 341);
@@ -508,7 +511,7 @@
             this.walletDataGridView.Name = "walletDataGridView";
             this.walletDataGridView.ReadOnly = true;
             this.walletDataGridView.RowHeadersWidth = 24;
-            this.walletDataGridView.Size = new System.Drawing.Size(565, 171);
+            this.walletDataGridView.Size = new System.Drawing.Size(685, 171);
             this.walletDataGridView.TabIndex = 22;
             this.walletDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.walletDataGridView_CellClick);
             // 
@@ -668,7 +671,7 @@
             this.darkLightButton.BackColor = System.Drawing.Color.Gold;
             this.darkLightButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.darkLightButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.darkLightButton.Location = new System.Drawing.Point(980, 11);
+            this.darkLightButton.Location = new System.Drawing.Point(1105, 15);
             this.darkLightButton.Margin = new System.Windows.Forms.Padding(4);
             this.darkLightButton.Name = "darkLightButton";
             this.darkLightButton.Size = new System.Drawing.Size(156, 32);
@@ -682,7 +685,7 @@
             this.plEngButton.BackColor = System.Drawing.Color.Gold;
             this.plEngButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.plEngButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.plEngButton.Location = new System.Drawing.Point(859, 11);
+            this.plEngButton.Location = new System.Drawing.Point(984, 15);
             this.plEngButton.Margin = new System.Windows.Forms.Padding(4);
             this.plEngButton.Name = "plEngButton";
             this.plEngButton.Size = new System.Drawing.Size(116, 32);
@@ -740,7 +743,7 @@
             this.removeFromDBButton.Location = new System.Drawing.Point(343, 590);
             this.removeFromDBButton.Margin = new System.Windows.Forms.Padding(4);
             this.removeFromDBButton.Name = "removeFromDBButton";
-            this.removeFromDBButton.Size = new System.Drawing.Size(99, 30);
+            this.removeFromDBButton.Size = new System.Drawing.Size(99, 27);
             this.removeFromDBButton.TabIndex = 39;
             this.removeFromDBButton.Text = "Remove";
             this.removeFromDBButton.UseVisualStyleBackColor = false;
@@ -753,7 +756,7 @@
             this.userNameLabel.BackColor = System.Drawing.Color.Transparent;
             this.userNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.userNameLabel.ForeColor = System.Drawing.Color.Gold;
-            this.userNameLabel.Location = new System.Drawing.Point(1161, 51);
+            this.userNameLabel.Location = new System.Drawing.Point(1286, 55);
             this.userNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.userNameLabel.Name = "userNameLabel";
             this.userNameLabel.Size = new System.Drawing.Size(51, 24);
@@ -765,7 +768,7 @@
             this.downloadButton.BackColor = System.Drawing.Color.Gold;
             this.downloadButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.downloadButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.downloadButton.Location = new System.Drawing.Point(1118, 411);
+            this.downloadButton.Location = new System.Drawing.Point(1242, 438);
             this.downloadButton.Margin = new System.Windows.Forms.Padding(4);
             this.downloadButton.Name = "downloadButton";
             this.downloadButton.Size = new System.Drawing.Size(120, 32);
@@ -779,7 +782,7 @@
             this.downloadLabel.BackColor = System.Drawing.Color.Transparent;
             this.downloadLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.downloadLabel.ForeColor = System.Drawing.Color.Gold;
-            this.downloadLabel.Location = new System.Drawing.Point(1128, 369);
+            this.downloadLabel.Location = new System.Drawing.Point(1252, 396);
             this.downloadLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.downloadLabel.Name = "downloadLabel";
             this.downloadLabel.Size = new System.Drawing.Size(100, 38);
@@ -855,11 +858,21 @@
             this.sumDataGridViewTextBoxColumn.ReadOnly = true;
             this.sumDataGridViewTextBoxColumn.Width = 65;
             // 
+            // priceWhenAdded
+            // 
+            this.priceWhenAdded.DataPropertyName = "priceWhenAdded";
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.priceWhenAdded.DefaultCellStyle = dataGridViewCellStyle15;
+            this.priceWhenAdded.HeaderText = "pre-price";
+            this.priceWhenAdded.Name = "priceWhenAdded";
+            this.priceWhenAdded.ReadOnly = true;
+            this.priceWhenAdded.Width = 80;
+            // 
             // changeWallet
             // 
             this.changeWallet.DataPropertyName = "changeWallet";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.changeWallet.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.changeWallet.DefaultCellStyle = dataGridViewCellStyle16;
             this.changeWallet.HeaderText = "change[%]";
             this.changeWallet.Name = "changeWallet";
             this.changeWallet.ReadOnly = true;
@@ -872,7 +885,7 @@
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = global::FinancialMarketsApp.Properties.Resources.backlogo20;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1260, 668);
+            this.ClientSize = new System.Drawing.Size(1385, 747);
             this.Controls.Add(this.downloadLabel);
             this.Controls.Add(this.downloadButton);
             this.Controls.Add(this.userNameLabel);
@@ -998,6 +1011,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sumDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn priceWhenAdded;
         private System.Windows.Forms.DataGridViewTextBoxColumn changeWallet;
     }
 }
