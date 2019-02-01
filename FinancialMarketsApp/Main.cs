@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -128,7 +130,38 @@ namespace FinancialMarketsApp
                 progrssBarNbplabel.Text = k + "%";
             }
 
-            MessageBox.Show(responseNBPtabA + "\n\n" + responseNBPgold);
+            // string response = responseNBPtabA + "\n\n" + responseNBPgold;
+            JArray jsonArray = JArray.Parse(responseNBPtabA);
+            JArray jsonArrayGold = JArray.Parse(responseNBPgold);
+            dynamic jsonObj = JObject.Parse(jsonArray[0].ToString());
+            dynamic jsonObjGold = JObject.Parse(jsonArrayGold[0].ToString());
+            String responseConnected = String.Empty;
+
+            string dateNBP = jsonObj.SelectToken("$.effectiveDate").ToString();
+//            MessageBox.Show(dateNBP);
+            responseConnected += "NBP " + dateNBP + "\n\n";
+
+            for (int counterInJson = 0; counterInJson < 40; counterInJson++)
+            {
+                try
+                {
+                    string currencyNBP = jsonObj.SelectToken("$.rates[" + counterInJson + "].currency").ToString();
+                    string codeNBP = jsonObj.SelectToken("$.rates[" + counterInJson + "].code").ToString();
+                    string priceNBP = jsonObj.SelectToken("$.rates[" + counterInJson + "].mid").ToString();
+                    responseConnected += codeNBP + ": " + priceNBP + " \t" + currencyNBP + "\n";
+                    //                MessageBox.Show(currencyNBP+" "+codeNBP+" "+priceNBP);
+                }
+                catch (Exception f)
+                {
+                    Console.WriteLine(f);
+                }
+            }
+            string goldPriceNBP = jsonObjGold.SelectToken("$.cena").ToString();
+//            string goldDateNBP = jsonObjGold.SelectToken("$.data").ToString();
+            responseConnected += "\n\nGold: " + goldPriceNBP + " PLN per gram";
+
+            // MessageBox.Show(responseNBPtabA + "\n\n" + responseNBPgold);
+            MessageBox.Show(responseConnected, "Exchange rates");
         }
 
         private void Main_Load(object sender, EventArgs e)
