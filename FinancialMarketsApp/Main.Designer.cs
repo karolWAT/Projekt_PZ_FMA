@@ -147,7 +147,7 @@
             this.balanceLabel.BackColor = System.Drawing.Color.Transparent;
             this.balanceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.balanceLabel.ForeColor = System.Drawing.Color.Gold;
-            this.balanceLabel.Location = new System.Drawing.Point(718, 554);
+            this.balanceLabel.Location = new System.Drawing.Point(717, 580);
             this.balanceLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.balanceLabel.Name = "balanceLabel";
             this.balanceLabel.Size = new System.Drawing.Size(157, 31);
@@ -160,7 +160,7 @@
             this.balanceValueLabel.BackColor = System.Drawing.Color.Transparent;
             this.balanceValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.balanceValueLabel.ForeColor = System.Drawing.Color.Gold;
-            this.balanceValueLabel.Location = new System.Drawing.Point(922, 554);
+            this.balanceValueLabel.Location = new System.Drawing.Point(921, 580);
             this.balanceValueLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.balanceValueLabel.Name = "balanceValueLabel";
             this.balanceValueLabel.Size = new System.Drawing.Size(95, 31);
@@ -517,7 +517,7 @@
             this.walletDataGridView.Name = "walletDataGridView";
             this.walletDataGridView.ReadOnly = true;
             this.walletDataGridView.RowHeadersWidth = 24;
-            this.walletDataGridView.Size = new System.Drawing.Size(671, 191);
+            this.walletDataGridView.Size = new System.Drawing.Size(671, 230);
             this.walletDataGridView.TabIndex = 22;
             this.walletDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.walletDataGridView_CellClick);
             // 

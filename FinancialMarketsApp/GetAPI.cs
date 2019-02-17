@@ -33,20 +33,20 @@ namespace FinancialMarketsApp
                     int length = 4;
                     int priceLength = 7;
 
-                    string cryptoName = jsonObj.SelectToken("$.data[" + id + "].name").ToString();
-                    string cryptoSymbol = jsonObj.SelectToken("$.data[" + id + "].symbol").ToString();
-                    string cryptoPrice = jsonObj.SelectToken("$.data[" + id + "].quote.USD.price").ToString().Substring(startIndex, priceLength);
-                    string cryptoChange_24h = jsonObj.SelectToken("$.data[" + id + "].quote.USD.percent_change_24h").ToString().Substring(startIndex, length);
-                    string cryptoChange_7d = jsonObj.SelectToken("$.data[" + id + "].quote.USD.percent_change_7d").ToString().Substring(startIndex, length);
+                    try
+                    {
+                        string cryptoName = jsonObj.SelectToken("$.data[" + id + "].name").ToString();
+                        string cryptoSymbol = jsonObj.SelectToken("$.data[" + id + "].symbol").ToString();
+                        string cryptoPrice = jsonObj.SelectToken("$.data[" + id + "].quote.USD.price").ToString().Substring(startIndex, priceLength);
+                        string cryptoChange_24h = jsonObj.SelectToken("$.data[" + id + "].quote.USD.percent_change_24h").ToString().Substring(startIndex, length);
+                        string cryptoChange_7d = jsonObj.SelectToken("$.data[" + id + "].quote.USD.percent_change_7d").ToString().Substring(startIndex, length);
                     //     MessageBox.Show(cryptoName);
                     //     MessageBox.Show(cryptoSymbol);
                     //     MessageBox.Show(cryptoPrice);
                     //     MessageBox.Show(cryptoChange_24h);
                     //     MessageBox.Show(cryptoChange_7d);
-
-                ConnectDB connectDb = new ConnectDB();
-                crypto = connectDb.Read(cryptoSymbol);       // check if currency already exist in db
-
+                    ConnectDB connectDb = new ConnectDB();
+                    crypto = connectDb.Read(cryptoSymbol);       // check if currency already exist in db
                     if (crypto.Symbol == null)
                     {
 
@@ -68,6 +68,16 @@ namespace FinancialMarketsApp
 
                         connectDb.Update(crypto);
                     }
+                }
+                catch (Exception e)
+                    {
+                        Console.WriteLine(e);
+                    }
+                    
+
+                
+
+                    
                 }
               
              }

@@ -71,7 +71,7 @@ namespace FinancialMarketsApp
 
             var client = new HttpClient();
             // var url = "https://api.coinmarketcap.com/v2/ticker/?limit=10";   // old api without authorization
-            var url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=100";
+            var url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=1000";
             client.DefaultRequestHeaders.Add("X-CMC_PRO_API_KEY", "f742b5ad-230c-4dfe-b1dc-7fbe4ec51be4");
             string response = client.GetStringAsync(url).Result;
             //Console.Write(response);
@@ -85,13 +85,16 @@ namespace FinancialMarketsApp
 //                apiProgressBar.Increment(-100);
 //            }));
 
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 1000; i++)
             {
                 getapi.cryptoGetData(i, response);
                 apiProgressBar.Increment(1);
                 // MessageBox.Show(i.ToString());
                 j = i + 1;
-                progrssBarlabel.Text = j + "%";
+                if (j <= 100)
+                {
+                    progrssBarlabel.Text = j + "%";
+                }
             }
 
             MessageBox.Show("Updated");
@@ -185,7 +188,7 @@ namespace FinancialMarketsApp
             refreshWallet();
 
             System.Timers.Timer timer = new System.Timers.Timer();
-            timer.Interval = 5*60*1000;
+            timer.Interval = 60*60*1000;
             timer.Elapsed += timerElapsed;
             timer.Start();
         }
